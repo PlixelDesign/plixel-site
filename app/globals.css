@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-deep: #0D2342;
+  --navy-mid: #1b3659;
+  --blue-vibrant: #2563EB;
+  --blue-neon: #60A5FA;
+  --graphite: #1a1b1c;
+  --white-off: #f5faff;
+  --yellow-neon: #FFD700;
+  --orange-accent: #FF6B35;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--navy-deep);
+  color: #ffffff;
+  font-family: var(--font-poppins), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .tech-grid {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 59px,
+        rgba(96, 165, 250, 0.07) 59px,
+        rgba(96, 165, 250, 0.07) 60px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 59px,
+        rgba(96, 165, 250, 0.07) 59px,
+        rgba(96, 165, 250, 0.07) 60px
+      );
+  }
+
+  .section-dark {
+    @apply bg-navy-deep tech-grid;
+  }
+
+  .section-mid {
+    @apply bg-navy-mid tech-grid;
+  }
+
+  .section-graphite {
+    @apply bg-graphite tech-grid;
+  }
+
+  .section-light {
+    background-color: var(--white-off);
+    color: var(--navy-deep);
+  }
+
+  .title-impact {
+    font-family: var(--font-bebas), sans-serif;
+    letter-spacing: 0.15em;
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  .title-accent {
+    font-family: var(--font-parisienne), cursive;
+    color: var(--blue-neon);
+    /* Parisienne é cursiva: NUNCA caixa alta. Reseta o uppercase e o
+       tracking largo herdados de .title-impact, que descaracterizam o
+       cursivo. Mantém apenas a forma natural (minúscula). */
+    text-transform: none;
+    letter-spacing: 0.01em;
+    line-height: 0.9;
+    display: inline;
+  }
+
+  .body-text {
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .label-tech {
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(96, 165, 250, 1);
+  }
+
+  .btn-primary {
+    @apply inline-block px-8 py-3 bg-yellow-neon text-navy-deep font-poppins font-bold text-sm tracking-widest uppercase transition-all duration-200 hover:bg-white hover:text-navy-deep;
+  }
+
+  .btn-outline {
+    @apply inline-block px-8 py-3 border border-blue-neon text-blue-neon font-poppins font-semibold text-sm tracking-widest uppercase transition-all duration-200 hover:bg-blue-neon hover:text-navy-deep;
+  }
+
+  .input-field {
+    @apply w-full bg-navy-mid border border-blue-neon/30 text-white placeholder-white/40 px-4 py-3 font-poppins text-sm focus:outline-none focus:border-blue-neon transition-colors duration-200;
+  }
+
+  .neon-line {
+    border-color: var(--blue-neon);
+    border-width: 1px;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--navy-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-neon);
+  opacity: 0.4;
+}
+
+/* =========================================
+   HERO — estrutura geométrica blueprint
+   (cubo wireframe 3D em linhas neon, vértices brilhantes)
+   ========================================= */
+.hero-cube-scene {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.hero-cube {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: cube-rotate 34s linear infinite;
+}
+
+.hero-cube-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  background: rgba(96, 165, 250, 0.015);
+}
+
+.hero-cube-vertex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  background: #60a5fa;
+  box-shadow: 0 0 10px 1px rgba(96, 165, 250, 0.85);
+}
+
+@keyframes cube-rotate {
+  from {
+    transform: rotateX(-22deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-22deg) rotateY(360deg);
+  }
+}
+
+/* Respeita usuários que pedem menos movimento (acessibilidade + Lighthouse) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-cube {
+    animation: none;
+    transform: rotateX(-22deg) rotateY(-34deg);
+  }
+}
