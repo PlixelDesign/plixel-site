@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 }
 
 const valores = [
-  { titulo: 'DIAGNÓSTICO ANTES DE TUDO', texto: '[CONTEÚDO A SER FORNECIDO POR DANIEL]' },
-  { titulo: 'TÉCNICA COM INTENÇÃO', texto: '[CONTEÚDO A SER FORNECIDO POR DANIEL]' },
-  { titulo: 'RESULTADO MENSURÁVEL', texto: '[CONTEÚDO A SER FORNECIDO POR DANIEL]' },
-  { titulo: 'SEM ENROLAÇÃO', texto: '[CONTEÚDO A SER FORNECIDO POR DANIEL]' },
+  { titulo: 'DIAGNÓSTICO ANTES DE TUDO', texto: 'Não criamos nada sem entender o que está realmente travando a comunicação. Arte sem diagnóstico é palpite caro.' },
+  { titulo: 'TÉCNICA COM INTENÇÃO', texto: 'Cor, tipografia e estrutura não são escolha de gosto. Cada decisão serve a um motivo identificado no diagnóstico.' },
+  { titulo: 'RESULTADO MENSURÁVEL', texto: 'Entrega não é "ficou bonito". É clareza, reconhecimento ou conexão que se vê na prática, depois do projeto.' },
+  { titulo: 'SEM ENROLAÇÃO', texto: 'Processo direto, prazo definido, comunicação sem rodeio. A gente fala o que vai fazer e faz.' },
 ]
 
 export default function SobrePage() {
@@ -40,15 +40,19 @@ export default function SobrePage() {
           <div className="max-w-4xl mx-auto px-6">
             <div className="border-l-2 border-yellow-neon pl-8 mb-16">
               <p className="title-impact text-3xl md:text-4xl text-white leading-tight">
-                [CONTEÚDO A SER FORNECIDO POR DANIEL]
+                Toda marca que você lembra teve alguém pensando nela antes do primeiro post sair. A Plixel existe pra fazer essa parte: a estrutura que vem antes da arte.
               </p>
             </div>
             <div className="space-y-6">
-              {[1, 2, 3].map((i) => (
-                <p key={i} className="body-text text-white/65 text-lg leading-relaxed">
-                  [CONTEÚDO A SER FORNECIDO POR DANIEL]
-                </p>
-              ))}
+              <p className="body-text text-white/65 text-lg leading-relaxed">
+                A marca não é o feed. É o que sustenta o feed.
+              </p>
+              <p className="body-text text-white/65 text-lg leading-relaxed">
+                Quando a estrutura existe, o conteúdo flui. Quando não existe, cada post recomeça do zero.
+              </p>
+              <p className="body-text text-white/65 text-lg leading-relaxed">
+                A gente entra exatamente nesse ponto: antes da postagem, na decisão.
+              </p>
             </div>
           </div>
         </section>
@@ -91,7 +95,7 @@ export default function SobrePage() {
               → RESULTADO
             </h2>
             <p className="body-text text-white/60 max-w-2xl text-lg mb-12">
-              [CONTEÚDO A SER FORNECIDO POR DANIEL]
+              Esse é o método em toda entrega da Plixel, do projeto comercial ao institucional. Sem ele, é só arte solta. Com ele, é estratégia que se sustenta.
             </p>
 
             <div className="flex flex-wrap gap-4">
