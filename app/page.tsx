@@ -28,10 +28,10 @@ export default async function HomePage() {
         <Hero />
 
         {/* Manifesto */}
-        <section className="relative section-mid py-24 md:py-32 overflow-hidden">
+        <section className="relative section-mid section-y overflow-hidden">
           <TechnicalSignature categoria="DIAGNÓSTICO" />
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="shell">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div>
                 <p className="label-tech mb-6">Manifesto</p>
                 <h2 className="title-impact text-[clamp(40px,5vw,64px)] text-white leading-none">
@@ -57,13 +57,13 @@ export default async function HomePage() {
         {projetos.length > 0 && <ProjectsPreview projetos={projetos} />}
 
         {/* Processo */}
-        <section className="relative section-dark py-24 md:py-32 overflow-hidden">
+        <section className="relative section-dark section-y overflow-hidden">
           <TechnicalSignature categoria="PROCESSO" />
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="shell">
             <p className="label-tech mb-6">Como trabalhamos</p>
-            <h2 className="title-impact text-[clamp(40px,5vw,64px)] text-white mb-16">
+            <h2 className="title-impact text-[clamp(36px,5vw,64px)] text-white mb-12 md:mb-16 leading-none">
               TRÊS ETAPAS,<br />
-              <span className="title-accent text-[clamp(44px,5.5vw,70px)]">zero enrolação</span>
+              <span className="title-accent text-[clamp(40px,5.5vw,70px)]">zero enrolação</span>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -96,13 +96,13 @@ export default async function HomePage() {
 
         {/* CTA final — navy com amarelo só como acento (linha + 1 botão),
             respeitando a regra do DS: cor de ação ≤10%, nunca como fundo */}
-        <section className="relative section-mid py-24 md:py-32 overflow-hidden">
+        <section className="relative section-mid section-y overflow-hidden">
           <TechnicalSignature categoria="CASE" />
-          <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+          <div className="max-w-3xl mx-auto px-6 sm:px-8 text-center relative z-10">
             <p className="label-tech mb-6">Próximo passo</p>
-            <h2 className="title-impact text-[clamp(48px,7vw,96px)] text-white leading-none">
+            <h2 className="title-impact text-[clamp(40px,7vw,96px)] text-white leading-none">
               PRONTO PRA
-              <span className="title-accent block text-[clamp(56px,8vw,112px)] mt-1">começar?</span>
+              <span className="title-accent block text-[clamp(44px,8vw,112px)] mt-1">começar?</span>
             </h2>
             <div className="mx-auto mt-8 w-20 h-px bg-yellow-neon" />
             <p className="body-text text-white/60 mt-8 text-lg max-w-md mx-auto">
