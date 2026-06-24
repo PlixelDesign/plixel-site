@@ -30,7 +30,7 @@ export default function HeroGraphic() {
   return (
     <div
       aria-hidden
-      className="hero-cube-scene pointer-events-none absolute z-0 right-[-70px] top-1/2 -translate-y-1/2 scale-[0.62] opacity-[0.18] sm:right-0 sm:scale-75 lg:right-16 lg:scale-100 lg:opacity-90"
+      className="hero-cube-scene pointer-events-none absolute z-0 right-[-70px] top-1/2 -translate-y-1/2 scale-[0.62] opacity-[0.12] sm:right-0 sm:scale-75 sm:opacity-30 lg:right-8 xl:right-20 lg:scale-90 lg:opacity-50"
     >
       <div className="hero-cube" style={{ width: SIZE, height: SIZE }}>
         {faces.map((transform, i) => (
