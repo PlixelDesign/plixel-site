@@ -5,6 +5,27 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import TechnicalSignature from '@/components/layout/TechnicalSignature'
 
+const contatos = [
+  {
+    label: 'WhatsApp',
+    valor: '[NÚMERO A SER INSERIDO]',
+    href: 'https://wa.me/5511999999999?text=Oi%2C%20vim%20pelo%20site%20da%20Plixel!',
+    external: true,
+  },
+  {
+    label: 'E-mail',
+    valor: 'contato@plixel.com.br',
+    href: 'mailto:contato@plixel.com.br',
+    external: false,
+  },
+  {
+    label: 'Instagram',
+    valor: '@plixel_design',
+    href: 'https://instagram.com/plixel_design',
+    external: true,
+  },
+]
+
 export default function ContatoPage() {
   const [form, setForm] = useState({ nome: '', email: '', mensagem: '', servico: '' })
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -36,72 +57,40 @@ export default function ContatoPage() {
   return (
     <>
       <Header />
-      <main className="relative section-dark min-h-screen pt-32 pb-24 overflow-hidden">
+      <main className="relative section-dark min-h-screen pt-28 md:pt-32 pb-20 md:pb-28 overflow-hidden">
         <TechnicalSignature categoria="PROCESSO" />
 
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="shell">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Info */}
             <div>
               <p className="label-tech mb-6">Contato</p>
-              <h1 className="title-impact text-[clamp(56px,7vw,88px)] text-white leading-none mb-8">
+              <h1 className="title-impact text-[clamp(44px,7vw,88px)] text-white leading-none mb-8">
                 VAMOS<br />
-                <span className="title-accent text-[clamp(62px,7.7vw,97px)]">trabalhar</span><br />
+                <span className="title-accent text-[clamp(48px,7.7vw,97px)]">trabalhar</span><br />
                 JUNTOS
               </h1>
-              <p className="body-text text-white/60 text-lg max-w-sm mb-12">
+              <p className="body-text text-white/60 text-base md:text-lg max-w-sm mb-12">
                 Mande uma mensagem direta, sem formulário corporativo. A Plixel responde rápido.
               </p>
 
-              <div className="space-y-6">
-                <a
-                  href="https://wa.me/5511999999999?text=Oi%2C%20vim%20pelo%20site%20da%20Plixel!"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="w-10 h-10 border border-blue-neon/30 flex items-center justify-center group-hover:border-blue-neon transition-colors duration-200">
-                    <span className="text-blue-neon text-xs">WA</span>
-                  </div>
-                  <div>
-                    <p className="label-tech text-[10px] mb-0.5">WhatsApp</p>
-                    <p className="font-poppins text-sm text-white/70 group-hover:text-white transition-colors duration-200">
-                      [NÚMERO A SER INSERIDO]
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="mailto:contato@plixel.com.br"
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="w-10 h-10 border border-blue-neon/30 flex items-center justify-center group-hover:border-blue-neon transition-colors duration-200">
-                    <span className="text-blue-neon text-xs">@</span>
-                  </div>
-                  <div>
-                    <p className="label-tech text-[10px] mb-0.5">E-mail</p>
-                    <p className="font-poppins text-sm text-white/70 group-hover:text-white transition-colors duration-200">
-                      contato@plixel.com.br
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="https://instagram.com/plixel_design"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 group"
-                >
-                  <div className="w-10 h-10 border border-blue-neon/30 flex items-center justify-center group-hover:border-blue-neon transition-colors duration-200">
-                    <span className="text-blue-neon text-xs">IG</span>
-                  </div>
-                  <div>
-                    <p className="label-tech text-[10px] mb-0.5">Instagram</p>
-                    <p className="font-poppins text-sm text-white/70 group-hover:text-white transition-colors duration-200">
-                      @plixel_design
-                    </p>
-                  </div>
-                </a>
+              <div className="border-t border-blue-neon/10">
+                {contatos.map((c) => (
+                  <a
+                    key={c.label}
+                    href={c.href}
+                    {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className="group flex items-center justify-between gap-4 py-5 border-b border-blue-neon/10 hover:border-blue-neon/30 transition-colors duration-200"
+                  >
+                    <span className="label-tech text-[11px] text-white/40 group-hover:text-blue-neon transition-colors duration-200">
+                      {c.label}
+                    </span>
+                    <span className="flex items-center gap-3 font-poppins text-sm sm:text-base text-white/80 group-hover:text-white transition-colors duration-200">
+                      {c.valor}
+                      <span className="text-blue-neon group-hover:translate-x-1 transition-transform duration-200">→</span>
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
 
