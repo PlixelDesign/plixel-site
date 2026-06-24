@@ -22,22 +22,22 @@ export default function SobrePage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative section-dark pt-32 pb-24 overflow-hidden">
+        <section className="relative section-dark pt-28 md:pt-32 pb-20 md:pb-28 overflow-hidden">
           <TechnicalSignature categoria="IDENTIDADE" />
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="shell">
             <p className="label-tech mb-6">Sobre a Plixel</p>
-            <h1 className="title-impact text-[clamp(56px,8vw,96px)] text-white leading-none">
+            <h1 className="title-impact text-[clamp(44px,8vw,96px)] text-white leading-none">
               A MARCA<br />
-              <span className="title-accent text-[clamp(62px,8.8vw,106px)]">antes</span><br />
+              <span className="title-accent text-[clamp(48px,8.8vw,106px)]">antes</span><br />
               DO POST
             </h1>
           </div>
         </section>
 
         {/* Manifesto principal */}
-        <section className="relative section-graphite py-24 overflow-hidden">
+        <section className="relative section-graphite section-y overflow-hidden">
           <TechnicalSignature categoria="PROCESSO" />
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="shell-narrow">
             <div className="border-l-2 border-yellow-neon pl-8 mb-16">
               <p className="title-impact text-3xl md:text-4xl text-white leading-tight">
                 Toda marca que você lembra teve alguém pensando nela antes do primeiro post sair. A Plixel existe pra fazer essa parte: a estrutura que vem antes da arte.
@@ -58,16 +58,16 @@ export default function SobrePage() {
         </section>
 
         {/* Valores */}
-        <section className="relative section-dark py-24 overflow-hidden">
+        <section className="relative section-dark section-y overflow-hidden">
           <TechnicalSignature categoria="EDUCACIONAL" />
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="shell">
             <p className="label-tech mb-6">Valores</p>
-            <h2 className="title-impact text-[clamp(40px,5vw,64px)] text-white mb-16 leading-none">
+            <h2 className="title-impact text-[clamp(36px,5vw,64px)] text-white mb-12 md:mb-16 leading-none">
               COMO A PLIXEL<br />
-              <span className="title-accent text-[clamp(44px,5.5vw,70px)]">pensa</span>
+              <span className="title-accent text-[clamp(40px,5.5vw,70px)]">pensa</span>
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10">
               {valores.map((v, i) => (
                 <div key={v.titulo} className="border-t border-blue-neon/20 pt-8">
                   <div className="flex items-start gap-4">
@@ -86,12 +86,12 @@ export default function SobrePage() {
         </section>
 
         {/* Processo */}
-        <section className="relative section-mid py-24 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="relative section-mid section-y overflow-hidden">
+          <div className="shell">
             <p className="label-tech mb-6">Processo de trabalho</p>
-            <h2 className="title-impact text-[clamp(40px,5vw,64px)] text-white mb-16 leading-none">
+            <h2 className="title-impact text-[clamp(36px,5vw,64px)] text-white mb-12 md:mb-16 leading-none">
               DIAGNÓSTICO →<br />
-              <span className="title-accent text-[clamp(44px,5.5vw,70px)]">processo</span><br />
+              <span className="title-accent text-[clamp(40px,5.5vw,70px)]">processo</span><br />
               → RESULTADO
             </h2>
             <p className="body-text text-white/60 max-w-2xl text-lg mb-12">
