@@ -26,26 +26,26 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL('https://plixel.com.br'),
   title: {
-    default: 'Plixel — Design que vende, não decora',
+    default: 'Plixel — Design que conecta, não só decora',
     template: '%s | Plixel',
   },
   description:
-    'Agência de design especializada em identidade visual, social media, vídeo e campanha. Design estratégico para marcas que querem resultado.',
-  keywords: ['agência de design', 'identidade visual', 'social media', 'design estratégico', 'Plixel'],
+    'Identidade visual e comunicação estratégica para marcas, negócios e instituições que precisam ser entendidos rápido e lembrados depois.',
+  keywords: ['agência de design', 'identidade visual', 'social media', 'design estratégico', 'comunicação visual', 'Plixel'],
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://plixel.com.br',
     siteName: 'Plixel',
-    title: 'Plixel — Design que vende, não decora',
+    title: 'Plixel — Design que conecta, não só decora',
     description:
-      'Agência de design especializada em identidade visual, social media, vídeo e campanha. Design estratégico para marcas que querem resultado.',
+      'Identidade visual e comunicação estratégica para marcas, negócios e instituições que precisam ser entendidos rápido e lembrados depois.',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Plixel — Design que vende, não decora',
-    description: 'Design estratégico para marcas que querem resultado.',
+    title: 'Plixel — Design que conecta, não só decora',
+    description: 'Comunicação visual estratégica para marcas, negócios e instituições.',
     images: ['/og-image.png'],
   },
   robots: {
