@@ -3,12 +3,12 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <footer className="relative bg-graphite tech-grid border-t border-blue-neon/10">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="shell py-14 md:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-12">
           <div>
             <span className="title-impact text-4xl text-white tracking-[0.2em]">PLIXEL</span>
             <p className="body-text text-white/50 mt-4 text-sm max-w-xs">
-              Design é ferramenta de conversão, não decoração.
+              Comunicação visual que é entendida rápido e lembrada depois.
             </p>
           </div>
 
