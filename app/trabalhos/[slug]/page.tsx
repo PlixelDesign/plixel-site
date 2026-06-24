@@ -80,31 +80,21 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <Header />
       <main>
         {/* Hero do case */}
-        <section className="relative section-dark pt-32 pb-16 overflow-hidden">
+        <section className="relative section-dark pt-28 md:pt-32 pb-12 md:pb-16 overflow-hidden">
           <TechnicalSignature categoria="CASE" />
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="shell">
             <Link
               href="/trabalhos"
-              className="inline-flex items-center gap-2 font-poppins text-xs text-white/40 hover:text-white tracking-widest uppercase mb-12 transition-colors duration-200"
+              className="inline-flex items-center gap-2 font-poppins text-xs text-white/40 hover:text-white tracking-widest uppercase mb-10 md:mb-12 transition-colors duration-200"
             >
               ← Todos os trabalhos
             </Link>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
-              <div>
-                <p className="label-tech mb-4">{formatCategoria(projeto.categoria)}</p>
-                <h1 className="title-impact text-[clamp(48px,6vw,80px)] text-white leading-none">
-                  {projeto.titulo}
-                </h1>
-                <p className="body-text text-white/50 mt-4 text-lg">{projeto.cliente}</p>
-              </div>
-              <div className="flex md:justify-end">
-                <div className="border-t border-blue-neon/20 pt-6 text-right">
-                  <p className="label-tech text-[10px] mb-1">Categoria</p>
-                  <p className="font-poppins text-sm text-white">{formatCategoria(projeto.categoria)}</p>
-                </div>
-              </div>
-            </div>
+            <p className="label-tech mb-4">{formatCategoria(projeto.categoria)}</p>
+            <h1 className="title-impact text-[clamp(40px,6vw,80px)] text-white leading-none max-w-4xl">
+              {projeto.titulo}
+            </h1>
+            <p className="body-text text-white/50 mt-4 text-base md:text-lg">{projeto.cliente}</p>
           </div>
         </section>
 
@@ -127,16 +117,16 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
         {/* Galeria */}
         {projeto.imagens.length > 0 && (
-          <section className="section-graphite py-16">
-            <div className="max-w-7xl mx-auto px-6">
+          <section className="section-graphite py-12 md:py-16">
+            <div className="shell">
               <ProjectGallery imagens={projeto.imagens} />
             </div>
           </section>
         )}
 
         {/* Narrativa diagnóstico/processo/resultado */}
-        <section className="section-dark py-24">
-          <div className="max-w-4xl mx-auto px-6 space-y-20">
+        <section className="section-dark section-y">
+          <div className="shell-narrow space-y-16 md:space-y-20">
             {secoes.map((s, i) => (
               <div key={s.label} className="relative">
                 <div className="flex items-center gap-6 mb-8">
@@ -157,8 +147,8 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         </section>
 
         {/* Navegação próximo/anterior */}
-        <section className="section-mid py-16 border-t border-blue-neon/10">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 gap-8">
+        <section className="section-mid py-12 md:py-16 border-t border-blue-neon/10">
+          <div className="shell grid grid-cols-2 gap-4 sm:gap-8">
             {anterior ? (
               <Link
                 href={`/trabalhos/${anterior.slug}`}
