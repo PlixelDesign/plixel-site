@@ -16,23 +16,23 @@ export default function Hero() {
       {/* Estrutura geométrica blueprint (contrapeso visual à direita) */}
       <HeroGraphic />
 
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 relative z-10">
-        <p className="label-tech mb-8">Agência de Design Estratégico</p>
+      <div className="shell py-24 md:py-32 relative z-10">
+        <p className="label-tech mb-6 md:mb-8">Agência de Design Estratégico</p>
 
-        <h1 className="title-impact text-[clamp(72px,12vw,160px)] leading-none text-white max-w-5xl">
+        <h1 className="title-impact text-[clamp(44px,12vw,160px)] leading-none text-white max-w-5xl">
           DESIGN QUE{' '}
-          <span className="title-accent text-[clamp(80px,13.2vw,176px)]">conecta,</span>
+          <span className="title-accent text-[clamp(48px,13.2vw,176px)]">conecta,</span>
           <br />
           NÃO SÓ DECORA
         </h1>
 
         <div className="mt-8 w-24 h-px bg-yellow-neon" />
 
-        <p className="body-text text-white/60 mt-8 max-w-xl text-lg">
+        <p className="body-text text-white/60 mt-8 max-w-xl text-base md:text-lg">
           Identidade visual e comunicação estratégica para marcas, negócios e instituições que precisam ser entendidos rápido e lembrados depois.
         </p>
 
-        <div className="mt-12 flex flex-wrap gap-4">
+        <div className="mt-10 md:mt-12 flex flex-wrap gap-4">
           <Link href="/trabalhos" className="btn-primary">
             Ver trabalhos
           </Link>
