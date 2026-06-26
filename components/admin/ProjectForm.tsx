@@ -14,6 +14,16 @@ interface ProjectFormProps {
   mode: 'create' | 'edit'
 }
 
+// Dica de imagens por categoria — lembra o que cadastrar na hora do upload.
+const DICAS_IMAGEM: Record<Categoria, string> = {
+  social_media: 'Comece pela grade do feed (mostra o conjunto). Depois posts, carrosséis e stories.',
+  artes_avulsas: 'Use a peça inteira como capa. Depois variações ou o mockup aplicado.',
+  identidade_visual: 'Capa com a marca aplicada. Depois paleta, tipografia e aplicações.',
+  video: 'Frame/thumbnail forte como capa. O vídeo entra pelo campo de URL acima.',
+  campanha: 'Mostre as peças da campanha juntas: anúncio, post, story, impresso.',
+  estruturacao: 'Antes/depois do perfil: print da bio, dos destaques (capas) e da foto. Mostre a transformação.',
+}
+
 export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
   const router = useRouter()
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -111,7 +121,12 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
 
     const supabase = createClient()
     const slug = slugify(form.titulo)
-    const payload = { ...form, slug }
+    const payload = {
+      ...form,
+      slug,
+      // Artes avulsas usam só a descrição (gravada em diagnostico); zera o resto.
+      ...(form.categoria === 'artes_avulsas' ? { processo: '', resultado: '' } : {}),
+    }
 
     if (mode === 'create') {
       const { error } = await supabase.from('projetos').insert(payload)
@@ -127,6 +142,8 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
     router.push('/admin')
     router.refresh()
   }
+
+  const isAvulsa = form.categoria === 'artes_avulsas'
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8 max-w-3xl">
@@ -189,28 +206,48 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
         </div>
       </div>
 
-      {/* Narrativa */}
+      {/* Narrativa — case completo (diagnóstico/processo/resultado) ou só descrição (avulsas) */}
       <div className="bg-navy-mid p-8 border border-blue-neon/10 space-y-5">
-        <h2 className="label-tech text-blue-neon mb-6">Narrativa do case</h2>
+        <h2 className="label-tech text-blue-neon mb-6">
+          {isAvulsa ? 'Descrição' : 'Narrativa do case'}
+        </h2>
 
-        {[
-          { name: 'diagnostico', label: 'Diagnóstico *', placeholder: 'Qual era o problema real que o projeto precisava resolver?' },
-          { name: 'processo', label: 'Processo *', placeholder: 'O que foi feito, quais decisões foram tomadas e por quê?' },
-          { name: 'resultado', label: 'Resultado *', placeholder: 'O que mudou após o projeto? Resultado entregue ou observado.' },
-        ].map((field) => (
-          <div key={field.name}>
-            <label className="label-tech text-[10px] block mb-2">{field.label}</label>
+        {isAvulsa ? (
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Descrição *</label>
             <textarea
-              name={field.name}
+              name="diagnostico"
               required
-              rows={4}
-              value={form[field.name as keyof ProjetoFormData] as string}
+              rows={5}
+              value={form.diagnostico}
               onChange={handleChange}
-              placeholder={field.placeholder}
+              placeholder="Descreva a peça: o que é, para qual cliente/contexto. Sem precisar de antes/depois."
               className="input-field resize-none"
             />
+            <p className="font-poppins text-xs text-white/30 mt-2">
+              Artes avulsas não usam o esquema diagnóstico → processo → resultado. Só esta descrição.
+            </p>
           </div>
-        ))}
+        ) : (
+          [
+            { name: 'diagnostico', label: 'Diagnóstico *', placeholder: 'Qual era o problema real que o projeto precisava resolver?' },
+            { name: 'processo', label: 'Processo *', placeholder: 'O que foi feito, quais decisões foram tomadas e por quê?' },
+            { name: 'resultado', label: 'Resultado *', placeholder: 'O que mudou após o projeto? Resultado entregue ou observado.' },
+          ].map((field) => (
+            <div key={field.name}>
+              <label className="label-tech text-[10px] block mb-2">{field.label}</label>
+              <textarea
+                name={field.name}
+                required
+                rows={4}
+                value={form[field.name as keyof ProjetoFormData] as string}
+                onChange={handleChange}
+                placeholder={field.placeholder}
+                className="input-field resize-none"
+              />
+            </div>
+          ))
+        )}
       </div>
 
       {/* Vídeo */}
@@ -262,6 +299,9 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
             <>
               <p className="font-poppins text-sm text-white/60">
                 Arraste imagens aqui ou clique para selecionar
+              </p>
+              <p className="font-poppins text-xs text-blue-neon/70 mt-2 max-w-md mx-auto">
+                {DICAS_IMAGEM[form.categoria]}
               </p>
               <p className="font-poppins text-xs text-white/30 mt-2">
                 JPG, PNG, WebP · Múltiplas imagens aceitas
