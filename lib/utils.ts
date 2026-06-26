@@ -1,3 +1,5 @@
+import { CATEGORIA_LABELS, Categoria } from '@/types'
+
 export function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -30,11 +32,5 @@ export function isVideoShorts(url: string): boolean {
 }
 
 export function formatCategoria(categoria: string): string {
-  const map: Record<string, string> = {
-    identidade_visual: 'Identidade Visual',
-    social_media: 'Social Media',
-    video: 'Vídeo',
-    campanha: 'Campanha',
-  }
-  return map[categoria] ?? categoria
+  return CATEGORIA_LABELS[categoria as Categoria] ?? categoria
 }
