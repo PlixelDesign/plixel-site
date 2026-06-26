@@ -145,6 +145,8 @@ export default function ContatoPage() {
                       <option value="social_media">Social Media</option>
                       <option value="video">Vídeo</option>
                       <option value="campanha">Campanha</option>
+                      <option value="artes_avulsas">Artes Avulsas</option>
+                      <option value="estruturacao">Estruturação de Perfil</option>
                     </select>
                   </div>
 
