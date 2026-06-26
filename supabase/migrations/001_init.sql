@@ -8,7 +8,9 @@ create type categoria_enum as enum (
   'identidade_visual',
   'social_media',
   'video',
-  'campanha'
+  'campanha',
+  'artes_avulsas',
+  'estruturacao'
 );
 
 create table if not exists projetos (
