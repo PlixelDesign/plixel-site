@@ -68,6 +68,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const { anterior, proximo } = await getNavegacao(projeto.ordem)
   const embedUrl = projeto.video_url ? getEmbedUrl(projeto.video_url) : null
   const isShorts = projeto.video_url ? isVideoShorts(projeto.video_url) : false
+  const isAvulsa = projeto.categoria === 'artes_avulsas'
 
   const secoes = [
     { label: 'DIAGNÓSTICO', content: projeto.diagnostico },
@@ -124,27 +125,43 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </section>
         )}
 
-        {/* Narrativa diagnóstico/processo/resultado */}
-        <section className="section-dark section-y">
-          <div className="shell-narrow space-y-16 md:space-y-20">
-            {secoes.map((s, i) => (
-              <div key={s.label} className="relative">
-                <div className="flex items-center gap-6 mb-8">
-                  <span className="title-impact text-6xl text-blue-neon/15">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <div>
-                    <p className="label-tech mb-1">{s.label}</p>
-                    <div className="w-12 h-px bg-yellow-neon" />
-                  </div>
+        {/* Narrativa — case completo, ou descrição única para artes avulsas */}
+        {isAvulsa ? (
+          projeto.diagnostico.trim() && (
+            <section className="section-dark section-y">
+              <div className="shell-narrow">
+                <div className="flex items-center gap-3 mb-6">
+                  <p className="label-tech">Descrição</p>
+                  <div className="w-12 h-px bg-yellow-neon" />
                 </div>
                 <p className="body-text text-white/75 text-lg leading-relaxed whitespace-pre-line">
-                  {s.content}
+                  {projeto.diagnostico}
                 </p>
               </div>
-            ))}
-          </div>
-        </section>
+            </section>
+          )
+        ) : (
+          <section className="section-dark section-y">
+            <div className="shell-narrow space-y-16 md:space-y-20">
+              {secoes.map((s, i) => (
+                <div key={s.label} className="relative">
+                  <div className="flex items-center gap-6 mb-8">
+                    <span className="title-impact text-6xl text-blue-neon/15">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <p className="label-tech mb-1">{s.label}</p>
+                      <div className="w-12 h-px bg-yellow-neon" />
+                    </div>
+                  </div>
+                  <p className="body-text text-white/75 text-lg leading-relaxed whitespace-pre-line">
+                    {s.content}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Navegação próximo/anterior */}
         <section className="section-mid py-12 md:py-16 border-t border-blue-neon/10">
