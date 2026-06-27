@@ -2,13 +2,14 @@ import { MetadataRoute } from 'next'
 import { createClient } from '@/lib/supabase/server'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = 'https://plixel.com.br'
+  const base = 'https://grupoplixel.com.br'
 
   const supabase = await createClient()
   const { data: projetos } = await supabase
     .from('projetos')
     .select('slug, updated_at')
     .eq('publicado', true)
+    .neq('imagem_capa', '')
 
   const projetoRoutes = (projetos ?? []).map((p) => ({
     url: `${base}/trabalhos/${p.slug}`,
