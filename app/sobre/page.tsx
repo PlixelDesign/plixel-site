@@ -27,8 +27,8 @@ export default function SobrePage() {
           <div className="shell">
             <p className="label-tech mb-6">Sobre a Plixel</p>
             <h1 className="title-impact text-[clamp(44px,8vw,96px)] text-white leading-none">
-              A MARCA<br />
-              <span className="title-accent text-[clamp(48px,8.8vw,106px)]">antes</span><br />
+              A MARCA
+              <span className="title-accent block -mt-[0.18em] -mb-[0.1em] text-[clamp(48px,8.8vw,106px)]">antes</span>
               DO POST
             </h1>
           </div>
@@ -63,8 +63,8 @@ export default function SobrePage() {
           <div className="shell">
             <p className="label-tech mb-6">Valores</p>
             <h2 className="title-impact text-[clamp(36px,5vw,64px)] text-white mb-12 md:mb-16 leading-none">
-              COMO A PLIXEL<br />
-              <span className="title-accent text-[clamp(40px,5.5vw,70px)]">pensa</span>
+              COMO A PLIXEL
+              <span className="title-accent block -mt-[0.18em] text-[clamp(40px,5.5vw,70px)]">pensa</span>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10">
@@ -90,8 +90,8 @@ export default function SobrePage() {
           <div className="shell">
             <p className="label-tech mb-6">Processo de trabalho</p>
             <h2 className="title-impact text-[clamp(36px,5vw,64px)] text-white mb-12 md:mb-16 leading-none">
-              DIAGNÓSTICO →<br />
-              <span className="title-accent text-[clamp(40px,5.5vw,70px)]">processo</span><br />
+              DIAGNÓSTICO →
+              <span className="title-accent block -mt-[0.18em] -mb-[0.1em] text-[clamp(40px,5.5vw,70px)]">processo</span>
               → RESULTADO
             </h2>
             <p className="body-text text-white/60 max-w-2xl text-lg mb-12">
@@ -106,6 +106,29 @@ export default function SobrePage() {
                 Falar com a Plixel
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Quem conduz */}
+        <section className="relative section-dark section-y overflow-hidden">
+          <TechnicalSignature categoria="DIREÇÃO" />
+          <div className="shell-narrow">
+            <p className="label-tech mb-6">Por trás da Plixel</p>
+            <h2 className="title-impact text-[clamp(32px,4.5vw,56px)] text-white leading-none mb-8">
+              QUEM <span className="title-accent text-[clamp(36px,5vw,62px)]">conduz</span>
+            </h2>
+            <p className="body-text text-white/65 text-lg leading-relaxed max-w-2xl">
+              A Plixel é tocada por Daniel Pires, designer com 4 anos de experiência em identidade visual, branding e social media. Estratégia, atendimento e direção criativa passam por aqui, do diagnóstico à entrega final.
+            </p>
+            <a
+              href="https://www.linkedin.com/in/daniels-pires/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 mt-8 text-white/50 hover:text-yellow-neon transition-colors duration-300"
+            >
+              <span className="font-poppins text-xs tracking-widest uppercase">LinkedIn · Daniel Pires</span>
+              <span className="text-xs transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+            </a>
           </div>
         </section>
       </main>
