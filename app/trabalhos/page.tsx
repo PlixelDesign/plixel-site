@@ -10,7 +10,7 @@ import { Categoria, Projeto } from '@/types'
 
 export const metadata: Metadata = {
   title: 'Trabalhos',
-  description: 'Portfólio de projetos da Plixel — identidade visual, social media, vídeo e campanha.',
+  description: 'Portfólio de projetos da Plixel: identidade visual, social media, vídeo e campanha.',
 }
 
 async function getProjetos(categoria?: string): Promise<Projeto[]> {
@@ -19,6 +19,7 @@ async function getProjetos(categoria?: string): Promise<Projeto[]> {
     .from('projetos')
     .select('*')
     .eq('publicado', true)
+    .neq('imagem_capa', '')
     .order('ordem', { ascending: true })
 
   if (categoria && categoria !== 'todos') {
