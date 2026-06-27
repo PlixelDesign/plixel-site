@@ -25,8 +25,8 @@ export default function ProjectCard({
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center tech-grid">
-            <span className="label-tech opacity-40">Imagem em breve</span>
+          <div className="absolute inset-0 flex items-center justify-center bg-navy-mid">
+            <span className="label-tech text-white/70">Imagem em breve</span>
           </div>
         )}
         <div className="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/15 transition-colors duration-300" />
