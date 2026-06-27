@@ -5,6 +5,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       { userAgent: '*', allow: '/', disallow: '/admin/' },
     ],
-    sitemap: 'https://plixel.com.br/sitemap.xml',
+    sitemap: 'https://grupoplixel.com.br/sitemap.xml',
   }
 }
