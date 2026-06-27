@@ -8,14 +8,14 @@ import TechnicalSignature from '@/components/layout/TechnicalSignature'
 const contatos = [
   {
     label: 'WhatsApp',
-    valor: '[NÚMERO A SER INSERIDO]',
-    href: 'https://wa.me/5511999999999?text=Oi%2C%20vim%20pelo%20site%20da%20Plixel!',
+    valor: '(31) 99970-9471',
+    href: 'https://wa.me/5531999709471?text=Oi%2C%20vim%20pelo%20site%20da%20Plixel!',
     external: true,
   },
   {
     label: 'E-mail',
-    valor: 'contato@plixel.com.br',
-    href: 'mailto:contato@plixel.com.br',
+    valor: 'danielpires@grupoplixel.com.br',
+    href: 'mailto:danielpires@grupoplixel.com.br',
     external: false,
   },
   {
@@ -38,7 +38,7 @@ export default function ContatoPage() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch('https://formsubmit.co/ajax/danielspsg@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/danielpires@grupoplixel.com.br', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ ...form, _subject: `Contato Plixel — ${form.nome}` }),
@@ -66,8 +66,8 @@ export default function ContatoPage() {
             <div>
               <p className="label-tech mb-6">Contato</p>
               <h1 className="title-impact text-[clamp(44px,7vw,88px)] text-white leading-none mb-8">
-                VAMOS<br />
-                <span className="title-accent text-[clamp(48px,7.7vw,97px)]">trabalhar</span><br />
+                VAMOS
+                <span className="title-accent block -mt-[0.18em] -mb-[0.1em] text-[clamp(48px,7.7vw,97px)]">trabalhar</span>
                 JUNTOS
               </h1>
               <p className="body-text text-white/60 text-base md:text-lg max-w-sm mb-12">
