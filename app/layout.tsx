@@ -24,9 +24,9 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://plixel.com.br'),
+  metadataBase: new URL('https://grupoplixel.com.br'),
   title: {
-    default: 'Plixel — Design que conecta, não só decora',
+    default: 'Plixel · Design que conecta, não só decora',
     template: '%s | Plixel',
   },
   description:
@@ -35,16 +35,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://plixel.com.br',
+    url: 'https://grupoplixel.com.br',
     siteName: 'Plixel',
-    title: 'Plixel — Design que conecta, não só decora',
+    title: 'Plixel · Design que conecta, não só decora',
     description:
       'Identidade visual e comunicação estratégica para marcas, negócios e instituições que precisam ser entendidos rápido e lembrados depois.',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Plixel — Design que conecta, não só decora',
+    title: 'Plixel · Design que conecta, não só decora',
     description: 'Comunicação visual estratégica para marcas, negócios e instituições.',
     images: ['/og-image.png'],
   },
