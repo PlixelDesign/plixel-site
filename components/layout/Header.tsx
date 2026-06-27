@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
@@ -17,9 +18,15 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-navy-deep/95 backdrop-blur-sm border-b border-blue-neon/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="title-impact text-2xl text-white tracking-[0.2em]">PLIXEL</span>
-          <span className="w-1.5 h-1.5 bg-yellow-neon rounded-full group-hover:scale-150 transition-transform" />
+        <Link href="/" className="flex items-center group">
+          <Image
+            src="/assets/plixel-logo-white.png"
+            alt="Plixel"
+            width={120}
+            height={40}
+            className="h-8 w-auto object-contain"
+            priority
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
