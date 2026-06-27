@@ -44,13 +44,13 @@ export default function Footer() {
                 @plixel_design
               </a>
               <a
-                href="mailto:contato@plixel.com.br"
+                href="mailto:danielpires@grupoplixel.com.br"
                 className="font-poppins text-sm text-white/60 hover:text-blue-neon transition-colors duration-200"
               >
-                contato@plixel.com.br
+                danielpires@grupoplixel.com.br
               </a>
               <a
-                href="https://wa.me/5511999999999"
+                href="https://wa.me/5531999709471?text=Oi%2C%20vim%20pelo%20site%20da%20Plixel!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-poppins text-sm text-white/60 hover:text-blue-neon transition-colors duration-200"
