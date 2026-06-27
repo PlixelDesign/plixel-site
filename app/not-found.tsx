@@ -15,8 +15,8 @@ export default function NotFound() {
             404
           </h1>
           <p className="title-impact text-[clamp(32px,4vw,48px)] text-white -mt-4 mb-8">
-            ESSA PÁGINA<br />
-            <span className="title-accent text-[clamp(36px,4.4vw,53px)]">não existe</span>
+            ESSA PÁGINA
+            <span className="title-accent block -mt-[0.18em] text-[clamp(36px,4.4vw,53px)]">não existe</span>
           </p>
           <Link href="/" className="btn-primary">
             Voltar para o início
