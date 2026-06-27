@@ -20,9 +20,8 @@ export default function Hero() {
         <p className="label-tech mb-6 md:mb-8">Agência de Design Estratégico</p>
 
         <h1 className="title-impact text-[clamp(44px,12vw,160px)] leading-none text-white max-w-5xl">
-          DESIGN QUE{' '}
-          <span className="title-accent text-[clamp(48px,13.2vw,176px)]">conecta,</span>
-          <br />
+          DESIGN QUE
+          <span className="title-accent block -mt-[0.18em] text-[clamp(48px,13.2vw,176px)]">conecta,</span>
           NÃO SÓ DECORA
         </h1>
 
