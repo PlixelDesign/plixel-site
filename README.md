@@ -112,7 +112,7 @@ git push -u origin main
 
 ### 3. Domínio próprio
 
-Em Vercel → Project → Settings → Domains, adicione `plixel.com.br`.
+Em Vercel → Project → Settings → Domains, adicione `grupoplixel.com.br`.
 
 No seu registrador de domínio, aponte os DNS para a Vercel (eles mostram os registros exatos na hora de adicionar o domínio).
 
