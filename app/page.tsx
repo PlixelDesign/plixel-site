@@ -13,6 +13,7 @@ async function getProjetos(): Promise<Projeto[]> {
     .from('projetos')
     .select('*')
     .eq('publicado', true)
+    .neq('imagem_capa', '')
     .order('ordem', { ascending: true })
     .limit(6)
   return data ?? []
@@ -35,15 +36,15 @@ export default async function HomePage() {
               <div>
                 <p className="label-tech mb-6">Manifesto</p>
                 <h2 className="title-impact text-[clamp(40px,5vw,64px)] text-white leading-none">
-                  DIAGNÓSTICO<br />
-                  <span className="title-accent text-[clamp(44px,5.5vw,70px)]">→ processo</span><br />
+                  DIAGNÓSTICO
+                  <span className="title-accent block -mt-[0.18em] -mb-[0.1em] text-[clamp(44px,5.5vw,70px)]">→ processo</span>
                   RESULTADO
                 </h2>
                 <div className="mt-6 w-16 h-px bg-yellow-neon" />
               </div>
               <div className="space-y-6">
                 <p className="body-text text-white/70">
-                  Todo projeto começa com um problema real, não com um pedido de &ldquo;logo bonito&rdquo;. A gente diagnostica o que está travando a comunicação, decide com intenção, e entrega algo que muda o resultado de verdade — seja venda, reconhecimento ou pertencimento.
+                  Todo projeto começa com um problema real, não com um pedido de &ldquo;logo bonito&rdquo;. A gente diagnostica o que está travando a comunicação, decide com intenção, e entrega algo que muda o resultado de verdade: venda, reconhecimento ou pertencimento.
                 </p>
                 <Link href="/sobre" className="btn-outline inline-flex">
                   Ler o manifesto completo
@@ -62,8 +63,8 @@ export default async function HomePage() {
           <div className="shell">
             <p className="label-tech mb-6">Como trabalhamos</p>
             <h2 className="title-impact text-[clamp(36px,5vw,64px)] text-white mb-12 md:mb-16 leading-none">
-              TRÊS ETAPAS,<br />
-              <span className="title-accent text-[clamp(40px,5.5vw,70px)]">zero enrolação</span>
+              TRÊS ETAPAS,
+              <span className="title-accent block -mt-[0.18em] text-[clamp(40px,5.5vw,70px)]">zero enrolação</span>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -76,7 +77,7 @@ export default async function HomePage() {
                 {
                   num: '02',
                   titulo: 'PROCESSO',
-                  texto: 'Cada decisão visual tem motivo. Cor, tipografia, estrutura — tudo serve ao problema identificado, não ao gosto pessoal.',
+                  texto: 'Cada decisão visual tem motivo. Cor, tipografia, estrutura: tudo serve ao problema identificado, não ao gosto pessoal.',
                 },
                 {
                   num: '03',
@@ -102,7 +103,7 @@ export default async function HomePage() {
             <p className="label-tech mb-6">Próximo passo</p>
             <h2 className="title-impact text-[clamp(40px,7vw,96px)] text-white leading-none">
               PRONTO PRA
-              <span className="title-accent block text-[clamp(44px,8vw,112px)] mt-1">começar?</span>
+              <span className="title-accent block -mt-[0.18em] text-[clamp(44px,8vw,112px)]">começar?</span>
             </h2>
             <div className="mx-auto mt-8 w-20 h-px bg-yellow-neon" />
             <p className="body-text text-white/60 mt-8 text-lg max-w-md mx-auto">
