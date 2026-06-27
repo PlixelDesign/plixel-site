@@ -27,6 +27,7 @@ async function getNavegacao(ordem: number): Promise<{ anterior: Projeto | null; 
       .from('projetos')
       .select('*')
       .eq('publicado', true)
+      .neq('imagem_capa', '')
       .lt('ordem', ordem)
       .order('ordem', { ascending: false })
       .limit(1)
@@ -35,6 +36,7 @@ async function getNavegacao(ordem: number): Promise<{ anterior: Projeto | null; 
       .from('projetos')
       .select('*')
       .eq('publicado', true)
+      .neq('imagem_capa', '')
       .gt('ordem', ordem)
       .order('ordem', { ascending: true })
       .limit(1)
@@ -52,7 +54,7 @@ export async function generateMetadata({
   const projeto = await getProjeto(slug)
   if (!projeto) return { title: 'Projeto não encontrado' }
   return {
-    title: `${projeto.titulo} — ${projeto.cliente}`,
+    title: `${projeto.titulo} · ${projeto.cliente}`,
     description: projeto.diagnostico.slice(0, 155),
     openGraph: {
       images: projeto.imagem_capa ? [{ url: projeto.imagem_capa }] : [],
@@ -106,7 +108,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
               <div className={`relative w-full bg-navy-deep border border-blue-neon/10 overflow-hidden ${isShorts ? 'aspect-[9/16]' : 'aspect-video'}`}>
                 <iframe
                   src={embedUrl}
-                  title={`Vídeo — ${projeto.titulo}`}
+                  title={`Vídeo: ${projeto.titulo}`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
