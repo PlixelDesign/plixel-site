@@ -54,7 +54,7 @@ Esse é o fluxo do dia a dia. **Não precisa abrir o código nem mexer em JSON.*
 3. Preencha:
    - **Título** — vira o slug da URL automaticamente (ex.: "Identidade UCADIS" → `/trabalhos/identidade-ucadis`).
    - **Cliente** — nome do cliente.
-   - **Categoria** — Identidade Visual / Social Media / Vídeo / Campanha (controla o filtro da página Trabalhos).
+   - **Categoria** — Identidade Visual / Social Media / Vídeo / Campanha / Artes Avulsas / Estruturação de Perfil (controla o filtro da página Trabalhos).
    - **Ordem** — número que define a posição na listagem (menor aparece primeiro).
    - **Diagnóstico → Processo → Resultado** — a narrativa do case (ver tom no item 3.4).
 4. **Imagens** — arraste os arquivos pra área pontilhada ou clique pra selecionar. Aceita várias de uma vez.
@@ -104,16 +104,16 @@ Todo texto que ainda não foi escrito está marcado com **`[CONTEÚDO A SER FORN
 
 ---
 
-## 5. Trocar contatos
+## 5. Contatos atuais
 
-Hoje os contatos estão com placeholders. Atualize nestes pontos:
+Os contatos já estão configurados com os valores reais. Se precisar mudar no futuro:
 
-| Contato | Arquivos | O que trocar |
+| Contato | Arquivos | Valor atual |
 |---|---|---|
-| **WhatsApp** | [components/layout/Footer.tsx](components/layout/Footer.tsx) e [app/contato/page.tsx](app/contato/page.tsx) | `wa.me/5511999999999` → seu número com DDI+DDD (ex.: `wa.me/5571999998888`). Na página de contato troque também o texto visível `[NÚMERO A SER INSERIDO]`. |
-| **E-mail** | [components/layout/Footer.tsx](components/layout/Footer.tsx) e [app/contato/page.tsx](app/contato/page.tsx) | `contato@plixel.com.br` → seu e-mail. |
-| **Instagram** | [components/layout/Footer.tsx](components/layout/Footer.tsx) e [app/contato/page.tsx](app/contato/page.tsx) | `@plixel_design` / `instagram.com/plixel_design`. |
-| **Destino do formulário** | [app/contato/page.tsx](app/contato/page.tsx) | O formulário envia pra `danielspsg@gmail.com` via FormSubmit. Troque esse e-mail se quiser receber em outro. Na primeira mensagem o FormSubmit pede uma confirmação por e-mail — confirme uma vez e pronto. |
+| **WhatsApp** | [components/layout/Footer.tsx](components/layout/Footer.tsx) e [app/contato/page.tsx](app/contato/page.tsx) | `wa.me/5531999709471` — texto pré-preenchido: "Oi, vim pelo site da Plixel!" |
+| **E-mail** | [components/layout/Footer.tsx](components/layout/Footer.tsx) e [app/contato/page.tsx](app/contato/page.tsx) | `danielpires@grupoplixel.com.br` |
+| **Instagram** | [components/layout/Footer.tsx](components/layout/Footer.tsx) e [app/contato/page.tsx](app/contato/page.tsx) | `@plixel_design` / `instagram.com/plixel_design` |
+| **Destino do formulário** | [app/contato/page.tsx](app/contato/page.tsx) | Envia pra `danielpires@grupoplixel.com.br` via FormSubmit. ⚠️ Após o deploy, envie uma mensagem de teste pelo site e confirme o e-mail que o FormSubmit vai mandar pra ativar a entrega. |
 
 ---
 
@@ -189,21 +189,25 @@ Fundos disponíveis: `section-dark` (navy), `section-mid` (navy médio), `sectio
 - O painel `/admin` é bloqueado dos buscadores.
 
 **O que depende de você:**
-- Trocar a imagem de compartilhamento: coloque `public/og-image.png` (1200×630px).
 - Otimizar imagens antes de subir (item 3.5) — é o maior fator de velocidade.
-- Quando o domínio final estiver definido, atualizar a URL em [app/layout.tsx](app/layout.tsx) (campo `metadataBase`) e em [app/sitemap.ts](app/sitemap.ts) / [app/robots.ts](app/robots.ts).
+- Se trocar o domínio no futuro: atualizar a URL em [app/layout.tsx](app/layout.tsx) (campo `metadataBase`) e em [app/sitemap.ts](app/sitemap.ts) / [app/robots.ts](app/robots.ts).
+
+**Já configurado:**
+- `og-image.png` (1200×630px) já está em `public/` com a identidade da Plixel.
+- `metadataBase` já aponta para `https://grupoplixel.com.br`.
+- Sitemap e robots já usam `grupoplixel.com.br`.
 
 ---
 
 ## 9. Checklist antes de publicar de verdade
 
 - [ ] Todos os `[CONTEÚDO A SER FORNECIDO POR DANIEL]` substituídos
-- [ ] WhatsApp, e-mail e Instagram reais nos arquivos do item 5
-- [ ] Formulário de contato testado (enviou e chegou no e-mail)
+- [x] WhatsApp `(31) 99970-9471`, e-mail `danielpires@grupoplixel.com.br` e Instagram `@plixel_design` nos arquivos do item 5
+- [ ] Formulário de contato testado em produção e FormSubmit ativado (confirmar o e-mail que chegar em `danielpires@grupoplixel.com.br` após o primeiro envio)
 - [ ] Pelo menos os cases principais cadastrados e publicados pelo painel
 - [ ] Imagens otimizadas (nenhuma página pesada/lenta no celular)
-- [ ] `og-image.png` e logos colocados em `public/`
-- [ ] `metadataBase` com o domínio final
+- [x] `og-image.png` já está em `public/` (1200×630px, identidade Plixel)
+- [x] `metadataBase` já aponta para `grupoplixel.com.br`
 - [ ] Abriu o site no celular e no desktop — tudo legível e sem erro
 
 ---
