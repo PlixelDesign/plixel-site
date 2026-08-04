@@ -49,7 +49,8 @@ export default function ProjectGallery({ imagens }: { imagens: string[] }) {
       <div className={`grid ${cols} gap-2 sm:gap-3`}>
         {imagens.map((src, i) => (
           <button
-            key={src}
+            key={`${src}-${i}`}
+            type="button"
             onClick={() => setLightbox(i)}
             className="group relative aspect-square bg-navy-deep overflow-hidden border border-blue-neon/10 hover:border-blue-neon/40 transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-neon"
             aria-label={`Ver imagem ${i + 1} em tela cheia`}

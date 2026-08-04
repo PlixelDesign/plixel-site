@@ -1,0 +1,21 @@
+import { Projeto } from '@/types'
+
+export const INITIAL_MOCK_PROJETOS: Projeto[] = [
+  {
+    id: '1',
+    slug: 'identidade-visual-ucadis',
+    titulo: 'Identidade Visual UCADIS',
+    cliente: 'UCADIS - Ministério Infantil',
+    categoria: 'identidade_visual',
+    diagnostico: 'A UCADIS tinha propósito, mas não tinha marca. Comunicação visual inconsistente, sem linguagem própria, sem padronização entre materiais físicos e digitais. Funcionava como departamento, não como marca, e isso custava reconhecimento, pertencimento e força de comunicação.',
+    processo: 'Reposicionamento visual completo, não uma logo isolada: redesenho da marca central com versões secundária, monocromática e símbolo isolado; sistema cromático próprio (Azul Vital, Turquesa, Amarelo Luz, Coral); universo gráfico com padrões exclusivos e sistema modular; quatro mascotes proprietários (Tuco, Bruno, Carol, Mel) com função simbólica na narrativa da marca; aplicações reais em crachá, uniforme, garrafinha, flyer institucional e material infantil.',
+    resultado: 'Transformamos um departamento infantil em um universo de marca capaz de gerar pertencimento, reconhecimento e conexão emocional. Antes fragmentado, depois sistema integrado: os materiais conversam entre si, os personagens criaram vínculo com as crianças, e a marca ganhou escalabilidade para eventos, campanhas e material didático.',
+    imagens: [],
+    imagem_capa: '/og-image.png',
+    video_url: null,
+    ordem: 1,
+    publicado: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+]

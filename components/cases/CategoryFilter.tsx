@@ -8,18 +8,20 @@ const categorias = [ALL, ...Object.keys(CATEGORIA_LABELS)] as const
 
 export default function CategoryFilter() {
   const router = useRouter()
-  const pathname = usePathname()
+  const rawPathname = usePathname()
+  const pathname = rawPathname || '/trabalhos'
   const searchParams = useSearchParams()
-  const current = searchParams.get('categoria') ?? ALL
+  const current = searchParams ? searchParams.get('categoria') ?? ALL : ALL
 
   function setFilter(cat: string) {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams ? searchParams.toString() : '')
     if (cat === ALL) {
       params.delete('categoria')
     } else {
       params.set('categoria', cat)
     }
-    router.push(`${pathname}?${params.toString()}`)
+    const query = params.toString()
+    router.push(query ? `${pathname}?${query}` : pathname)
   }
 
   return (
@@ -30,7 +32,11 @@ export default function CategoryFilter() {
         return (
           <button
             key={cat}
-            onClick={() => setFilter(cat)}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              setFilter(cat)
+            }}
             className={`font-poppins text-xs tracking-widest uppercase px-5 py-2 border transition-all duration-200 ${
               isActive
                 ? 'border-yellow-neon text-yellow-neon'

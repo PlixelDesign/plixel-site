@@ -13,21 +13,42 @@ export const metadata: Metadata = {
   description: 'Portfólio de projetos da Plixel: identidade visual, social media, vídeo e campanha.',
 }
 
+import { INITIAL_MOCK_PROJETOS } from '@/lib/mock-data'
+
 async function getProjetos(categoria?: string): Promise<Projeto[]> {
-  const supabase = await createClient()
-  let query = supabase
-    .from('projetos')
-    .select('*')
-    .eq('publicado', true)
-    .neq('imagem_capa', '')
-    .order('ordem', { ascending: true })
+  try {
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      if (categoria && categoria !== 'todos') {
+        return INITIAL_MOCK_PROJETOS.filter((p) => p.categoria === categoria)
+      }
+      return INITIAL_MOCK_PROJETOS
+    }
+    const supabase = await createClient()
+    let query = supabase
+      .from('projetos')
+      .select('*')
+      .eq('publicado', true)
+      .neq('imagem_capa', '')
+      .order('ordem', { ascending: true })
 
-  if (categoria && categoria !== 'todos') {
-    query = query.eq('categoria', categoria as Categoria)
+    if (categoria && categoria !== 'todos') {
+      query = query.eq('categoria', categoria as Categoria)
+    }
+
+    const { data, error } = await query
+    if (error || !data || data.length === 0) {
+      if (categoria && categoria !== 'todos') {
+        return INITIAL_MOCK_PROJETOS.filter((p) => p.categoria === categoria)
+      }
+      return INITIAL_MOCK_PROJETOS
+    }
+    return data
+  } catch {
+    if (categoria && categoria !== 'todos') {
+      return INITIAL_MOCK_PROJETOS.filter((p) => p.categoria === categoria)
+    }
+    return INITIAL_MOCK_PROJETOS
   }
-
-  const { data } = await query
-  return data ?? []
 }
 
 export default async function TrabalhosPage({

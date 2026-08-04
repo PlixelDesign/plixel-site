@@ -9,40 +9,56 @@ import { createClient } from '@/lib/supabase/server'
 import { Projeto } from '@/types'
 import { formatCategoria, getEmbedUrl, isVideoShorts } from '@/lib/utils'
 
+import { INITIAL_MOCK_PROJETOS } from '@/lib/mock-data'
+
 async function getProjeto(slug: string): Promise<Projeto | null> {
-  const supabase = await createClient()
-  const { data } = await supabase
-    .from('projetos')
-    .select('*')
-    .eq('slug', slug)
-    .eq('publicado', true)
-    .single()
-  return data ?? null
+  try {
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      return INITIAL_MOCK_PROJETOS.find((p) => p.slug === slug) ?? null
+    }
+    const supabase = await createClient()
+    const { data } = await supabase
+      .from('projetos')
+      .select('*')
+      .eq('slug', slug)
+      .eq('publicado', true)
+      .single()
+    return data ?? INITIAL_MOCK_PROJETOS.find((p) => p.slug === slug) ?? null
+  } catch {
+    return INITIAL_MOCK_PROJETOS.find((p) => p.slug === slug) ?? null
+  }
 }
 
 async function getNavegacao(ordem: number): Promise<{ anterior: Projeto | null; proximo: Projeto | null }> {
-  const supabase = await createClient()
-  const [{ data: anterior }, { data: proximo }] = await Promise.all([
-    supabase
-      .from('projetos')
-      .select('*')
-      .eq('publicado', true)
-      .neq('imagem_capa', '')
-      .lt('ordem', ordem)
-      .order('ordem', { ascending: false })
-      .limit(1)
-      .single(),
-    supabase
-      .from('projetos')
-      .select('*')
-      .eq('publicado', true)
-      .neq('imagem_capa', '')
-      .gt('ordem', ordem)
-      .order('ordem', { ascending: true })
-      .limit(1)
-      .single(),
-  ])
-  return { anterior: anterior ?? null, proximo: proximo ?? null }
+  try {
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      return { anterior: null, proximo: null }
+    }
+    const supabase = await createClient()
+    const [{ data: anterior }, { data: proximo }] = await Promise.all([
+      supabase
+        .from('projetos')
+        .select('*')
+        .eq('publicado', true)
+        .neq('imagem_capa', '')
+        .lt('ordem', ordem)
+        .order('ordem', { ascending: false })
+        .limit(1)
+        .single(),
+      supabase
+        .from('projetos')
+        .select('*')
+        .eq('publicado', true)
+        .neq('imagem_capa', '')
+        .gt('ordem', ordem)
+        .order('ordem', { ascending: true })
+        .limit(1)
+        .single(),
+    ])
+    return { anterior: anterior ?? null, proximo: proximo ?? null }
+  } catch {
+    return { anterior: null, proximo: null }
+  }
 }
 
 export async function generateMetadata({
@@ -71,6 +87,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const embedUrl = projeto.video_url ? getEmbedUrl(projeto.video_url) : null
   const isShorts = projeto.video_url ? isVideoShorts(projeto.video_url) : false
   const isAvulsa = projeto.categoria === 'artes_avulsas'
+  const isUcadis = projeto.slug.includes('ucadis') || projeto.titulo.toLowerCase().includes('ucadis')
 
   const secoes = [
     { label: 'DIAGNÓSTICO', content: projeto.diagnostico },
@@ -123,6 +140,28 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <section className="section-graphite py-12 md:py-16">
             <div className="shell">
               <ProjectGallery imagens={projeto.imagens} />
+            </div>
+          </section>
+        )}
+
+        {/* Call to Action exclusivo UCADIS */}
+        {isUcadis && (
+          <section className="section-graphite pb-12 md:pb-16 pt-2">
+            <div className="shell text-center">
+              <div className="flex flex-col items-center justify-center gap-3 max-w-2xl mx-auto">
+                <a
+                  href="https://plixeldesign.github.io/Apresentacao-da-marca/manual-marca-ucadis.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex items-center gap-2"
+                >
+                  Explorar Central da Marca
+                  <span className="text-xs">↗</span>
+                </a>
+                <p className="body-text text-white/60 text-sm max-w-lg mt-1">
+                  Plataforma web desenvolvida para garantir a padronização e escalabilidade da marca por múltiplos fornecedores e equipes internas.
+                </p>
+              </div>
             </div>
           </section>
         )}

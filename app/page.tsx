@@ -7,16 +7,28 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { Projeto } from '@/types'
 
+import { INITIAL_MOCK_PROJETOS } from '@/lib/mock-data'
+
 async function getProjetos(): Promise<Projeto[]> {
-  const supabase = await createClient()
-  const { data } = await supabase
-    .from('projetos')
-    .select('*')
-    .eq('publicado', true)
-    .neq('imagem_capa', '')
-    .order('ordem', { ascending: true })
-    .limit(6)
-  return data ?? []
+  try {
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      return INITIAL_MOCK_PROJETOS
+    }
+    const supabase = await createClient()
+    const { data, error } = await supabase
+      .from('projetos')
+      .select('*')
+      .eq('publicado', true)
+      .neq('imagem_capa', '')
+      .order('ordem', { ascending: true })
+      .limit(6)
+    if (error || !data || data.length === 0) {
+      return INITIAL_MOCK_PROJETOS
+    }
+    return data
+  } catch {
+    return INITIAL_MOCK_PROJETOS
+  }
 }
 
 export default async function HomePage() {

@@ -12,7 +12,8 @@ const links = [
 ]
 
 export default function Header() {
-  const pathname = usePathname()
+  const rawPathname = usePathname()
+  const pathname = rawPathname || ''
   const [open, setOpen] = useState(false)
 
   return (

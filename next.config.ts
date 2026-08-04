@@ -1,6 +1,26 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
+  async redirects() {
+    return [
+      {
+        source: '/trabalho',
+        destination: '/trabalhos',
+        permanent: true,
+      },
+      {
+        source: '/cases',
+        destination: '/trabalhos',
+        permanent: true,
+      },
+      {
+        source: '/portfolio',
+        destination: '/trabalhos',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     // AVIF primeiro (mais leve que WebP), com WebP de fallback. As imagens já
     // são servidas em srcset responsivo via next/image + atributo sizes.
