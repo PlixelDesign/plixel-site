@@ -162,13 +162,14 @@ export default function CentralDaMarcaUcadisPage() {
               </div>
             </div>
 
-            <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900 aspect-video md:aspect-[21/9]">
+            <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900">
               <Image
                 src="/images/ucadis-capa-mascotes.png"
                 alt="UCADIS - Capa Principal e Mascotes"
-                fill
+                width={1920}
+                height={1080}
                 priority
-                className="object-cover object-center"
+                className="w-full h-auto object-contain block"
                 sizes="(max-width: 1280px) 100vw, 1280px"
               />
             </div>
