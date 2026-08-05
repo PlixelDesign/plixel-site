@@ -150,7 +150,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             <div className="shell text-center">
               <div className="flex flex-col items-center justify-center gap-3 max-w-2xl mx-auto">
                 <Link
-                  href="/trabalhos/identidade-visual-ucadis/central-da-marca"
+                  href="/trabalhos/central-da-marca"
                   className="btn-primary inline-flex items-center gap-2"
                 >
                   Explorar Central da Marca

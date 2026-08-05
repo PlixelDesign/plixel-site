@@ -21,7 +21,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/trabalhos/ucadis/central-da-marca',
-        destination: '/trabalhos/identidade-visual-ucadis/central-da-marca',
+        destination: '/trabalhos/central-da-marca',
+        permanent: true,
+      },
+      {
+        source: '/trabalhos/identidade-visual-ucadis/central-da-marca',
+        destination: '/trabalhos/central-da-marca',
         permanent: true,
       },
     ]
