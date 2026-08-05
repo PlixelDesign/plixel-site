@@ -148,7 +148,7 @@ export default function CentralDaMarcaUcadisPage() {
               </span>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white mb-6 font-dynapuff">
-                UCADIS — Arquitetura de Marca e Padronização de Sistema Visual para Larga Escala.
+                UCADIS: Arquitetura de Marca e Padronização de Sistema Visual para Larga Escala.
               </h1>
 
               <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-normal mb-8 max-w-3xl mx-auto">
@@ -180,7 +180,7 @@ export default function CentralDaMarcaUcadisPage() {
           {/* 2. BUSINESS NARRATIVE SECTION */}
           <section id="estrategia" className="scroll-mt-36">
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">01 — Diagnóstico & Estratégia</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">01. Diagnóstico & Estratégia</span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-2 font-dynapuff">
                 Narrativa de Negócio e Impacto Operacional
               </h2>
@@ -219,7 +219,7 @@ export default function CentralDaMarcaUcadisPage() {
           {/* 3. DESIGN OPS FEATURE SECTIONS */}
           <section id="design-ops" className="scroll-mt-36 space-y-20 sm:space-y-28">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">02 — Design Ops em Ação</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">02. Design Ops em Ação</span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-2 font-dynapuff">
                 Governança, Espaço e Escala Logística
               </h2>
@@ -304,7 +304,7 @@ export default function CentralDaMarcaUcadisPage() {
           {/* 4. APPLICATIONS GALLERY (MERCHANDISING) */}
           <section id="suportes-fisicos" className="scroll-mt-36">
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">03 — Suportes Físicos</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">03. Suportes Físicos</span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-2 font-dynapuff">
                 Galeria de Aplicações e Merchandising
               </h2>
@@ -349,7 +349,7 @@ export default function CentralDaMarcaUcadisPage() {
           {/* 5. TECHNICAL SYSTEM, COLOR MATRIX & TYPOGRAPHY */}
           <section id="matriz-tecnica" className="scroll-mt-36 bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm space-y-12">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">04 — Matriz Técnica</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-600">04. Matriz Técnica</span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-dynapuff">
                 Especificações Cromáticas & Tipografia
               </h2>
@@ -508,7 +508,7 @@ export default function CentralDaMarcaUcadisPage() {
           <section id="mascotes" className="scroll-mt-36 py-12 sm:py-16">
             <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
-                05 — Mascotes & Diretrizes
+                05. Mascotes & Diretrizes
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-2 font-dynapuff">
                 Sistema de Mascotes & Comunicação
