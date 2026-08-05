@@ -149,15 +149,13 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <section className="section-graphite pb-12 md:pb-16 pt-2">
             <div className="shell text-center">
               <div className="flex flex-col items-center justify-center gap-3 max-w-2xl mx-auto">
-                <a
-                  href="https://plixeldesign.github.io/Apresentacao-da-marca/manual-marca-ucadis.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/trabalhos/identidade-visual-ucadis/central-da-marca"
                   className="btn-primary inline-flex items-center gap-2"
                 >
                   Explorar Central da Marca
-                  <span className="text-xs">↗</span>
-                </a>
+                  <span className="text-xs">→</span>
+                </Link>
                 <p className="body-text text-white/60 text-sm max-w-lg mt-1">
                   Plataforma web desenvolvida para garantir a padronização e escalabilidade da marca por múltiplos fornecedores e equipes internas.
                 </p>
