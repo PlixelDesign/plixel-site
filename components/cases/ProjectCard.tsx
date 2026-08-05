@@ -10,9 +10,12 @@ export default function ProjectCard({
   projeto: Projeto
   index?: number
 }) {
+  const isUcadis = projeto.slug.includes('ucadis') || projeto.titulo.toLowerCase().includes('ucadis')
+  const href = isUcadis ? '/trabalhos/central-da-marca' : `/trabalhos/${projeto.slug}`
+
   return (
     <Link
-      href={`/trabalhos/${projeto.slug}`}
+      href={href}
       className="group relative flex flex-col bg-navy-mid border border-blue-neon/10 overflow-hidden hover:border-blue-neon/40 hover:-translate-y-1 transition-all duration-300"
     >
       <div className="aspect-[4/3] bg-navy-deep relative overflow-hidden">

@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
         destination: '/trabalhos/central-da-marca',
         permanent: true,
       },
+      {
+        source: '/trabalhos/identidade-visual-ucadis',
+        destination: '/trabalhos/central-da-marca',
+        permanent: true,
+      },
     ]
   },
   images: {

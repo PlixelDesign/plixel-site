@@ -103,8 +103,8 @@ export default function CentralDaMarcaUcadisPage() {
       <nav className="sticky top-16 z-40 bg-slate-950/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between overflow-x-auto scrollbar-none">
           <div className="flex items-center gap-3 shrink-0">
-            <Link href="/trabalhos/identidade-visual-ucadis" className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-amber-400 uppercase tracking-wider transition-colors mr-2">
-              ← Voltar ao Case
+            <Link href="/trabalhos" className="flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-amber-400 uppercase tracking-wider transition-colors mr-2">
+              ← Voltar a Trabalhos
             </Link>
             <div className="h-4 w-px bg-white/20 hidden sm:block" />
             <div className="relative h-7 w-7 shrink-0 hidden sm:block">
