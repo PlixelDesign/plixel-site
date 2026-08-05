@@ -24,6 +24,8 @@ const config: Config = {
         bebas: ['var(--font-bebas)', 'sans-serif'],
         parisienne: ['var(--font-parisienne)', 'cursive'],
         poppins: ['var(--font-poppins)', 'sans-serif'],
+        dynapuff: ['var(--font-dynapuff)', 'cursive', 'sans-serif'],
+        nunito: ['var(--font-nunito)', 'sans-serif'],
       },
       letterSpacing: {
         bebas: '0.15em',
