@@ -118,7 +118,7 @@ export default function FrancisCaseStudy() {
           {/* Asset Hero: francis-seguros-portfolio-hero */}
           <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900 group">
             <Image
-              src="/images/francis-seguros-portfolio-hero.png"
+              src="/images/Cases/Francis-Seguros/francis-seguros-portfolio-hero.jpg"
               alt="Francis Pinheiro Seguros - Hero Portfolio Widescreen"
               width={1920}
               height={1080}
@@ -161,7 +161,7 @@ export default function FrancisCaseStudy() {
               {/* Asset Aquisição: francis-pinheiro-seguros-campanha-criativos-estaticos */}
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-blue-500/20 bg-slate-950 flex items-center justify-center p-3 group">
                 <Image
-                  src="/images/francis-pinheiro-seguros-campanha-criativos-estaticos.png"
+                  src="/images/Cases/Francis-Seguros/francis-pinheiro-seguros-campanha-criativos-estaticos.jpg"
                   alt="Francis Pinheiro Seguros - Campanha Criativos Estáticos (Aquisição)"
                   fill
                   className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
@@ -187,7 +187,7 @@ export default function FrancisCaseStudy() {
               {/* Asset Retenção: francis-pinheiro-seguros-engenharia-video-retencao */}
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-amber-500/20 bg-slate-950 flex items-center justify-center p-3 group order-2 lg:order-1">
                 <Image
-                  src="/images/francis-pinheiro-seguros-engenharia-video-retencao.png"
+                  src="/images/Cases/Francis-Seguros/francis-pinheiro-seguros-engenharia-video-retencao.png"
                   alt="Francis Pinheiro Seguros - Engenharia de Vídeo e Retenção (Meio de Funil)"
                   fill
                   className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
@@ -239,7 +239,7 @@ export default function FrancisCaseStudy() {
               {/* Asset Conversão: francis-pinheiro-seguros-engenharia-vendas-whatsapp */}
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-emerald-500/20 bg-slate-950 flex items-center justify-center p-3 group">
                 <Image
-                  src="/images/francis-pinheiro-seguros-engenharia-vendas-whatsapp.png"
+                  src="/images/Cases/Francis-Seguros/francis-pinheiro-seguros-engenharia-vendas-whatsapp.jpg"
                   alt="Francis Pinheiro Seguros - Engenharia de Vendas WhatsApp Ops (Conversão)"
                   fill
                   className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"

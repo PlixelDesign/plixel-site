@@ -21,7 +21,7 @@ export default function ProjectCard({
     : isJingLong
     ? '/trabalhos/jing-long/central-da-marca'
     : isFrancis
-    ? '/trabalhos/francis-pinheiro-seguros'
+    ? '/trabalhos/francis-pinheiro-seguros/central-da-marca'
     : `/trabalhos/${projeto.slug}`
 
   return (
