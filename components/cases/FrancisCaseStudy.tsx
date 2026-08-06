@@ -262,13 +262,28 @@ export default function FrancisCaseStudy() {
 
                 {/* Área de Aplicação de Logo */}
                 <div className="pt-2">
-                  <div className="border border-dashed border-white/20 rounded-xl p-8 flex flex-col items-center justify-center text-center bg-white/[0.01]">
-                    <span className="font-mono text-xs text-[#DE8D47] font-bold uppercase tracking-widest">
-                      [ ÁREA RESERVADA · LOGOTIPO DA MARCA ]
-                    </span>
-                    <p className="text-xs text-slate-400 mt-1 max-w-xs font-normal">
-                      Espaço limpo para aplicação vetorial master da marca Francis Pinheiro Seguros.
-                    </p>
+                  <span className="text-xs font-mono text-[#DE8D47] block font-bold uppercase tracking-wider mb-2">
+                    [ LOGOTIPO MASTER HORIZONTAL ]
+                  </span>
+                  <div
+                    className="relative w-full rounded-xl overflow-hidden bg-slate-950 border border-white/10 cursor-zoom-in group shadow-lg p-4 flex items-center justify-center"
+                    onClick={() =>
+                      setActiveImage({
+                        src: '/images/Cases/Francis-Seguros/Logo-horizontal.jpg',
+                        alt: 'Francis Pinheiro Seguros - Logotipo Master Horizontal',
+                      })
+                    }
+                  >
+                    <Image
+                      src="/images/Cases/Francis-Seguros/Logo-horizontal.jpg"
+                      alt="Francis Pinheiro Seguros - Logotipo Master Horizontal"
+                      width={1200}
+                      height={400}
+                      className="w-full h-auto object-contain block rounded-lg transition-transform duration-500 group-hover:scale-[1.02] max-h-[180px]"
+                    />
+                    <div className="absolute bottom-2 right-2 bg-[#07080a]/90 backdrop-blur-md px-2 py-1 rounded border border-white/10 text-[10px] font-mono text-[#F3E5C8] opacity-0 group-hover:opacity-100 transition-opacity">
+                      🔍 Expandir Logo
+                    </div>
                   </div>
                 </div>
               </div>
