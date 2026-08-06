@@ -46,24 +46,24 @@ export default function ProjectGallery({ imagens }: { imagens: string[] }) {
 
   return (
     <>
-      <div className={`grid ${cols} gap-2 sm:gap-3`}>
+      <div className={`grid ${cols} gap-3 sm:gap-4`}>
         {imagens.map((src, i) => (
           <button
             key={`${src}-${i}`}
             type="button"
             onClick={() => setLightbox(i)}
-            className="group relative aspect-square bg-navy-deep overflow-hidden border border-blue-neon/10 hover:border-blue-neon/40 transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-neon"
+            className="group relative min-h-[260px] sm:min-h-[320px] bg-navy-mid/90 overflow-hidden border border-blue-neon/10 hover:border-blue-neon/40 transition-all duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-neon p-3 flex items-center justify-center rounded-lg"
             aria-label={`Ver imagem ${i + 1} em tela cheia`}
           >
             <Image
               src={src}
               alt={`Arte ${i + 1}`}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
               sizes="(max-width: 768px) 50vw, 33vw"
             />
-            <div className="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/20 transition-colors duration-200 flex items-center justify-center">
-              <span className="font-poppins text-[10px] text-white tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-200 uppercase">
+            <div className="absolute inset-0 bg-navy-deep/0 group-hover:bg-navy-deep/30 transition-colors duration-200 flex items-center justify-center">
+              <span className="font-poppins text-[10px] text-white tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-200 uppercase bg-navy-deep/80 px-3 py-1.5 rounded border border-white/10 backdrop-blur-sm">
                 Ampliar
               </span>
             </div>
