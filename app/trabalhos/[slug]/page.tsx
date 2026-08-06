@@ -91,6 +91,13 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     projeto.diagnostico =
       'A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.'
     projeto.cliente = 'Identidade Corporativa e Uniformização de Ativos'
+    projeto.imagem_capa = '/images/francis-hero-cover.png'
+    projeto.imagens = [
+      '/images/francis-hero-cover.png',
+      '/images/francis-mockup-mobile.png',
+      '/images/francis-mockup-impressos.png',
+      '/images/francis-flyer-seguradoras.png',
+    ]
   }
 
   if (
