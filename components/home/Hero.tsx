@@ -19,9 +19,9 @@ export default function Hero() {
       <div className="shell py-24 md:py-32 relative z-10">
         <p className="label-tech mb-6 md:mb-8">Agência de Design Estratégico</p>
 
-        <h1 className="title-impact text-[clamp(44px,12vw,160px)] leading-none text-white max-w-5xl">
+        <h1 className="title-impact text-[clamp(30px,8.5vw,160px)] leading-none text-white max-w-5xl tracking-normal sm:tracking-widest break-words">
           DESIGN QUE
-          <span className="title-accent block -mt-[0.18em] text-[clamp(48px,13.2vw,176px)]">conecta,</span>
+          <span className="title-accent block -mt-[0.14em] text-[clamp(36px,10vw,176px)]">conecta,</span>
           NÃO SÓ DECORA
         </h1>
 

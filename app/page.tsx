@@ -113,9 +113,9 @@ export default async function HomePage() {
           <TechnicalSignature categoria="CASE" />
           <div className="max-w-3xl mx-auto px-6 sm:px-8 text-center relative z-10">
             <p className="label-tech mb-6">Próximo passo</p>
-            <h2 className="title-impact text-[clamp(40px,7vw,96px)] text-white leading-none">
+            <h2 className="title-impact text-[clamp(30px,7vw,96px)] text-white leading-none">
               PRONTO PRA
-              <span className="title-accent block -mt-[0.18em] text-[clamp(44px,8vw,112px)]">começar?</span>
+              <span className="title-accent block -mt-[0.18em] text-[clamp(36px,8vw,112px)]">começar?</span>
             </h2>
             <div className="mx-auto mt-8 w-20 h-px bg-yellow-neon" />
             <p className="body-text text-white/60 mt-8 text-lg max-w-md mx-auto">
