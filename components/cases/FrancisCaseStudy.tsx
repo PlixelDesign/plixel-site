@@ -8,12 +8,14 @@ import Footer from '@/components/layout/Footer'
 
 export default function FrancisCaseStudy() {
   const [isBrandCenterOpen, setIsBrandCenterOpen] = useState(false)
+  const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null)
 
-  // Suporte a fechar modal com a tecla ESC
+  // Suporte a fechar modais com a tecla ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsBrandCenterOpen(false)
+        setActiveImage(null)
       }
     }
     window.addEventListener('keydown', handleKeyDown)
@@ -85,29 +87,29 @@ export default function FrancisCaseStudy() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative bg-slate-950 text-white overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28">
+      <section className="relative bg-slate-950 text-white overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 border-b border-slate-800/60">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 -right-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
+          <div className="text-center max-w-4xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-blue-500/10 text-blue-400 border border-blue-500/20">
               <span>Go-To-Market</span> · <span>Service Design</span> · <span>WhatsApp Ops</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white mb-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
               Francis Pinheiro Seguros | Identidade Corporativa e Uniformização de Ativos
             </h1>
 
-            <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-normal mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-normal max-w-3xl mx-auto">
               Engenharia de funil comercial de ponta a ponta: alinhamento entre posicionamento institucional, tráfego pago e automação de atendimento comercial.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
               <button
                 type="button"
                 onClick={() => setIsBrandCenterOpen(true)}
-                className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/20 border border-blue-400/30 transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-xl shadow-blue-600/20 border border-blue-400/30 transition-all duration-300 flex items-center gap-2 cursor-pointer"
               >
                 <span>Explorar Central da Marca</span>
                 <span className="text-amber-300">✨</span>
@@ -115,146 +117,264 @@ export default function FrancisCaseStudy() {
             </div>
           </div>
 
-          {/* Asset Hero: francis-seguros-portfolio-hero */}
-          <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900 group">
-            <Image
-              src="/images/Cases/Francis-Seguros/francis-seguros-portfolio-hero.jpg"
-              alt="Francis Pinheiro Seguros - Hero Portfolio Widescreen"
-              width={1920}
-              height={1080}
-              priority
-              className="w-full h-auto object-contain block max-h-[600px] transition-transform duration-500 group-hover:scale-[1.01]"
-            />
+          {/* Asset Hero: francis-seguros-portfolio-hero (Stacked Editorial Format) */}
+          <div className="w-full max-w-6xl mx-auto">
+            <div
+              className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-blue-500/20 bg-slate-900 group cursor-zoom-in"
+              onClick={() =>
+                setActiveImage({
+                  src: '/images/Cases/Francis-Seguros/francis-seguros-portfolio-hero.jpg',
+                  alt: 'Francis Pinheiro Seguros - Hero Portfolio Widescreen',
+                })
+              }
+            >
+              <Image
+                src="/images/Cases/Francis-Seguros/francis-seguros-portfolio-hero.jpg"
+                alt="Francis Pinheiro Seguros - Hero Portfolio Widescreen"
+                width={1920}
+                height={1080}
+                priority
+                className="w-full h-auto object-contain block max-h-[680px] transition-transform duration-500 group-hover:scale-[1.01]"
+              />
+              <div className="absolute bottom-4 right-4 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[11px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity">
+                🔍 Clique para ampliar (Zoom Fullscreen)
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FUNIL DE VENDAS & NARRATIVA INTERCALADA */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pt-12 pb-28">
+      {/* FUNIL DE VENDAS & NARRATIVA EMPILHADA (STACKED / EDITORIAL) */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-20">
 
-        {/* SEÇÃO 1: TOPO DE FUNIL — AQUISIÇÃO */}
+        {/* SEÇÃO 1: TOPO DE FUNIL — AQUISIÇÃO (EMPILHADO) */}
         <section id="aquisicao" className="scroll-mt-36">
-          <div className="bg-slate-900/90 rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-bold uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                <span>[ 01 / TOPO DE FUNIL ]</span> AQUISIÇÃO &amp; AWARENESS
+          <div className="bg-slate-900/90 rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-xl space-y-8 flex flex-col">
+            
+            {/* 1. Topo do Bloco: Cabeçalho Técnico & Título */}
+            <div className="space-y-4 border-b border-slate-800 pb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-bold uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                  <span>[ 01 / TOPO DE FUNIL ]</span> AQUISIÇÃO &amp; AWARENESS
+                </div>
+                <span className="text-xs font-mono text-slate-400">
+                  Foco: CTR Elevado &amp; Mitigação de Atrito em Leads Frios
+                </span>
               </div>
-              <span className="text-xs font-mono text-slate-400">
-                Foco: CTR Elevado &amp; Mitigação de Atrito em Leads Frios
-              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                Lançamento de Operação (Go-To-Market) e Campanhas de Performance
+              </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              <div className="space-y-6">
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
-                  Lançamento de Operação (Go-To-Market) e Campanhas de Performance
-                </h2>
-                <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                  A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.
-                </p>
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-blue-500/20 text-xs font-mono text-slate-300 space-y-1">
-                  <span className="text-blue-400 font-bold block">✓ Entregável Técnico:</span>
-                  <p>Matrizes Visuais para Campanhas de Performance (Otimização de Conversão e CTR).</p>
-                </div>
-              </div>
-
-              {/* Asset Aquisição: francis-pinheiro-seguros-campanha-criativos-estaticos */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-blue-500/20 bg-slate-950 flex items-center justify-center p-3 group">
+            {/* 2. Meio do Bloco: A Imagem (100% Widescreen, Full Container) */}
+            <div className="w-full max-w-6xl mx-auto">
+              <div
+                className="relative w-full rounded-2xl overflow-hidden border border-blue-500/20 bg-slate-950 shadow-2xl cursor-zoom-in group"
+                onClick={() =>
+                  setActiveImage({
+                    src: '/images/Cases/Francis-Seguros/francis-pinheiro-seguros-campanha-criativos-estaticos.jpg',
+                    alt: 'Francis Pinheiro Seguros - Campanha Criativos Estáticos (Aquisição)',
+                  })
+                }
+              >
                 <Image
                   src="/images/Cases/Francis-Seguros/francis-pinheiro-seguros-campanha-criativos-estaticos.jpg"
                   alt="Francis Pinheiro Seguros - Campanha Criativos Estáticos (Aquisição)"
-                  fill
-                  className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto object-contain block max-h-[750px] transition-transform duration-500 group-hover:scale-[1.01]"
                 />
+                <div className="absolute bottom-4 right-4 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[11px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity">
+                  🔍 Clique para ampliar (Zoom Fullscreen)
+                </div>
               </div>
             </div>
+
+            {/* 3. Base do Bloco: O Texto (Largura de Leitura Confortável) */}
+            <div className="max-w-3xl mx-auto space-y-6 text-slate-300 pt-2">
+              <p className="text-base sm:text-lg leading-relaxed text-slate-300 font-normal">
+                A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.
+              </p>
+              <div className="p-5 rounded-2xl bg-slate-950/90 border border-blue-500/20 text-xs font-mono text-slate-300 space-y-2">
+                <span className="text-blue-400 font-bold block uppercase tracking-wider">
+                  ✓ Entregável Técnico de Aquisição:
+                </span>
+                <p className="leading-relaxed">
+                  Matrizes Visuais para Campanhas de Performance (Otimização de Conversão e CTR), estabelecendo hierarquia tipográfica estrita e blocos de contraste para atração imediata.
+                </p>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* SEÇÃO 2: MEIO DE FUNIL — RETENÇÃO */}
+        {/* SEÇÃO 2: MEIO DE FUNIL — RETENÇÃO (EMPILHADO) */}
         <section id="retencao" className="scroll-mt-36">
-          <div className="bg-slate-900/90 rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                <span>[ 02 / MEIO DE FUNIL ]</span> RETENÇÃO &amp; BRAND EQUITY
+          <div className="bg-slate-900/90 rounded-3xl p-6 sm:p-12 border border-slate-800 shadow-xl space-y-8 flex flex-col">
+            
+            {/* 1. Topo do Bloco: Cabeçalho Técnico & Título */}
+            <div className="space-y-4 border-b border-slate-800 pb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                  <span>[ 02 / MEIO DE FUNIL ]</span> RETENÇÃO &amp; BRAND EQUITY
+                </div>
+                <span className="text-xs font-mono text-slate-400">
+                  Foco: Nutrição, Autoridade &amp; Consistência Multicanal
+                </span>
               </div>
-              <span className="text-xs font-mono text-slate-400">
-                Foco: Nutrição, Autoridade &amp; Consistência Multicanal
-              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                Service Design: Integração entre Identidade, Mídia e Engajamento
+              </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              {/* Asset Retenção: francis-pinheiro-seguros-engenharia-video-retencao */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-amber-500/20 bg-slate-950 flex items-center justify-center p-3 group order-2 lg:order-1">
+            {/* 2. Meio do Bloco: A Imagem (100% Widescreen, Full Container) */}
+            <div className="w-full max-w-6xl mx-auto">
+              <div
+                className="relative w-full rounded-2xl overflow-hidden border border-amber-500/20 bg-slate-950 shadow-2xl cursor-zoom-in group"
+                onClick={() =>
+                  setActiveImage({
+                    src: '/images/Cases/Francis-Seguros/francis-pinheiro-seguros-engenharia-video-retencao.png',
+                    alt: 'Francis Pinheiro Seguros - Engenharia de Vídeo e Retenção (Meio de Funil)',
+                  })
+                }
+              >
                 <Image
                   src="/images/Cases/Francis-Seguros/francis-pinheiro-seguros-engenharia-video-retencao.png"
                   alt="Francis Pinheiro Seguros - Engenharia de Vídeo e Retenção (Meio de Funil)"
-                  fill
-                  className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto object-contain block max-h-[750px] transition-transform duration-500 group-hover:scale-[1.01]"
                 />
-              </div>
-
-              <div className="space-y-6 order-1 lg:order-2">
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
-                  Service Design: Integração entre Identidade, Mídia e Engajamento
-                </h2>
-                <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                  Service Design: Integração entre Identidade (Brand Equity), Mídia de Performance (matrizes de criativos focados em conversão e CTR) e Desenho de Serviço (WhatsApp Ops com réguas automatizadas e roteiros de abordagem).
-                </p>
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-amber-500/20 text-xs font-mono text-slate-300 space-y-1">
-                  <span className="text-amber-400 font-bold block">✓ Arquitetura de Conteúdo:</span>
-                  <p>Vídeos de Retenção no Feed/Shorts e Educação de Mercado com Quebra de Objeções Prévias.</p>
+                <div className="absolute bottom-4 right-4 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[11px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity">
+                  🔍 Clique para ampliar (Zoom Fullscreen)
                 </div>
               </div>
             </div>
+
+            {/* 3. Base do Bloco: O Texto (Largura de Leitura Confortável) */}
+            <div className="max-w-3xl mx-auto space-y-6 text-slate-300 pt-2">
+              <p className="text-base sm:text-lg leading-relaxed text-slate-300 font-normal">
+                Service Design: Integração entre Identidade (Brand Equity), Mídia de Performance (matrizes de criativos focados em conversão e CTR) e Desenho de Serviço (WhatsApp Ops com réguas automatizadas e roteiros de abordagem).
+              </p>
+              <div className="p-5 rounded-2xl bg-slate-950/90 border border-amber-500/20 text-xs font-mono text-slate-300 space-y-2">
+                <span className="text-amber-400 font-bold block uppercase tracking-wider">
+                  ✓ Arquitetura de Conteúdo &amp; Retenção:
+                </span>
+                <p className="leading-relaxed">
+                  Vídeos de Retenção no Feed/Shorts e Educação de Mercado com Quebra de Objeções Prévias, garantindo que o usuário compreenda o valor dos produtos de seguros antes da abordagem comercial.
+                </p>
+              </div>
+            </div>
+
           </div>
         </section>
 
-        {/* SEÇÃO 3: FUNDO DE FUNIL — CONVERSÃO */}
+        {/* SEÇÃO 3: FUNDO DE FUNIL — CONVERSÃO (EMPILHADO) */}
         <section id="conversao" className="scroll-mt-36">
-          <div className="bg-gradient-to-br from-blue-950/40 via-slate-900 to-slate-950 rounded-3xl p-8 sm:p-12 border border-blue-500/30 shadow-2xl space-y-8">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                <span>[ 03 / FUNDO DE FUNIL ]</span> CONVERSÃO &amp; WHATSAPP OPS
+          <div className="bg-gradient-to-br from-blue-950/40 via-slate-900 to-slate-950 rounded-3xl p-6 sm:p-12 border border-emerald-500/30 shadow-2xl space-y-8 flex flex-col">
+            
+            {/* 1. Topo do Bloco: Cabeçalho Técnico & Título */}
+            <div className="space-y-4 border-b border-slate-800 pb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  <span>[ 03 / FUNDO DE FUNIL ]</span> CONVERSÃO &amp; WHATSAPP OPS
+                </div>
+                <span className="text-xs font-mono text-slate-400">
+                  Foco: Otimização de CPL &amp; Previsibilidade Comercial
+                </span>
               </div>
-              <span className="text-xs font-mono text-slate-400">
-                Foco: Otimização de CPL &amp; Previsibilidade Comercial
-              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                Validação Operacional e Funil de Aquisição Previsível
+              </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              <div className="space-y-6">
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">
-                  Validação Operacional e Funil de Aquisição Previsível
-                </h2>
-                <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-                  A entrega consolidou a introdução da corretora no mercado com uma estrutura corporativa madura, escalável e orientada a dados. O alinhamento entre a identidade visual e o fluxo do WhatsApp gerou previsibilidade comercial, otimizou o Custo por Lead (CPL) e blindou a marca com diretrizes prontas para a expansão futura da equipe de vendas.
-                </p>
-                <div className="p-4 rounded-xl bg-slate-950/80 border border-emerald-500/20 text-xs font-mono text-slate-300 space-y-1">
-                  <span className="text-emerald-400 font-bold block">✓ Engenharia de Vendas:</span>
-                  <p>Mapeamento de Jornada de Atendimento e Automação de Fluxo Comercial (WhatsApp Ops).</p>
-                </div>
-              </div>
-
-              {/* Asset Conversão: francis-pinheiro-seguros-engenharia-vendas-whatsapp */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-emerald-500/20 bg-slate-950 flex items-center justify-center p-3 group">
+            {/* 2. Meio do Bloco: A Imagem (100% Widescreen, Full Container) */}
+            <div className="w-full max-w-6xl mx-auto">
+              <div
+                className="relative w-full rounded-2xl overflow-hidden border border-emerald-500/20 bg-slate-950 shadow-2xl cursor-zoom-in group"
+                onClick={() =>
+                  setActiveImage({
+                    src: '/images/Cases/Francis-Seguros/francis-pinheiro-seguros-engenharia-vendas-whatsapp.jpg',
+                    alt: 'Francis Pinheiro Seguros - Engenharia de Vendas WhatsApp Ops (Conversão)',
+                  })
+                }
+              >
                 <Image
                   src="/images/Cases/Francis-Seguros/francis-pinheiro-seguros-engenharia-vendas-whatsapp.jpg"
                   alt="Francis Pinheiro Seguros - Engenharia de Vendas WhatsApp Ops (Conversão)"
-                  fill
-                  className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto object-contain block max-h-[750px] transition-transform duration-500 group-hover:scale-[1.01]"
                 />
+                <div className="absolute bottom-4 right-4 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[11px] font-mono text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity">
+                  🔍 Clique para ampliar (Zoom Fullscreen)
+                </div>
               </div>
             </div>
+
+            {/* 3. Base do Bloco: O Texto (Largura de Leitura Confortável) */}
+            <div className="max-w-3xl mx-auto space-y-6 text-slate-300 pt-2">
+              <p className="text-base sm:text-lg leading-relaxed text-slate-300 font-normal">
+                A entrega consolidou a introdução da corretora no mercado com uma estrutura corporativa madura, escalável e orientada a dados. O alinhamento entre a identidade visual e o fluxo do WhatsApp gerou previsibilidade comercial, otimizou o Custo por Lead (CPL) e blindou a marca com diretrizes prontas para a expansão futura da equipe de vendas.
+              </p>
+              <div className="p-5 rounded-2xl bg-slate-950/90 border border-emerald-500/20 text-xs font-mono text-slate-300 space-y-2">
+                <span className="text-emerald-400 font-bold block uppercase tracking-wider">
+                  ✓ Engenharia de Vendas &amp; Automação:
+                </span>
+                <p className="leading-relaxed">
+                  Mapeamento de Jornada de Atendimento e Automação de Fluxo Comercial (WhatsApp Ops), permitindo que a credibilidade visual da marca seja mantida intacta até o fechamento de contratos.
+                </p>
+              </div>
+            </div>
+
           </div>
         </section>
 
       </main>
 
+      {/* LIGHTBOX FULLSCREEN INTERATIVO (ZOOM DE IMAGEM) */}
+      {activeImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex items-center justify-center p-4 sm:p-8 transition-all duration-300 animate-in fade-in"
+          onClick={() => setActiveImage(null)}
+        >
+          <div
+            className="relative w-full h-full max-w-7xl max-h-[90vh] flex flex-col items-center justify-center space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top Bar Lightbox */}
+            <div className="w-full flex items-center justify-between px-2 text-white">
+              <span className="text-xs font-mono text-slate-400 truncate max-w-xl">
+                {activeImage.alt}
+              </span>
+              <button
+                type="button"
+                onClick={() => setActiveImage(null)}
+                className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs transition-colors cursor-pointer border border-white/10"
+              >
+                ✕ Fechar (ESC)
+              </button>
+            </div>
+
+            {/* Imagem Ampliada */}
+            <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-slate-950 border border-slate-800">
+              <Image
+                src={activeImage.src}
+                alt={activeImage.alt}
+                fill
+                className="object-contain"
+                sizes="95vw"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* MODAL ELEGANTE: CENTRAL DA MARCA (BRAND EQUITY) */}
       {isBrandCenterOpen && (
         <div
-          className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-all duration-300"
+          className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-all duration-300"
           onClick={() => setIsBrandCenterOpen(false)}
         >
           <div
