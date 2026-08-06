@@ -11,7 +11,13 @@ export default function ProjectCard({
   index?: number
 }) {
   const isUcadis = projeto.slug.includes('ucadis') || projeto.titulo.toLowerCase().includes('ucadis')
-  const href = isUcadis ? '/trabalhos/central-da-marca' : `/trabalhos/${projeto.slug}`
+  const isJingLong = projeto.slug.includes('jing-long') || projeto.titulo.toLowerCase().includes('jing long')
+
+  const href = isUcadis
+    ? '/trabalhos/central-da-marca'
+    : isJingLong
+    ? '/trabalhos/jing-long/central-da-marca'
+    : `/trabalhos/${projeto.slug}`
 
   return (
     <Link

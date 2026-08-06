@@ -34,6 +34,11 @@ const nextConfig: NextConfig = {
         destination: '/trabalhos/central-da-marca',
         permanent: true,
       },
+      {
+        source: '/trabalhos/Jing-Long/central-da-marca',
+        destination: '/trabalhos/jing-long/central-da-marca',
+        permanent: true,
+      },
     ]
   },
   images: {
