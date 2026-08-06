@@ -118,6 +118,9 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const isShorts = projeto.video_url ? isVideoShorts(projeto.video_url) : false
   const isAvulsa = false
   const isUcadis = projeto.slug.includes('ucadis') || projeto.titulo.toLowerCase().includes('ucadis')
+  const isFrancis = projeto.slug.includes('francis') || projeto.titulo.toLowerCase().includes('francis')
+  const isJennifer = projeto.slug.includes('jennifer') || projeto.titulo.toLowerCase().includes('jennifer')
+  const isEb = projeto.slug.includes('eb') || projeto.titulo.toLowerCase().includes('eb') || projeto.titulo.toLowerCase().includes('musica')
 
   const secoes = [
     { label: 'DIAGNÓSTICO', content: projeto.diagnostico },
@@ -208,8 +211,256 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </section>
         )}
 
-        {/* Narrativa — case completo, ou descrição única para artes avulsas */}
-        {isAvulsa ? (
+        {/* Seção Intercalada de Conteúdo (Texto + Imagem lado a lado + Break full width) */}
+        {isFrancis ? (
+          <div className="section-dark space-y-16 md:space-y-24 py-16">
+            {/* Bloco 1: Diagnóstico + Imagem */}
+            <section className="shell grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="title-impact text-5xl text-blue-neon/20">01</span>
+                  <div>
+                    <p className="label-tech text-blue-neon">DIAGNÓSTICO COMERCIAL</p>
+                    <div className="w-12 h-px bg-yellow-neon mt-1" />
+                  </div>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                  Gargalo de Posicionamento e Captação Dependente
+                </h2>
+                <p className="body-text text-white/80 text-base md:text-lg leading-relaxed">
+                  A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.
+                </p>
+              </div>
+
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-blue-neon/20 bg-navy-mid flex items-center justify-center p-3">
+                <Image
+                  src="/images/francis-mockup-impressos.png"
+                  alt="Grid de Ativos Corporativos Francis Pinheiro Seguros"
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
+            </section>
+
+            {/* Break Full Width: Performance */}
+            <section className="w-full bg-navy-mid border-y border-blue-neon/10 py-12 md:py-16">
+              <div className="shell space-y-4 text-center">
+                <span className="label-tech text-yellow-neon text-xs tracking-widest uppercase">
+                  [ Mídia de Performance &amp; Tráfego Pago ]
+                </span>
+                <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden border border-white/10 bg-slate-950">
+                  <Image
+                    src="/images/francis-flyer-seguradoras.png"
+                    alt="Matrizes Visuais para Campanhas de Performance"
+                    fill
+                    className="object-contain p-3"
+                  />
+                </div>
+                <p className="text-xs font-mono text-white/50 pt-2">
+                  Matrizes Visuais para Campanhas de Performance (Otimização de Conversão e CTR)
+                </p>
+              </div>
+            </section>
+
+            {/* Bloco 2: Imagem/Placeholder + Solução/Resultado */}
+            <section className="shell grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-dashed border-blue-neon/40 bg-navy-deep flex items-center justify-center p-8 text-center group">
+                <div className="space-y-3">
+                  <div className="text-4xl text-blue-neon mb-2">💬</div>
+                  <span className="label-tech text-blue-neon text-xs tracking-widest block">
+                    [ SERVICE DESIGN &amp; WHATSAPP OPS ]
+                  </span>
+                  <p className="text-sm font-semibold text-white/90 max-w-sm mx-auto leading-snug">
+                    Mapeamento de Jornada de Atendimento e Automação de Fluxo Comercial (WhatsApp Ops)
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="title-impact text-5xl text-blue-neon/20">02</span>
+                  <div>
+                    <p className="label-tech text-blue-neon">ENGENHARIA E RESULTADO</p>
+                    <div className="w-12 h-px bg-yellow-neon mt-1" />
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <p className="body-text text-white/80 text-base leading-relaxed">
+                    <strong className="text-white font-semibold block mb-1">Service Design e Automação:</strong>
+                    Service Design: Integração entre Identidade (Brand Equity), Mídia de Performance (matrizes de criativos focados em conversão e CTR) e Desenho de Serviço (WhatsApp Ops com réguas automatizadas e roteiros de abordagem).
+                  </p>
+                  <p className="body-text text-white/80 text-base leading-relaxed pt-2 border-t border-white/10">
+                    <strong className="text-white font-semibold block mb-1">Resultado Operacional:</strong>
+                    A entrega consolidou a introdução da corretora no mercado com uma estrutura corporativa madura, escalável e orientada a dados. O alinhamento entre a identidade visual e o fluxo do WhatsApp gerou previsibilidade comercial, otimizou o Custo por Lead (CPL) e blindou a marca com diretrizes prontas para a expansão futura da equipe de vendas.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        ) : isJennifer ? (
+          <div className="section-dark space-y-16 md:space-y-24 py-16">
+            {/* Bloco 1: Diagnóstico + Imagem */}
+            <section className="shell grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="title-impact text-5xl text-blue-neon/20">01</span>
+                  <div>
+                    <p className="label-tech text-blue-neon">DIAGNÓSTICO E POSICIONAMENTO</p>
+                    <div className="w-12 h-px bg-yellow-neon mt-1" />
+                  </div>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                  Barreira de Precificação e Percepção de Valor
+                </h2>
+                <p className="body-text text-white/80 text-base md:text-lg leading-relaxed">
+                  Em um mercado de serviços altamente pulverizado, a marca precisava romper a barreira da precificação comum e se estabelecer no segmento premium, exigindo uma comunicação visual que justificasse um ticket médio mais alto.
+                </p>
+              </div>
+
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-blue-neon/20 bg-navy-mid flex items-center justify-center p-3">
+                <Image
+                  src="/images/jennifer-logo-dark.png"
+                  alt="Identidade Visual sobre fundo escuro Jennifer Fotografia"
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
+            </section>
+
+            {/* Break Full Width: Pattern das Lentes */}
+            <section className="w-full bg-navy-mid border-y border-blue-neon/10 py-12 md:py-16">
+              <div className="shell space-y-4 text-center">
+                <span className="label-tech text-yellow-neon text-xs tracking-widest uppercase">
+                  [ Arquitetura Visual &amp; Fotografia Autoral ]
+                </span>
+                <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-xl overflow-hidden border border-white/10 bg-slate-950">
+                  <Image
+                    src="/images/jennifer-album-fotos.png"
+                    alt="Pattern de Lentes e Álbum de Fotos Jennifer Fotografia"
+                    fill
+                    className="object-contain p-3"
+                  />
+                </div>
+                <p className="text-xs font-mono text-white/50 pt-2">
+                  Pattern Vetorial de Lentes e Consistência Multicanal
+                </p>
+              </div>
+            </section>
+
+            {/* Bloco 2: Placeholder Foil + Solução */}
+            <section className="shell grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-dashed border-amber-500/40 bg-gradient-to-br from-amber-950/20 via-navy-deep to-slate-950 flex items-center justify-center p-8 text-center group">
+                <div className="space-y-3">
+                  <div className="text-4xl text-amber-400 mb-2">✨</div>
+                  <span className="label-tech text-amber-400 text-xs tracking-widest block">
+                    [ ACABAMENTO PREMIUM ]
+                  </span>
+                  <p className="text-sm font-semibold text-white/90 max-w-sm mx-auto leading-snug">
+                    Mockup do Cartão de Visitas com Gold Foil (Acabamento Premium)
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="title-impact text-5xl text-blue-neon/20">02</span>
+                  <div>
+                    <p className="label-tech text-blue-neon">SISTEMA VISUAL E SOLUÇÃO</p>
+                    <div className="w-12 h-px bg-yellow-neon mt-1" />
+                  </div>
+                </div>
+                <p className="body-text text-white/80 text-base md:text-lg leading-relaxed">
+                  Desenvolvimento de um sistema de identidade visual sofisticado, unificando a presença digital e física da marca. A arquitetura visual foi projetada para transmitir consistência em todos os pontos de contato, acelerando a decisão de compra.
+                </p>
+              </div>
+            </section>
+          </div>
+        ) : isEb ? (
+          <div className="section-dark space-y-16 md:space-y-24 py-16">
+            {/* Bloco 1: Diagnóstico + Imagem */}
+            <section className="shell grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="title-impact text-5xl text-blue-neon/20">01</span>
+                  <div>
+                    <p className="label-tech text-blue-neon">DIAGNÓSTICO E DESAFIO</p>
+                    <div className="w-12 h-px bg-yellow-neon mt-1" />
+                  </div>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                  Padronização e Conversão de Leads
+                </h2>
+                <p className="body-text text-white/80 text-base md:text-lg leading-relaxed">
+                  A falta de padronização visual reduzia a taxa de conversão de novos leads e enfraquecia o diferencial competitivo de mercado. O desafio consistiu em estruturar um sistema visual que tangibilizasse a metodologia e acelerasse a jornada de decisão do aluno.
+                </p>
+              </div>
+
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-blue-neon/20 bg-navy-mid flex items-center justify-center p-3">
+                <Image
+                  src="/images/eb-capa-hero.png"
+                  alt="Logos com fundo marrom/creme EB Escola de Música"
+                  fill
+                  className="object-contain p-2"
+                />
+              </div>
+            </section>
+
+            {/* Break Full Width: Pattern de Violoncelos */}
+            <section className="w-full bg-navy-mid border-y border-blue-neon/10 py-12 md:py-16">
+              <div className="shell space-y-4 text-center">
+                <span className="label-tech text-yellow-neon text-xs tracking-widest uppercase">
+                  [ Identidade Sonora &amp; Pattern ]
+                </span>
+                <div className="relative w-full max-w-4xl mx-auto aspect-[21/9] rounded-xl overflow-hidden border border-white/10 bg-slate-950 flex items-center justify-center p-6 text-center">
+                  <div className="space-y-2">
+                    <span className="text-4xl text-blue-neon">🎵</span>
+                    <p className="text-sm font-semibold text-white/90">
+                      Pattern de Violoncelos &amp; Elementos de Ritmo Musical
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs font-mono text-white/50 pt-2">
+                  Pattern Vetorial de Violoncelos e Notas Musicais
+                </p>
+              </div>
+            </section>
+
+            {/* Bloco 2: Placeholder iPad Studio + Solução */}
+            <section className="shell grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-dashed border-blue-neon/40 bg-navy-deep flex items-center justify-center p-8 text-center group">
+                <div className="space-y-3">
+                  <div className="text-4xl text-blue-neon mb-2">📱</div>
+                  <span className="label-tech text-blue-neon text-xs tracking-widest block">
+                    [ METODOLOGIA DIGITAL ]
+                  </span>
+                  <p className="text-sm font-semibold text-white/90 max-w-sm mx-auto leading-snug">
+                    Mockup do iPad Studio (Metodologia Digital e Presença Local)
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="title-impact text-5xl text-blue-neon/20">02</span>
+                  <div>
+                    <p className="label-tech text-blue-neon">SISTEMA VISUAL E IMPACTO</p>
+                    <div className="w-12 h-px bg-yellow-neon mt-1" />
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <p className="body-text text-white/80 text-base leading-relaxed">
+                    <strong className="text-white font-semibold block mb-1">Estruturação de Marca:</strong>
+                    Estruturação de marca e sistema visual voltado ao ensino musical e presença local, criando uma experiência consistente em todos os pontos de contato.
+                  </p>
+                  <p className="body-text text-white/80 text-base leading-relaxed pt-2 border-t border-white/10">
+                    <strong className="text-white font-semibold block mb-1">Resultado na Comunidade:</strong>
+                    Identidade memorável e forte posicionamento na comunidade, gerando reconhecimento de marca imediato e aceleração na captação de alunos.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        ) : isAvulsa ? (
           projeto.diagnostico.trim() && (
             <section className="section-dark section-y">
               <div className="shell-narrow">
