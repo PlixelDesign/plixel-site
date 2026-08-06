@@ -1,4 +1,8 @@
-export type Categoria = 'identidade_visual' | 'social_media' | 'video' | 'campanha' | 'artes_avulsas' | 'estruturacao'
+export type Categoria =
+  | 'sistemas_identidade'
+  | 'design_ops'
+  | 'pontos_contato'
+  | 'direcao_arte'
 
 export interface Projeto {
   id: string
@@ -19,10 +23,8 @@ export interface Projeto {
 }
 
 export const CATEGORIA_LABELS: Record<Categoria, string> = {
-  identidade_visual: 'Identidade Visual',
-  social_media: 'Social Media',
-  video: 'Vídeo',
-  campanha: 'Campanha',
-  artes_avulsas: 'Artes Avulsas',
-  estruturacao: 'Estruturação de Perfil',
+  sistemas_identidade: 'Sistemas de Identidade',
+  design_ops: 'Design Ops & Manuais',
+  pontos_contato: 'Pontos de Contato',
+  direcao_arte: 'Direção de Arte',
 }

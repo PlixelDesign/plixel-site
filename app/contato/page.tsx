@@ -141,12 +141,10 @@ export default function ContatoPage() {
                       className="input-field"
                     >
                       <option value="">Selecionar (opcional)</option>
-                      <option value="identidade_visual">Identidade Visual</option>
-                      <option value="social_media">Social Media</option>
-                      <option value="video">Vídeo</option>
-                      <option value="campanha">Campanha</option>
-                      <option value="artes_avulsas">Artes Avulsas</option>
-                      <option value="estruturacao">Estruturação de Perfil</option>
+                      <option value="sistemas_identidade">Sistemas de Identidade</option>
+                      <option value="design_ops">Design Ops &amp; Manuais</option>
+                      <option value="pontos_contato">Pontos de Contato</option>
+                      <option value="direcao_arte">Direção de Arte</option>
                     </select>
                   </div>
 

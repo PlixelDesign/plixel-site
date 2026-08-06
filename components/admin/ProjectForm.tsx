@@ -16,12 +16,10 @@ interface ProjectFormProps {
 
 // Dica de imagens por categoria — lembra o que cadastrar na hora do upload.
 const DICAS_IMAGEM: Record<Categoria, string> = {
-  social_media: 'Comece pela grade do feed (mostra o conjunto). Depois posts, carrosséis e stories.',
-  artes_avulsas: 'Use a peça inteira como capa. Depois variações ou o mockup aplicado.',
-  identidade_visual: 'Capa com a marca aplicada. Depois paleta, tipografia e aplicações.',
-  video: 'Frame/thumbnail forte como capa. O vídeo entra pelo campo de URL acima.',
-  campanha: 'Mostre as peças da campanha juntas: anúncio, post, story, impresso.',
-  estruturacao: 'Antes/depois do perfil: print da bio, dos destaques (capas) e da foto. Mostre a transformação.',
+  sistemas_identidade: 'Capa com a marca aplicada. Depois paleta, tipografia e aplicações.',
+  design_ops: 'Manual de marca, diretrizes visuais e grid de governança.',
+  pontos_contato: 'Sinalização, uniformes, embalagens e suportes físicos.',
+  direcao_arte: 'Peças em conjunto, feed, anúncios e esteira de produção.',
 }
 
 export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
@@ -31,7 +29,7 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
   const [form, setForm] = useState<ProjetoFormData>({
     titulo: initialData?.titulo ?? '',
     cliente: initialData?.cliente ?? '',
-    categoria: initialData?.categoria ?? 'identidade_visual',
+    categoria: initialData?.categoria ?? 'sistemas_identidade',
     diagnostico: initialData?.diagnostico ?? '',
     processo: initialData?.processo ?? '',
     resultado: initialData?.resultado ?? '',
@@ -124,8 +122,6 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
     const payload = {
       ...form,
       slug,
-      // Artes avulsas usam só a descrição (gravada em diagnostico); zera o resto.
-      ...(form.categoria === 'artes_avulsas' ? { processo: '', resultado: '' } : {}),
     }
 
     if (mode === 'create') {
@@ -143,7 +139,7 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
     router.refresh()
   }
 
-  const isAvulsa = form.categoria === 'artes_avulsas'
+  const isAvulsa = false
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8 max-w-3xl">

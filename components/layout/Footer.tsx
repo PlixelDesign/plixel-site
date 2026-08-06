@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <span className="title-impact text-4xl text-white tracking-[0.2em]">PLIXEL</span>
             <p className="body-text text-white/50 mt-4 text-sm max-w-xs">
-              Comunicação visual que é entendida rápido e lembrada depois.
+              Engenharia de Design e Sistemas Visuais para marcas que buscam escala.
             </p>
           </div>
 

@@ -86,7 +86,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const { anterior, proximo } = await getNavegacao(projeto.ordem)
   const embedUrl = projeto.video_url ? getEmbedUrl(projeto.video_url) : null
   const isShorts = projeto.video_url ? isVideoShorts(projeto.video_url) : false
-  const isAvulsa = projeto.categoria === 'artes_avulsas'
+  const isAvulsa = false
   const isUcadis = projeto.slug.includes('ucadis') || projeto.titulo.toLowerCase().includes('ucadis')
 
   const secoes = [
