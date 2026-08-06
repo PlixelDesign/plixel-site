@@ -26,11 +26,37 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
   const router = useRouter()
   const fileInputRef = useRef<HTMLInputElement>(null)
 
+  const getRefinedDiagnostico = () => {
+    const raw = initialData?.diagnostico ?? ''
+    const titleLower = (initialData?.titulo || '').toLowerCase()
+    const slugLower = (initialData?.slug || '').toLowerCase()
+    if (titleLower.includes('francis') || slugLower.includes('francis') || raw.includes('Instagram não convertia')) {
+      return 'A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.'
+    }
+    if (titleLower.includes('eb') || slugLower.includes('eb') || raw.includes('dificultava a atração')) {
+      return 'A falta de padronização visual reduzia a taxa de conversão de novos leads e enfraquecia o diferencial competitivo de mercado. O desafio consistiu em estruturar um sistema visual que tangibilizasse a metodologia e acelerasse a jornada de decisão do aluno.'
+    }
+    return raw
+  }
+
+  const getRefinedCliente = () => {
+    const raw = initialData?.cliente ?? ''
+    const titleLower = (initialData?.titulo || '').toLowerCase()
+    const slugLower = (initialData?.slug || '').toLowerCase()
+    if (titleLower.includes('francis') || slugLower.includes('francis')) {
+      return 'Identidade Corporativa e Uniformização de Ativos'
+    }
+    if (titleLower.includes('eb') || slugLower.includes('eb')) {
+      return 'Design de Identidade Local'
+    }
+    return raw
+  }
+
   const [form, setForm] = useState<ProjetoFormData>({
     titulo: initialData?.titulo ?? '',
-    cliente: initialData?.cliente ?? '',
+    cliente: getRefinedCliente(),
     categoria: initialData?.categoria ?? 'sistemas_identidade',
-    diagnostico: initialData?.diagnostico ?? '',
+    diagnostico: getRefinedDiagnostico(),
     processo: initialData?.processo ?? '',
     resultado: initialData?.resultado ?? '',
     imagens: initialData?.imagens ?? [],

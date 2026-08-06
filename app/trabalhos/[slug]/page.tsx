@@ -83,6 +83,26 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const projeto = await getProjeto(slug)
   if (!projeto) notFound()
 
+  if (
+    projeto.slug.toLowerCase().includes('francis') ||
+    projeto.titulo.toLowerCase().includes('francis') ||
+    projeto.diagnostico.includes('Instagram não convertia')
+  ) {
+    projeto.diagnostico =
+      'A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.'
+    projeto.cliente = 'Identidade Corporativa e Uniformização de Ativos'
+  }
+
+  if (
+    projeto.slug.toLowerCase().includes('eb') ||
+    projeto.titulo.toLowerCase().includes('eb') ||
+    projeto.diagnostico.includes('dificultava a atração')
+  ) {
+    projeto.diagnostico =
+      'A falta de padronização visual reduzia a taxa de conversão de novos leads e enfraquecia o diferencial competitivo de mercado. O desafio consistiu em estruturar um sistema visual que tangibilizasse a metodologia e acelerasse a jornada de decisão do aluno.'
+    projeto.cliente = 'Design de Identidade Local'
+  }
+
   const { anterior, proximo } = await getNavegacao(projeto.ordem)
   const embedUrl = projeto.video_url ? getEmbedUrl(projeto.video_url) : null
   const isShorts = projeto.video_url ? isVideoShorts(projeto.video_url) : false
