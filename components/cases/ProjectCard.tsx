@@ -14,11 +14,14 @@ export default function ProjectCard({
 }) {
   const isUcadis = projeto.slug.includes('ucadis') || projeto.titulo.toLowerCase().includes('ucadis')
   const isJingLong = projeto.slug.includes('jing-long') || projeto.titulo.toLowerCase().includes('jing long')
+  const isFrancis = projeto.slug.includes('francis') || projeto.titulo.toLowerCase().includes('francis')
 
   const href = isUcadis
     ? '/trabalhos/central-da-marca'
     : isJingLong
     ? '/trabalhos/jing-long/central-da-marca'
+    : isFrancis
+    ? '/trabalhos/francis-pinheiro-seguros/central-da-marca'
     : `/trabalhos/${projeto.slug}`
 
   return (
