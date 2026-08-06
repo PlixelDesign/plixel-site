@@ -12,6 +12,8 @@ import { formatCategoria, getEmbedUrl, isVideoShorts } from '@/lib/utils'
 
 import { INITIAL_MOCK_PROJETOS } from '@/lib/mock-data'
 
+import FrancisCaseStudy from '@/components/cases/FrancisCaseStudy'
+
 async function getProjeto(slug: string): Promise<Projeto | null> {
   try {
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
@@ -127,6 +129,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     { label: 'PROCESSO', content: projeto.processo },
     { label: 'RESULTADO', content: projeto.resultado },
   ]
+
+  if (isFrancis) {
+    return <FrancisCaseStudy />
+  }
 
   return (
     <>
