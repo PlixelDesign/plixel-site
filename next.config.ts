@@ -39,11 +39,6 @@ const nextConfig: NextConfig = {
         destination: '/trabalhos/jing-long/central-da-marca',
         permanent: true,
       },
-      {
-        source: '/trabalhos/francis-pinheiro-seguros',
-        destination: '/trabalhos/francis-pinheiro-seguros/central-da-marca',
-        permanent: true,
-      },
     ]
   },
   images: {
