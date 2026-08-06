@@ -434,7 +434,7 @@ export default function JingLongBrandPage() {
               </article>
             </div>
 
-            <article className="md:col-span-5 lg:col-span-4 group relative aspect-[4/5] min-h-[480px] rounded-3xl overflow-hidden bg-zinc-950 border border-zinc-900 p-8 flex flex-col justify-between">
+            <article className="md:col-span-5 lg:col-span-4 group relative h-full min-h-[350px] rounded-3xl overflow-hidden bg-zinc-950 border border-zinc-900 p-8 flex flex-col justify-between">
               <Image
                 src={ASSETS.merchYogaMat}
                 alt="Tapete de Yoga & Treino de Solo Jing Long"
