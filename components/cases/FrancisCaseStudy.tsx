@@ -7,14 +7,12 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
 export default function FrancisCaseStudy() {
-  const [isBrandCenterOpen, setIsBrandCenterOpen] = useState(false)
   const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null)
 
-  // Suporte a fechar modais com a tecla ESC
+  // Suporte a fechar modal de Lightbox com a tecla ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setIsBrandCenterOpen(false)
         setActiveImage(null)
       }
     }
@@ -39,12 +37,10 @@ export default function FrancisCaseStudy() {
             </Link>
             <div className="h-4 w-px bg-white/10 hidden sm:block" />
 
-            {/* Logo / Badge Interativa do Francis Seguros */}
-            <button
-              type="button"
-              onClick={() => setIsBrandCenterOpen(true)}
-              className="group flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 hover:bg-[#DE8D47]/15 border border-white/10 hover:border-[#DE8D47]/40 transition-all duration-300 cursor-pointer"
-              title="Clique para abrir a Central da Marca (Brand Equity)"
+            {/* Logo / Badge do Francis Seguros */}
+            <a
+              href="#foundations"
+              className="group flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 hover:bg-[#DE8D47]/15 border border-white/10 hover:border-[#DE8D47]/40 transition-all duration-300"
             >
               <div className="w-2 h-2 rounded-full bg-[#DE8D47] animate-pulse" />
               <span className="font-bold text-xs text-white tracking-wide group-hover:text-[#DE8D47] transition-colors">
@@ -53,10 +49,16 @@ export default function FrancisCaseStudy() {
               <span className="text-[10px] font-mono uppercase text-[#F3E5C8] ml-1">
                 [ Brand Equity ]
               </span>
-            </button>
+            </a>
           </div>
 
           <nav className="flex items-center space-x-2 sm:space-x-4 text-xs font-mono text-slate-400">
+            <a
+              href="#foundations"
+              className="px-2 py-1 hover:text-[#DE8D47] transition-colors whitespace-nowrap"
+            >
+              00. Foundations
+            </a>
             <a
               href="#aquisicao"
               className="px-2 py-1 hover:text-[#DE8D47] transition-colors whitespace-nowrap"
@@ -75,19 +77,12 @@ export default function FrancisCaseStudy() {
             >
               03. Conversão
             </a>
-            <button
-              type="button"
-              onClick={() => setIsBrandCenterOpen(true)}
-              className="px-3 py-1 rounded-full font-semibold text-xs text-slate-950 bg-[#DE8D47] hover:bg-[#c97b39] transition-all whitespace-nowrap cursor-pointer ml-2"
-            >
-              Central da Marca
-            </button>
           </nav>
         </div>
       </header>
 
       {/* HERO SECTION (EDITORIAL BEHANCE STYLE) */}
-      <section className="relative pt-24 pb-20 md:pt-32 md:pb-28">
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="max-w-4xl space-y-6">
@@ -115,20 +110,19 @@ export default function FrancisCaseStudy() {
               </div>
               <div className="h-6 w-px bg-white/10" />
               <div>
-                <span className="block text-slate-500 uppercase">Brand Center</span>
-                <button
-                  type="button"
-                  onClick={() => setIsBrandCenterOpen(true)}
-                  className="text-[#DE8D47] font-bold hover:underline cursor-pointer"
+                <span className="block text-slate-500 uppercase">Brand System</span>
+                <a
+                  href="#foundations"
+                  className="text-[#DE8D47] font-bold hover:underline"
                 >
-                  Ver Diretrizes da Marca →
-                </button>
+                  Ver Fundações de Marca ↓
+                </a>
               </div>
             </div>
           </div>
 
           {/* Hero Image (Edge-to-Edge Editorial Container) */}
-          <div className="w-full max-w-6xl mx-auto pt-6">
+          <div className="w-full max-w-6xl mx-auto pt-4">
             <div
               className="relative w-full rounded-2xl overflow-hidden bg-slate-950 border border-white/10 cursor-zoom-in group shadow-2xl"
               onClick={() =>
@@ -160,13 +154,136 @@ export default function FrancisCaseStudy() {
         <div className="w-full border-t border-white/10" />
       </div>
 
-      {/* CONTEÚDO EDITORIAL FLUIDO (SEAMLESS - SEM CARD CONTAINERS) */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 md:space-y-40 py-24">
+      {/* CONTEÚDO EDITORIAL FLUIDO (SEAMLESS) */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 md:space-y-32 py-16">
+
+        {/* SEÇÃO 00: FUNDAÇÕES DA MARCA & BRAND EQUITY (ABERTA E NATIVA) */}
+        <section id="foundations" className="scroll-mt-32 space-y-12">
+          {/* Topo da Seção */}
+          <div className="space-y-3 max-w-4xl">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#DE8D47] block">
+              [ 00 / FOUNDATIONS ] BRAND EQUITY &amp; SISTEMA VISUAL
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              Fundações de Marca &amp; Arquitetura Visual
+            </h2>
+            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-3xl">
+              Documentação técnica aberta do sistema visual institucional. Padronização de cores, hierarquia tipográfica e área reservada para a matriz de marca.
+            </p>
+          </div>
+
+          {/* Grid Minimalista de UI / Prancha Técnica Arquitetônica */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 pt-4">
+            
+            {/* Coluna 1: Paleta Cromática Institucional */}
+            <div className="space-y-6">
+              <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-[#DE8D47] pb-3 border-b border-white/10 flex items-center justify-between">
+                <span>01. PALETA CROMÁTICA</span>
+                <span className="text-[10px] text-slate-500">HEX SPECS</span>
+              </h3>
+
+              <div className="space-y-6">
+                {/* Navy Blue */}
+                <div className="space-y-2">
+                  <div
+                    className="w-full h-20 rounded-lg border border-white/10 shadow-inner"
+                    style={{ backgroundColor: '#2B3665' }}
+                  />
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-bold text-white">Navy Blue</span>
+                    <span className="font-mono text-slate-400">#2B3665</span>
+                  </div>
+                  <span className="text-xs text-slate-400 block font-normal">
+                    Cor Primária Dominante · Transmite segurança institucional e estabilidade no setor financeiro.
+                  </span>
+                </div>
+
+                {/* Action Orange */}
+                <div className="space-y-2">
+                  <div
+                    className="w-full h-20 rounded-lg border border-white/10 shadow-inner"
+                    style={{ backgroundColor: '#DE8D47' }}
+                  />
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-bold text-white">Action Orange</span>
+                    <span className="font-mono text-[#DE8D47]">#DE8D47</span>
+                  </div>
+                  <span className="text-xs text-slate-400 block font-normal">
+                    Cor de Ação &amp; Conversão · Utilizada em botões de CTA, links ativos e elementos de alta prioridade.
+                  </span>
+                </div>
+
+                {/* Base Beige */}
+                <div className="space-y-2">
+                  <div
+                    className="w-full h-20 rounded-lg border border-white/10 shadow-inner"
+                    style={{ backgroundColor: '#F3E5C8' }}
+                  />
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-bold text-white">Base Beige</span>
+                    <span className="font-mono text-[#F3E5C8]">#F3E5C8</span>
+                  </div>
+                  <span className="text-xs text-slate-400 block font-normal">
+                    Base Neutra &amp; Contrastes · Suporte a textos de apoio, fundos suaves e detalhes editoriais.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Coluna 2: Hierarquia Tipográfica & Aplicação de Logo */}
+            <div className="space-y-6">
+              <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-[#DE8D47] pb-3 border-b border-white/10 flex items-center justify-between">
+                <span>02. TIPOGRAFIA &amp; LOGO</span>
+                <span className="text-[10px] text-slate-500">HIERARCHY</span>
+              </h3>
+
+              <div className="space-y-8">
+                {/* Fonte Primária */}
+                <div className="space-y-2">
+                  <span className="text-xs font-mono text-[#DE8D47] block font-bold uppercase tracking-wider">
+                    Fonte Primária (Títulos &amp; Headlines)
+                  </span>
+                  <h4 className="text-2xl font-extrabold text-white">Baloo Bhai 2</h4>
+                  <p className="text-base text-[#F3E5C8]/90 font-bold leading-snug">
+                    &quot;Proteção Patrimonial e Engenharia Comercial com Autoridade Instantânea.&quot;
+                  </p>
+                </div>
+
+                {/* Fonte Secundária */}
+                <div className="space-y-2 pt-2 border-t border-white/10">
+                  <span className="text-xs font-mono text-[#F3E5C8] block font-bold uppercase tracking-wider">
+                    Fonte Secundária (Parágrafos &amp; UI)
+                  </span>
+                  <h4 className="text-xl font-bold text-white">Reem Kufi Fun</h4>
+                  <p className="text-sm text-slate-300 font-normal leading-relaxed">
+                    Utilizada em copys de nutrição no WhatsApp Ops, legendas técnicas de imagens e corpos de texto de suporte.
+                  </p>
+                </div>
+
+                {/* Área de Aplicação de Logo */}
+                <div className="pt-2">
+                  <div className="border border-dashed border-white/20 rounded-xl p-8 flex flex-col items-center justify-center text-center bg-white/[0.01]">
+                    <span className="font-mono text-xs text-[#DE8D47] font-bold uppercase tracking-widest">
+                      [ ÁREA RESERVADA · LOGOTIPO DA MARCA ]
+                    </span>
+                    <p className="text-xs text-slate-400 mt-1 max-w-xs font-normal">
+                      Espaço limpo para aplicação vetorial master da marca Francis Pinheiro Seguros.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* LINHA DE DIVISÃO TÉCNICA SWISS GRID */}
+        <div className="w-full border-t border-white/10" />
 
         {/* SEÇÃO 1: TOPO DE FUNIL — AQUISIÇÃO */}
-        <section id="aquisicao" className="scroll-mt-32 space-y-10">
+        <section id="aquisicao" className="scroll-mt-32 space-y-8">
           {/* Topo do Bloco */}
-          <div className="space-y-4 max-w-4xl">
+          <div className="space-y-3 max-w-4xl">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#DE8D47] block">
               [ 01 / TOPO DE FUNIL — AQUISIÇÃO &amp; AWARENESS ]
             </span>
@@ -199,17 +316,17 @@ export default function FrancisCaseStudy() {
             </div>
           </div>
 
-          {/* Base do Bloco (Texto Editorial & Callout Técnico) */}
-          <div className="max-w-3xl space-y-6 pt-4">
-            <p className="text-lg text-slate-300 leading-relaxed font-normal">
+          {/* Base do Bloco (Texto Amarrado à Imagem - mt-4) */}
+          <div className="max-w-3xl space-y-4 mt-4">
+            <p className="text-lg sm:text-xl text-slate-200 leading-relaxed font-normal">
               A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.
             </p>
             
-            <div className="border-l-2 border-[#DE8D47] pl-6 py-2 space-y-1">
+            <div className="border-l-2 border-[#DE8D47] pl-5 py-1 space-y-1">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#F3E5C8] block">
                 Entregável Técnico:
               </span>
-              <p className="text-sm font-mono text-slate-400 leading-relaxed">
+              <p className="text-sm font-mono text-slate-300 leading-relaxed">
                 Matrizes Visuais para Campanhas de Performance (Otimização de Conversão e CTR).
               </p>
             </div>
@@ -220,9 +337,9 @@ export default function FrancisCaseStudy() {
         <div className="w-full border-t border-white/10" />
 
         {/* SEÇÃO 2: MEIO DE FUNIL — RETENÇÃO */}
-        <section id="retencao" className="scroll-mt-32 space-y-10">
+        <section id="retencao" className="scroll-mt-32 space-y-8">
           {/* Topo do Bloco */}
-          <div className="space-y-4 max-w-4xl">
+          <div className="space-y-3 max-w-4xl">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#DE8D47] block">
               [ 02 / MEIO DE FUNIL — RETENÇÃO &amp; BRAND EQUITY ]
             </span>
@@ -255,17 +372,17 @@ export default function FrancisCaseStudy() {
             </div>
           </div>
 
-          {/* Base do Bloco (Texto Editorial & Callout Técnico) */}
-          <div className="max-w-3xl space-y-6 pt-4">
-            <p className="text-lg text-slate-300 leading-relaxed font-normal">
+          {/* Base do Bloco (Texto Amarrado à Imagem - mt-4) */}
+          <div className="max-w-3xl space-y-4 mt-4">
+            <p className="text-lg sm:text-xl text-slate-200 leading-relaxed font-normal">
               Service Design: Integração entre Identidade (Brand Equity), Mídia de Performance (matrizes de criativos focados em conversão e CTR) e Desenho de Serviço (WhatsApp Ops com réguas automatizadas e roteiros de abordagem).
             </p>
 
-            <div className="border-l-2 border-[#DE8D47] pl-6 py-2 space-y-1">
+            <div className="border-l-2 border-[#DE8D47] pl-5 py-1 space-y-1">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#F3E5C8] block">
                 Arquitetura de Conteúdo:
               </span>
-              <p className="text-sm font-mono text-slate-400 leading-relaxed">
+              <p className="text-sm font-mono text-slate-300 leading-relaxed">
                 Vídeos de Retenção no Feed/Shorts e Educação de Mercado com Quebra de Objeções Prévias.
               </p>
             </div>
@@ -276,9 +393,9 @@ export default function FrancisCaseStudy() {
         <div className="w-full border-t border-white/10" />
 
         {/* SEÇÃO 3: FUNDO DE FUNIL — CONVERSÃO */}
-        <section id="conversao" className="scroll-mt-32 space-y-10">
+        <section id="conversao" className="scroll-mt-32 space-y-8">
           {/* Topo do Bloco */}
-          <div className="space-y-4 max-w-4xl">
+          <div className="space-y-3 max-w-4xl">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#DE8D47] block">
               [ 03 / FUNDO DE FUNIL — CONVERSÃO &amp; WHATSAPP OPS ]
             </span>
@@ -311,17 +428,17 @@ export default function FrancisCaseStudy() {
             </div>
           </div>
 
-          {/* Base do Bloco (Texto Editorial & Callout Técnico) */}
-          <div className="max-w-3xl space-y-6 pt-4">
-            <p className="text-lg text-slate-300 leading-relaxed font-normal">
+          {/* Base do Bloco (Texto Amarrado à Imagem - mt-4) */}
+          <div className="max-w-3xl space-y-4 mt-4">
+            <p className="text-lg sm:text-xl text-slate-200 leading-relaxed font-normal">
               A entrega consolidou a introdução da corretora no mercado com uma estrutura corporativa madura, escalável e orientada a dados. O alinhamento entre a identidade visual e o fluxo do WhatsApp gerou previsibilidade comercial, otimizou o Custo por Lead (CPL) e blindou a marca com diretrizes prontas para a expansão futura da equipe de vendas.
             </p>
 
-            <div className="border-l-2 border-[#DE8D47] pl-6 py-2 space-y-1">
+            <div className="border-l-2 border-[#DE8D47] pl-5 py-1 space-y-1">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#F3E5C8] block">
                 Engenharia de Vendas:
               </span>
-              <p className="text-sm font-mono text-slate-400 leading-relaxed">
+              <p className="text-sm font-mono text-slate-300 leading-relaxed">
                 Mapeamento de Jornada de Atendimento e Automação de Fluxo Comercial (WhatsApp Ops).
               </p>
             </div>
@@ -364,129 +481,6 @@ export default function FrancisCaseStudy() {
                 sizes="95vw"
                 priority
               />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL EDITORIAL: CENTRAL DA MARCA (BRAND EQUITY) */}
-      {isBrandCenterOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 transition-all duration-300"
-          onClick={() => setIsBrandCenterOpen(false)}
-        >
-          <div
-            className="bg-[#0c0e12] border border-white/15 shadow-2xl rounded-3xl max-w-2xl w-full p-6 sm:p-10 space-y-8 max-h-[90vh] overflow-y-auto relative text-white transition-all duration-300 animate-in fade-in zoom-in-95"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between border-b border-white/10 pb-5">
-              <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#DE8D47] block mb-1">
-                  DOCUMENTAÇÃO TÉCNICA · BRAND EQUITY
-                </span>
-                <h2 className="text-2xl font-extrabold text-white">
-                  Central da Marca — Francis Seguros
-                </h2>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsBrandCenterOpen(false)}
-                className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer border border-white/10"
-                aria-label="Fechar Modal"
-              >
-                ✕
-              </button>
-            </div>
-
-            {/* SEÇÃO 1: PALETA DE CORES (BRAND EQUITY) */}
-            <div className="space-y-4">
-              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#DE8D47] flex items-center gap-2">
-                <span>🎨</span> Paleta Cromática Institucional
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {/* Navy Blue */}
-                <div className="p-4 rounded-2xl bg-black/50 border border-white/10 flex flex-col justify-between space-y-3">
-                  <div
-                    className="w-full h-16 rounded-xl border border-white/10 shadow-inner"
-                    style={{ backgroundColor: '#2B3665' }}
-                  />
-                  <div>
-                    <span className="text-xs font-bold text-white block">Navy Blue</span>
-                    <span className="text-xs font-mono text-[#F3E5C8] block">#2B3665</span>
-                    <span className="text-[10px] text-slate-400 mt-1 block">Cor Primária / Dominante</span>
-                  </div>
-                </div>
-
-                {/* Action Orange */}
-                <div className="p-4 rounded-2xl bg-black/50 border border-white/10 flex flex-col justify-between space-y-3">
-                  <div
-                    className="w-full h-16 rounded-xl border border-white/10 shadow-inner"
-                    style={{ backgroundColor: '#DE8D47' }}
-                  />
-                  <div>
-                    <span className="text-xs font-bold text-white block">Action Orange</span>
-                    <span className="text-xs font-mono text-[#DE8D47] block">#DE8D47</span>
-                    <span className="text-[10px] text-slate-400 mt-1 block">Cor de Ação &amp; Conversão</span>
-                  </div>
-                </div>
-
-                {/* Base Beige */}
-                <div className="p-4 rounded-2xl bg-black/50 border border-white/10 flex flex-col justify-between space-y-3">
-                  <div
-                    className="w-full h-16 rounded-xl border border-white/10 shadow-inner"
-                    style={{ backgroundColor: '#F3E5C8' }}
-                  />
-                  <div>
-                    <span className="text-xs font-bold text-white block">Base Beige</span>
-                    <span className="text-xs font-mono text-[#F3E5C8] block">#F3E5C8</span>
-                    <span className="text-[10px] text-slate-400 mt-1 block">Base Neutra &amp; Contrastes</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* SEÇÃO 2: HIERARQUIA TIPOGRÁFICA (BRAND EQUITY) */}
-            <div className="space-y-4 pt-4 border-t border-white/10">
-              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#DE8D47] flex items-center gap-2">
-                <span>🔤</span> Hierarquia Tipográfica
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Baloo Bhai 2 */}
-                <div className="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-2">
-                  <span className="text-xs font-mono text-[#DE8D47] block font-bold">
-                    TITULARES &amp; HEADLINES
-                  </span>
-                  <h4 className="text-xl font-bold text-white">Baloo Bhai 2</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    Utilizada em títulos principais, chamadas de alto impacto e headlines de conversão. Transmite proximidade e autoridade sem rigidez.
-                  </p>
-                </div>
-
-                {/* Reem Kufi Fun */}
-                <div className="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-2">
-                  <span className="text-xs font-mono text-[#F3E5C8] block font-bold">
-                    SUBTÍTULOS &amp; SUPORTE
-                  </span>
-                  <h4 className="text-xl font-bold text-white">Reem Kufi Fun</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    Utilizada para subtítulos, legendas técnicas, copys do WhatsApp Ops e corpos de texto de suporte.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="pt-4 border-t border-white/10 flex justify-end">
-              <button
-                type="button"
-                onClick={() => setIsBrandCenterOpen(false)}
-                className="px-6 py-2.5 rounded-xl bg-[#DE8D47] hover:bg-[#c97b39] text-slate-950 font-bold text-xs transition-colors cursor-pointer"
-              >
-                Concluir Visualização
-              </button>
             </div>
           </div>
         </div>
