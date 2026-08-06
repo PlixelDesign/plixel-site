@@ -91,13 +91,6 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     projeto.diagnostico =
       'A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.'
     projeto.cliente = 'Identidade Corporativa e Uniformização de Ativos'
-    projeto.imagem_capa = '/images/francis-hero-cover.png'
-    projeto.imagens = [
-      '/images/francis-hero-cover.png',
-      '/images/francis-mockup-mobile.png',
-      '/images/francis-mockup-impressos.png',
-      '/images/francis-flyer-seguradoras.png',
-    ]
   }
 
   if (
@@ -109,6 +102,14 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       'A falta de padronização visual reduzia a taxa de conversão de novos leads e enfraquecia o diferencial competitivo de mercado. O desafio consistiu em estruturar um sistema visual que tangibilizasse a metodologia e acelerasse a jornada de decisão do aluno.'
     projeto.cliente = 'Design de Identidade Local'
   }
+
+  // Combina a imagem de capa (se houver) e todas as imagens cadastradas no Admin do Supabase
+  const displayImages = Array.from(
+    new Set([
+      ...(projeto.imagem_capa && projeto.imagem_capa !== '/og-image.png' ? [projeto.imagem_capa] : []),
+      ...(projeto.imagens || []),
+    ])
+  )
 
   const { anterior, proximo } = await getNavegacao(projeto.ordem)
   const embedUrl = projeto.video_url ? getEmbedUrl(projeto.video_url) : null
@@ -163,10 +164,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         )}
 
         {/* Galeria */}
-        {projeto.imagens.length > 0 && (
+        {displayImages.length > 0 && (
           <section className="section-graphite py-12 md:py-16">
             <div className="shell">
-              <ProjectGallery imagens={projeto.imagens} />
+              <ProjectGallery imagens={displayImages} />
             </div>
           </section>
         )}
