@@ -15,6 +15,7 @@ export default function ProjectCard({
   const isUcadis = projeto.slug.includes('ucadis') || projeto.titulo.toLowerCase().includes('ucadis')
   const isJingLong = projeto.slug.includes('jing-long') || projeto.titulo.toLowerCase().includes('jing long')
   const isFrancis = projeto.slug.includes('francis') || projeto.titulo.toLowerCase().includes('francis')
+  const isEb = projeto.slug.includes('eb') || projeto.titulo.toLowerCase().includes('eb') || projeto.titulo.toLowerCase().includes('musica')
 
   const href = isUcadis
     ? '/trabalhos/central-da-marca'
@@ -22,6 +23,8 @@ export default function ProjectCard({
     ? '/trabalhos/jing-long/central-da-marca'
     : isFrancis
     ? '/trabalhos/francis-pinheiro-seguros/central-da-marca'
+    : isEb
+    ? '/trabalhos/eb-escola-de-musica'
     : `/trabalhos/${projeto.slug}`
 
   return (
