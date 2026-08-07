@@ -123,7 +123,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const isUcadis = projeto.slug.includes('ucadis') || projeto.titulo.toLowerCase().includes('ucadis')
   const isFrancis = projeto.slug.includes('francis') || projeto.titulo.toLowerCase().includes('francis')
   const isJennifer = projeto.slug.includes('jennifer') || projeto.titulo.toLowerCase().includes('jennifer')
-  const isEb = projeto.slug.includes('eb') || projeto.titulo.toLowerCase().includes('eb') || projeto.titulo.toLowerCase().includes('musica')
+  const isEb = projeto.slug.includes('eb') || projeto.titulo.toLowerCase().includes('eb') || projeto.titulo.toLowerCase().includes('musica') || projeto.slug.includes('ester')
 
   const secoes = [
     { label: 'DIAGNÓSTICO', content: projeto.diagnostico },

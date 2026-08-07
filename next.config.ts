@@ -44,6 +44,16 @@ const nextConfig: NextConfig = {
         destination: '/trabalhos/francis-pinheiro-seguros/central-da-marca',
         permanent: true,
       },
+      {
+        source: '/trabalhos/eb',
+        destination: '/trabalhos/eb-escola-de-musica',
+        permanent: true,
+      },
+      {
+        source: '/trabalhos/ester-bernardete',
+        destination: '/trabalhos/eb-escola-de-musica',
+        permanent: true,
+      },
     ]
   },
   images: {
