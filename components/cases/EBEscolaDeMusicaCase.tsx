@@ -47,7 +47,7 @@ export default function EBEscolaDeMusicaCase() {
                 EB Escola de Música
               </span>
               <span className="text-[10px] uppercase text-[#f5ebe0]/60 ml-1">
-                [ Brand System ]
+                [ High-Res Brand System ]
               </span>
             </a>
           </div>
@@ -87,41 +87,43 @@ export default function EBEscolaDeMusicaCase() {
         </div>
       </header>
 
-      {/* [OUVERTURE / ABERTURA] - HERO DE IMPACTO BRUTAL (DM SERIF DISPLAY GIGANTE) */}
-      <section id="ouverture" className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden bg-black pt-8 pb-16">
+      {/* [OUVERTURE / ABERTURA] - SECÇÃO HERO EM TELA INTEIRA COM HERO MONUMENTAL */}
+      <section id="ouverture" className="relative w-full h-screen flex flex-col justify-between overflow-hidden bg-black">
         
-        {/* Imagem Capa EB Estourada em Tela Cheia (w-full h-screen object-cover) */}
-        <div className="relative w-full h-[72vh] md:h-[84vh] max-w-[95vw] mx-auto rounded-3xl overflow-hidden border border-white/10 shadow-2xl cursor-zoom-in group">
+        {/* Imagem de Fundo eb-hero-monumental.jpg Estourada em Tela Cheia (w-full h-screen object-cover) */}
+        <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
           <Image
-            src="/images/Cases/EB-Escola-De-Musica/eb-hero-cover.png"
-            alt="EB Escola de Música - Ouverture Hero Cover"
+            src="/images/Cases/EB-Escola-De-Musica/eb-hero-monumental.jpg"
+            alt="EB Escola de Música - Hero Monumental"
             fill
             priority
             className="object-cover w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
             onClick={() =>
               setActiveImage({
-                src: '/images/Cases/EB-Escola-De-Musica/eb-hero-cover.png',
-                alt: 'EB Escola de Música - Ouverture Hero Cover Fullscreen',
+                src: '/images/Cases/EB-Escola-De-Musica/eb-hero-monumental.jpg',
+                alt: 'EB Escola de Música - Hero Monumental Fullscreen',
               })
             }
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
-
-          <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 z-20 space-y-2 pointer-events-none font-plus-jakarta">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block">
-              [ OUVERTURE · REBRANDING &amp; ESTRUTURAÇÃO DE REDE DE ENSINO ]
-            </span>
-            <p className="text-sm md:text-base text-[#f5ebe0]/90 max-w-lg font-light">
-              Sistema Visual Escalável e Modular para Expansão de Redes de Ensino Musical Premium.
-            </p>
-          </div>
+          {/* Sobreposição de gradiente escuro na base para legibilidade cirúrgica */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
         </div>
 
-        {/* Tipografia Massiva e Assimétrica em DM Serif Display */}
-        <div className="relative max-w-[95vw] mx-auto w-full pt-4 md:-mt-20 z-30 font-dm-serif">
-          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-normal tracking-tight text-[#f5ebe0] leading-none select-none drop-shadow-2xl">
+        {/* Tag Superior */}
+        <div className="relative z-20 pt-24 px-6 md:px-12 pointer-events-none font-plus-jakarta">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block drop-shadow-md">
+            [ OUVERTURE · REBRANDING &amp; ESTRUTURAÇÃO DE REDE DE ENSINO ]
+          </span>
+        </div>
+
+        {/* Tipografia Monumental em DM Serif Display Sobreposta */}
+        <div className="relative z-30 pb-12 md:pb-16 px-6 md:px-12 font-dm-serif max-w-[95vw]">
+          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[11.5rem] font-normal tracking-tight text-[#f5ebe0] leading-none select-none drop-shadow-2xl">
             EB Escola <span className="text-[#c48b56] italic font-light">de Música</span>
           </h1>
+          <p className="text-sm md:text-base text-[#f5ebe0]/90 max-w-lg font-plus-jakarta font-light mt-4 drop-shadow">
+            Sistema Visual Escalável e Modular para Expansão de Redes de Ensino Musical Premium.
+          </p>
         </div>
 
       </section>
@@ -239,7 +241,7 @@ export default function EBEscolaDeMusicaCase() {
           </div>
 
           {/* HIERARQUIA TIPOGRÁFICA COM ALFABETO COMPLETO A-Z EM DM SERIF DISPLAY AO FUNDO */}
-          <div className="relative pt-12 space-y-12 overflow-hidden rounded-3xl border border-white/10 bg-[#120b07] p-8 md:p-14">
+          <div className="relative pt-12 space-y-12 overflow-hidden border border-white/10 bg-[#120b07] p-8 md:p-14">
             
             {/* Alfabeto de Fundo em Escala Brutal (DM Serif Display) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-10">
@@ -278,108 +280,86 @@ export default function EBEscolaDeMusicaCase() {
 
         </section>
 
-        {/* [MODULATION / WAYFINDING] - RITMO FÍSICO E SELOS */}
+        {/* [MODULATION / WAYFINDING] - GRID RÍTMICO / CORTE LIMPO DE FOTOGRAFIA EDITORIAL */}
         <section id="modulation" className="scroll-mt-32 py-24 md:py-36 relative space-y-20 border-t border-white/10">
           
           <div className="space-y-4 max-w-4xl border-l-2 border-[#c48b56] pl-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-plus-jakarta">
-              [ 04. MODULATION / SINALIZAÇÃO &amp; COMPASSO ]
+              [ 04. MODULATION / SINALIZAÇÃO &amp; PONTOS DE CONTACTO FÍSICOS ]
             </span>
             <h2 className="text-5xl sm:text-7xl font-normal text-[#f5ebe0] tracking-tight font-dm-serif">
-              Ritmo Físico &amp; Sinalização de Conservatório
+              Ritmo Físico &amp; Operação
             </h2>
             <p className="text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-plus-jakarta">
-              Um grid que simula o tempo musical. Aplicação minimalista do símbolo da fusão violoncelo + claves nos corredores e salas da escola.
+              Fotografia quente em contraste com o fundo negro absoluto. Tangibilização de cartões institucionais, uniformes docentes e kits de boas-vindas.
             </p>
           </div>
 
-          {/* GRID RÍTMICO ASSÍNMERICO (1 GRANDE, 2 PEQUENAS, SILÊNCIO, 1 GIGANTE) */}
+          {/* GRID RÍTMICO FOTOGRÁFICO DE CORTE SECO (SEM PADDING INTERNO / SEM ROUNDED EXAGERADO) */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch font-plus-jakarta">
             
-            {/* Bloco 1: Imagem Grande (Col-7) */}
+            {/* Bloco Maior (Esquerda - Col-7): eb-operacao-uniforme.jpg */}
             <div
-              className="md:col-span-7 relative h-96 md:h-[500px] rounded-3xl overflow-hidden bg-[#120b07] border border-white/10 p-6 cursor-zoom-in group flex items-center justify-center"
+              className="md:col-span-7 relative h-96 md:h-[560px] overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/EB-Escola-De-Musica/eb-logo-redondo-marrom.png',
-                  alt: 'EB Escola de Música - Logo Redondo Emblemático Marrom',
+                  src: '/images/Cases/EB-Escola-De-Musica/eb-operacao-uniforme.jpg',
+                  alt: 'EB Escola de Música - Operação e Acolhimento Uniforme',
                 })
               }
             >
               <Image
-                src="/images/Cases/EB-Escola-De-Musica/eb-logo-redondo-marrom.png"
-                alt="EB Logo Redondo Marrom"
+                src="/images/Cases/EB-Escola-De-Musica/eb-operacao-uniforme.jpg"
+                alt="EB Escola de Música - Operação e Acolhimento"
                 fill
-                className="object-contain p-8 transition-transform duration-700 group-hover:scale-[1.03]"
+                className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.03]"
               />
-              <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded border border-white/10 text-[10px] font-semibold text-[#f5ebe0]">
-                01 / EMBLEMA REDONDO CONSERVATÓRIO
+              <div className="absolute bottom-4 left-4 bg-black/85 backdrop-blur-md px-3 py-1 text-[10px] font-semibold text-[#f5ebe0] border border-white/10">
+                01 / OPERAÇÃO &amp; ACOLHIMENTO DOCENTE
               </div>
             </div>
 
-            {/* Bloco 2: Duas Imagens Pequenas Empilhadas (Col-5) */}
+            {/* Duas Imagens Empilhadas (Direita - Col-5): eb-mockup-cartoes.jpg & eb-mockup-caneca.jpg */}
             <div className="md:col-span-5 flex flex-col gap-8">
+              {/* Bloco Menor Superior: eb-mockup-cartoes.jpg */}
               <div
-                className="relative h-44 md:h-56 rounded-2xl overflow-hidden bg-[#f5ebe0] border border-white/10 p-4 cursor-zoom-in group flex items-center justify-center"
+                className="relative h-48 md:h-[264px] overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
                 onClick={() =>
                   setActiveImage({
-                    src: '/images/Cases/EB-Escola-De-Musica/eb-logo-horizontal-marrom.png',
-                    alt: 'EB Logo Horizontal Fundo Creme',
+                    src: '/images/Cases/EB-Escola-De-Musica/eb-mockup-cartoes.jpg',
+                    alt: 'EB Escola de Música - Cartões Institucionais',
                   })
                 }
               >
                 <Image
-                  src="/images/Cases/EB-Escola-De-Musica/eb-logo-horizontal-marrom.png"
-                  alt="EB Logo Horizontal Fundo Creme"
+                  src="/images/Cases/EB-Escola-De-Musica/eb-mockup-cartoes.jpg"
+                  alt="EB Cartões Institucionais"
                   fill
-                  className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="object-cover w-full h-full block transition-transform duration-500 group-hover:scale-[1.03]"
                 />
+                <div className="absolute bottom-3 left-3 bg-black/85 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-semibold text-[#f5ebe0] border border-white/10">
+                  02 / CARTÕES INSTITUCIONAIS
+                </div>
               </div>
 
+              {/* Bloco Menor Inferior: eb-mockup-caneca.jpg */}
               <div
-                className="relative h-44 md:h-56 rounded-2xl overflow-hidden bg-[#120b07] border border-white/10 p-4 cursor-zoom-in group flex items-center justify-center"
+                className="relative h-48 md:h-[264px] overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
                 onClick={() =>
                   setActiveImage({
-                    src: '/images/Cases/EB-Escola-De-Musica/eb-logo-vertical-creme.png',
-                    alt: 'EB Logo Vertical Fundo Marrom Escuro',
+                    src: '/images/Cases/EB-Escola-De-Musica/eb-mockup-caneca.jpg',
+                    alt: 'EB Escola de Música - Merchandising &amp; Kit Boas-Vindas',
                   })
                 }
               >
                 <Image
-                  src="/images/Cases/EB-Escola-De-Musica/eb-logo-vertical-creme.png"
-                  alt="EB Logo Vertical Fundo Marrom Escuro"
+                  src="/images/Cases/EB-Escola-De-Musica/eb-mockup-caneca.jpg"
+                  alt="EB Merchandising &amp; Kit Boas-Vindas"
                   fill
-                  className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="object-cover w-full h-full block transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-              </div>
-            </div>
-
-            {/* Espaço em Branco de Silêncio Musical (Col-3) */}
-            <div className="hidden md:flex md:col-span-3 items-center justify-center border-l border-white/10 pl-6">
-              <span className="text-xs text-slate-500 rotate-90 tracking-widest uppercase font-semibold">
-                [ PAUSA / SILÊNCIO TÁTICO ]
-              </span>
-            </div>
-
-            {/* Bloco 3: Imagem Gigante de Sinalização de Salas (Col-9) */}
-            <div className="md:col-span-9 space-y-4">
-              <div
-                className="relative h-96 md:h-[550px] rounded-3xl overflow-hidden bg-[#120b07] border border-white/10 p-8 cursor-zoom-in group flex items-center justify-center"
-                onClick={() =>
-                  setActiveImage({
-                    src: '/images/Cases/EB-Escola-De-Musica/eb-logo-redondo-creme-transparent.png',
-                    alt: 'EB Sinalização de Salas de Aula',
-                  })
-                }
-              >
-                <Image
-                  src="/images/Cases/EB-Escola-De-Musica/eb-logo-redondo-creme-transparent.png"
-                  alt="EB Sinalização de Salas de Aula"
-                  fill
-                  className="object-contain p-12 transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div className="absolute top-6 left-6 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded border border-white/10 text-xs font-semibold text-[#c48b56]">
-                  SINALIZAÇÃO: SALA 01 · PIANO &amp; TECLAS
+                <div className="absolute bottom-3 left-3 bg-black/85 backdrop-blur-md px-2.5 py-0.5 text-[10px] font-semibold text-[#f5ebe0] border border-white/10">
+                  03 / KIT BOAS-VINDAS &amp; MERCHANDISING
                 </div>
               </div>
             </div>
@@ -412,7 +392,7 @@ export default function EBEscolaDeMusicaCase() {
                 [ PATTERN CREME · PASTA DE PARTITURAS &amp; UNBOXING ]
               </span>
               <div
-                className="relative w-full h-[55vh] md:h-[70vh] rounded-3xl overflow-hidden bg-[#f5ebe0] border border-white/10 cursor-zoom-in group shadow-2xl"
+                className="relative w-full h-[55vh] md:h-[70vh] overflow-hidden bg-[#f5ebe0] border border-white/10 cursor-zoom-in group shadow-2xl"
                 onClick={() =>
                   setActiveImage({
                     src: '/images/Cases/EB-Escola-De-Musica/eb-padrao-creme.png',
@@ -435,7 +415,7 @@ export default function EBEscolaDeMusicaCase() {
                 [ PATTERN MARROM · BAGS &amp; UNIFORMES DOCENTES ]
               </span>
               <div
-                className="relative w-full h-[55vh] md:h-[70vh] rounded-3xl overflow-hidden bg-[#120b07] border border-white/10 cursor-zoom-in group shadow-2xl"
+                className="relative w-full h-[55vh] md:h-[70vh] overflow-hidden bg-[#120b07] border border-white/10 cursor-zoom-in group shadow-2xl"
                 onClick={() =>
                   setActiveImage({
                     src: '/images/Cases/EB-Escola-De-Musica/eb-padrao-marrom.png',
@@ -483,7 +463,7 @@ export default function EBEscolaDeMusicaCase() {
             </div>
 
             {/* Imagem Ampliada */}
-            <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-black border border-white/10">
+            <div className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black border border-white/10">
               <Image
                 src={activeImage.src}
                 alt={activeImage.alt}
