@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Bebas_Neue, Parisienne, Poppins } from 'next/font/google'
+import { Bebas_Neue, Parisienne, Poppins, DM_Serif_Display, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 
 const bebasNeue = Bebas_Neue({
@@ -20,6 +20,19 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-poppins',
+  display: 'swap',
+})
+
+const dmSerifDisplay = DM_Serif_Display({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-dm-serif',
+  display: 'swap',
+})
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta',
   display: 'swap',
 })
 
@@ -57,7 +70,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${bebasNeue.variable} ${parisienne.variable} ${poppins.variable}`}>
+    <html lang="pt-BR" className={`${bebasNeue.variable} ${parisienne.variable} ${poppins.variable} ${dmSerifDisplay.variable} ${plusJakartaSans.variable}`}>
       <body>{children}</body>
     </html>
   )

@@ -30,6 +30,14 @@ body {
   overflow-x: hidden;
 }
 
+.font-dm-serif {
+  font-family: var(--font-dm-serif), 'DM Serif Display', Georgia, serif;
+}
+
+.font-plus-jakarta {
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
+}
+
 @layer components {
   .tech-grid {
     background-image:
