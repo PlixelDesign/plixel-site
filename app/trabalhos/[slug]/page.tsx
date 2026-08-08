@@ -160,16 +160,15 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             </h1>
             <p className="body-text text-white/50 mt-4 text-base md:text-lg">{projeto.cliente}</p>
 
-            {/* Banner de Capa Principal */}
+            {/* Banner de Capa Principal Responsivo */}
             {capaUrl && (
-              <div className="mt-10 md:mt-12 relative w-full rounded-xl overflow-hidden border border-blue-neon/20 bg-navy-deep">
+              <div className="mt-10 md:mt-12 relative w-full aspect-square sm:aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-blue-neon/20 bg-navy-deep">
                 <Image
                   src={capaUrl}
                   alt={`Capa de ${projeto.titulo}`}
-                  width={1920}
-                  height={1080}
+                  fill
                   priority
-                  className="w-full h-auto object-contain block max-h-[650px]"
+                  className="object-cover w-full h-full block"
                 />
               </div>
             )}

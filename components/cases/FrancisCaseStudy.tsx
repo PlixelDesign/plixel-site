@@ -121,10 +121,10 @@ export default function FrancisCaseStudy() {
             </div>
           </div>
 
-          {/* Hero Image (Edge-to-Edge Editorial Container) */}
+          {/* Hero Image (Edge-to-Edge Editorial Container Responsivo 16:9) */}
           <div className="w-full max-w-6xl mx-auto pt-4">
             <div
-              className="relative w-full rounded-2xl overflow-hidden bg-slate-950 border border-white/10 cursor-zoom-in group shadow-2xl"
+              className="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 border border-white/10 cursor-zoom-in group shadow-2xl"
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/Francis-Seguros/francis-seguros-portfolio-hero.jpg',
@@ -135,10 +135,9 @@ export default function FrancisCaseStudy() {
               <Image
                 src="/images/Cases/Francis-Seguros/francis-seguros-portfolio-hero.jpg"
                 alt="Francis Pinheiro Seguros - Hero Portfolio Widescreen"
-                width={1920}
-                height={1080}
+                fill
                 priority
-                className="w-full h-auto object-contain block transition-transform duration-700 group-hover:scale-[1.01]"
+                className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.01]"
               />
               <div className="absolute bottom-4 right-4 bg-[#07080a]/90 backdrop-blur-md px-3 py-1.5 rounded border border-white/10 text-[11px] font-mono text-[#F3E5C8] opacity-0 group-hover:opacity-100 transition-opacity">
                 🔍 Expandir Imagem (Zoom)

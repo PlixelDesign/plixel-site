@@ -87,8 +87,8 @@ export default function EBEscolaDeMusicaCase() {
         </div>
       </header>
 
-      {/* [OUVERTURE / ABERTURA] - HERO MONUMENTAL RESPONSIVO (h-[60vh] md:h-screen) */}
-      <section id="ouverture" className="relative w-full h-[60vh] md:h-screen flex flex-col justify-between overflow-hidden bg-black">
+      {/* [OUVERTURE / ABERTURA] - HERO MONUMENTAL RESPONSIVO */}
+      <section id="ouverture" className="relative w-full min-h-[55vh] sm:min-h-[75vh] md:h-screen flex flex-col justify-between overflow-hidden bg-black">
         
         {/* Imagem de Fundo eb-hero-monumental.jpg Estourada em Tela Cheia (w-full h-full object-cover) */}
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
@@ -97,7 +97,7 @@ export default function EBEscolaDeMusicaCase() {
             alt="EB Escola de Música - Hero Monumental"
             fill
             priority
-            className="object-cover w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
+            className="object-cover object-center w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
             onClick={() =>
               setActiveImage({
                 src: '/images/Cases/EB-Escola-De-Musica/eb-hero-monumental.jpg',
@@ -400,49 +400,49 @@ export default function EBEscolaDeMusicaCase() {
             </p>
           </div>
 
-          {/* LAYOUT FULL-BLEED EDGE-TO-EDGE DOS NOVOS MOCKUPS FOTOGRÁFICOS */}
+          {/* LAYOUT FULL-BLEED EDGE-TO-EDGE DOS NOVOS MOCKUPS FOTOGRÁFICOS EM PROPORÇÃO 16:9 */}
           <div className="space-y-12 font-plus-jakarta w-full">
             
-            {/* Imagem Principal (Destaque): eb-mockup-kit-boas-vindas.jpg */}
+            {/* Imagem Principal (Destaque): eb-mockup-kit-boas-vindas.jpg em 16:9 */}
             <div className="space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[#c48b56] block">
-                [ KIT MATRÍCULA &amp; BOAS-VINDAS · DESTAQUE UNBOXING ]
+                [ KIT MATRÍCULA &amp; BOAS-VINDAS · DESTAQUE UNBOXING 16:9 ]
               </span>
               <div
-                className="relative w-full h-[60vh] md:h-screen overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl"
+                className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl"
                 onClick={() =>
                   setActiveImage({
                     src: '/images/Cases/EB-Escola-De-Musica/eb-mockup-kit-boas-vindas.jpg',
-                    alt: 'EB Kit Matrícula &amp; Boas-Vindas Full Bleed',
+                    alt: 'EB Kit Matrícula &amp; Boas-Vindas 16:9',
                   })
                 }
               >
                 <Image
                   src="/images/Cases/EB-Escola-De-Musica/eb-mockup-kit-boas-vindas.jpg"
-                  alt="EB Kit Matrícula &amp; Boas-Vindas Full Bleed"
+                  alt="EB Kit Matrícula &amp; Boas-Vindas 16:9"
                   fill
                   className="object-cover w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
                 />
               </div>
             </div>
 
-            {/* Imagem Secundária (Apoio): eb-mockup-kit-transporte.jpg */}
+            {/* Imagem Secundária (Apoio): eb-mockup-kit-transporte.jpg em 16:9 */}
             <div className="space-y-3 pt-6">
               <span className="text-xs font-bold uppercase tracking-wider text-[#c48b56] block">
-                [ ECO-BAGS &amp; TRANSPORTE INSTITUCIONAL · APOIO OPERACIONAL ]
+                [ ECO-BAGS &amp; TRANSPORTE INSTITUCIONAL · APOIO OPERACIONAL 16:9 ]
               </span>
               <div
-                className="relative w-full h-[60vh] md:h-screen overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl"
+                className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl"
                 onClick={() =>
                   setActiveImage({
                     src: '/images/Cases/EB-Escola-De-Musica/eb-mockup-kit-transporte.jpg',
-                    alt: 'EB Eco-Bags &amp; Kit Transporte Full Bleed',
+                    alt: 'EB Eco-Bags &amp; Kit Transporte 16:9',
                   })
                 }
               >
                 <Image
                   src="/images/Cases/EB-Escola-De-Musica/eb-mockup-kit-transporte.jpg"
-                  alt="EB Eco-Bags &amp; Kit Transporte Full Bleed"
+                  alt="EB Eco-Bags &amp; Kit Transporte 16:9"
                   fill
                   className="object-cover w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
                 />

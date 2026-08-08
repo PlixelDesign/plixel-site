@@ -54,9 +54,9 @@ export default function JingLongBrandPage() {
         </div>
       </header>
 
-      {/* SEÇÃO 1: HERO */}
+      {/* SEÇÃO 1: HERO RESPONSIVO */}
       <section id="hero" className="w-full relative pt-16">
-        <div className="relative w-full aspect-[21/9] min-h-[380px] max-h-[850px] bg-zinc-950 overflow-hidden border-b border-zinc-900">
+        <div className="relative w-full aspect-square sm:aspect-video md:aspect-[21/9] bg-zinc-950 overflow-hidden border-b border-zinc-900">
           <Image
             src={ASSETS.heroCover}
             alt="Jing Long Martial Arts Academy"
@@ -64,7 +64,7 @@ export default function JingLongBrandPage() {
             priority
             quality={95}
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-center w-full h-full block"
           />
         </div>
       </section>
