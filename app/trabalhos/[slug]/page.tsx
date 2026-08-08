@@ -14,6 +14,7 @@ import { INITIAL_MOCK_PROJETOS } from '@/lib/mock-data'
 
 import FrancisCaseStudy from '@/components/cases/FrancisCaseStudy'
 import EBEscolaDeMusicaCase from '@/components/cases/EBEscolaDeMusicaCase'
+import JenniferLemosCase from '@/components/cases/JenniferLemosCase'
 
 async function getProjeto(slug: string): Promise<Projeto | null> {
   try {
@@ -137,6 +138,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
   if (isEb) {
     return <EBEscolaDeMusicaCase />
+  }
+
+  if (isJennifer) {
+    return <JenniferLemosCase />
   }
 
   return (

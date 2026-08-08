@@ -54,6 +54,21 @@ const nextConfig: NextConfig = {
         destination: '/trabalhos/eb-escola-de-musica',
         permanent: true,
       },
+      {
+        source: '/trabalhos/id-visual-jennifer-fotografia',
+        destination: '/trabalhos/jennifer-lemos-fotografia',
+        permanent: true,
+      },
+      {
+        source: '/trabalhos/jennifer',
+        destination: '/trabalhos/jennifer-lemos-fotografia',
+        permanent: true,
+      },
+      {
+        source: '/trabalhos/jennifer-lemos',
+        destination: '/trabalhos/jennifer-lemos-fotografia',
+        permanent: true,
+      },
     ]
   },
   images: {
