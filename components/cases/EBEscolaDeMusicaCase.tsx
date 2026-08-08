@@ -47,7 +47,7 @@ export default function EBEscolaDeMusicaCase() {
                 EB Escola de Música
               </span>
               <span className="text-[10px] uppercase text-[#f5ebe0]/60 ml-1">
-                [ High-Res Brand System ]
+                [ Full-Bleed Editorial ]
               </span>
             </a>
           </div>
@@ -87,10 +87,10 @@ export default function EBEscolaDeMusicaCase() {
         </div>
       </header>
 
-      {/* [OUVERTURE / ABERTURA] - SECÇÃO HERO EM TELA INTEIRA COM HERO MONUMENTAL */}
-      <section id="ouverture" className="relative w-full h-screen flex flex-col justify-between overflow-hidden bg-black">
+      {/* [OUVERTURE / ABERTURA] - HERO MONUMENTAL RESPONSIVO (h-[60vh] md:h-screen) */}
+      <section id="ouverture" className="relative w-full h-[60vh] md:h-screen flex flex-col justify-between overflow-hidden bg-black">
         
-        {/* Imagem de Fundo eb-hero-monumental.jpg Estourada em Tela Cheia (w-full h-screen object-cover) */}
+        {/* Imagem de Fundo eb-hero-monumental.jpg Estourada em Tela Cheia (w-full h-full object-cover) */}
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
           <Image
             src="/images/Cases/EB-Escola-De-Musica/eb-hero-monumental.jpg"
@@ -110,18 +110,18 @@ export default function EBEscolaDeMusicaCase() {
         </div>
 
         {/* Tag Superior */}
-        <div className="relative z-20 pt-24 px-6 md:px-12 pointer-events-none font-plus-jakarta">
+        <div className="relative z-20 pt-20 md:pt-24 px-6 md:px-12 pointer-events-none font-plus-jakarta">
           <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block drop-shadow-md">
             [ OUVERTURE · REBRANDING &amp; ESTRUTURAÇÃO DE REDE DE ENSINO ]
           </span>
         </div>
 
         {/* Tipografia Monumental em DM Serif Display Sobreposta */}
-        <div className="relative z-30 pb-12 md:pb-16 px-6 md:px-12 font-dm-serif max-w-[95vw]">
-          <h1 className="text-6xl sm:text-8xl md:text-9xl lg:text-[11.5rem] font-normal tracking-tight text-[#f5ebe0] leading-none select-none drop-shadow-2xl">
+        <div className="relative z-30 pb-8 md:pb-16 px-6 md:px-12 font-dm-serif max-w-[95vw]">
+          <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[11.5rem] font-normal tracking-tight text-[#f5ebe0] leading-none select-none drop-shadow-2xl">
             EB Escola <span className="text-[#c48b56] italic font-light">de Música</span>
           </h1>
-          <p className="text-sm md:text-base text-[#f5ebe0]/90 max-w-lg font-plus-jakarta font-light mt-4 drop-shadow">
+          <p className="text-xs sm:text-sm md:text-base text-[#f5ebe0]/90 max-w-lg font-plus-jakarta font-light mt-2 md:mt-4 drop-shadow">
             Sistema Visual Escalável e Modular para Expansão de Redes de Ensino Musical Premium.
           </p>
         </div>
@@ -132,13 +132,13 @@ export default function EBEscolaDeMusicaCase() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-l border-white/10">
 
         {/* [THEME / O TOM DE NEGÓCIO] - O MANIFESTO */}
-        <section id="theme" className="scroll-mt-32 py-24 md:py-36 relative">
+        <section id="theme" className="scroll-mt-32 py-20 md:py-36 relative">
           <div className="border-l-2 border-[#c48b56] pl-6 md:pl-12 max-w-5xl space-y-8">
             <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-plus-jakarta">
               [ 02. THEME / O MANIFESTO DE NEGÓCIO ]
             </span>
 
-            <p className="text-3xl sm:text-4xl md:text-5xl font-light text-slate-400 tracking-tight leading-[1.25] font-plus-jakarta">
+            <p className="text-2xl sm:text-4xl md:text-5xl font-light text-slate-400 tracking-tight leading-[1.25] font-plus-jakarta">
               &quot;Desenvolvemos um <span className="text-[#f5ebe0] font-normal underline decoration-[#c48b56] underline-offset-8">Sistema Visual Escalável</span> projetado para elevar a <span className="text-[#f5ebe0] font-normal">Alta Percepção de Valor</span> da EB Escola de Música. O resultado é a <span className="text-[#f5ebe0] font-normal">Consistência Operacional</span> e a capacidade de replicação acelerada para <span className="text-[#f5ebe0] font-normal">Redes de Ensino de Ticket Premium</span>.&quot;
             </p>
 
@@ -147,7 +147,7 @@ export default function EBEscolaDeMusicaCase() {
                 <span className="block text-slate-500 uppercase font-semibold">Posicionamento</span>
                 <span className="text-[#f5ebe0] font-bold">Educação Musical de Alto Ticket</span>
               </div>
-              <div className="h-6 w-px bg-white/10" />
+              <div className="h-6 w-px bg-white/10 hidden sm:block" />
               <div>
                 <span className="block text-slate-500 uppercase font-semibold">Modularidade</span>
                 <span className="text-[#f5ebe0] font-bold">Sinalização, Kit Matrícula &amp; Diplomas</span>
@@ -157,95 +157,112 @@ export default function EBEscolaDeMusicaCase() {
         </section>
 
         {/* [HARMONICS / DESIGN SYSTEM] - A PRANCHA TÉCNICA ABERTA */}
-        <section id="harmonics" className="scroll-mt-32 py-24 md:py-36 relative space-y-20 border-t border-white/10">
+        <section id="harmonics" className="scroll-mt-32 py-20 md:py-36 relative space-y-16 border-t border-white/10">
           
           <div className="space-y-4 max-w-4xl border-l-2 border-[#c48b56] pl-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-plus-jakarta">
               [ 03. HARMONICS / TECLAS &amp; TOKENS ]
             </span>
-            <h2 className="text-5xl sm:text-7xl font-normal text-[#f5ebe0] tracking-tight font-dm-serif">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#f5ebe0] tracking-tight font-dm-serif">
               Design System &amp; Prancha Técnica Aberta
             </h2>
-            <p className="text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-plus-jakarta">
-              Os tokens visuais organizados como uma exposição de arte contemporânea. Teclas monocromáticas e o novo alfabeto tipográfico em DM Serif Display e Plus Jakarta Sans.
+            <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-plus-jakarta">
+              Os tokens visuais organizados como um teclado de piano completo ocupando 100% da largura. Teclas cromáticas monocromáticas e o alfabeto completo em DM Serif Display e Plus Jakarta Sans.
             </p>
           </div>
 
-          {/* COLOR SWATCHES COMO TECLAS DE PIANO */}
-          <div className="space-y-6">
+          {/* TECLAS CROMÁTICAS - PIANO KEYBOARD SWATCHES (FULL WIDTH 10 TECLAS + TECLAS PRETAS SUSTENIDO) */}
+          <div className="space-y-4 w-full">
             <span className="text-xs font-bold uppercase tracking-wider text-[#c48b56] block font-plus-jakarta">
-              [ TECLAS CROMÁTICAS · PIANO KEY SWATCHES ]
+              [ TECLAS CROMÁTICAS · GRAND PIANO KEYBOARD SWATCHES ]
             </span>
             
-            <div className="flex items-start gap-4 md:gap-8 overflow-x-auto pb-6 scrollbar-none">
-              {/* Tecla 1: Marrom Café */}
-              <div className="flex flex-col items-center space-y-3 group">
-                <div
-                  className="h-72 md:h-96 w-20 md:w-28 rounded-b-2xl border border-white/20 shadow-2xl relative flex items-end justify-center pb-6 transition-transform duration-500 group-hover:translate-y-2"
-                  style={{ backgroundColor: '#1a110b' }}
-                >
-                  <span className="text-xs text-[#f5ebe0]/80 tracking-widest uppercase rotate-180 [writing-mode:vertical-lr] font-plus-jakarta font-semibold">
-                    #1A110B · CAFÉ PROFUNDO
-                  </span>
-                </div>
+            {/* Teclado de Piano de 10 Teclas Horizontais (Full Width) */}
+            <div className="relative w-full h-[400px] md:h-[500px] bg-black border-y border-white/10 grid grid-cols-10 gap-0.5 overflow-hidden">
+              
+              {/* TECLAS PRETAS DE SUSTENIDO / ACCIDENTALS (TECLAS PRETAS DO PIANO) */}
+              <div className="absolute top-0 inset-x-0 h-32 md:h-44 z-20 pointer-events-none grid grid-cols-10 px-0">
+                {/* Sustenido 1 (entre cor 1 e 2) */}
+                <div className="col-start-2 -ml-3 md:-ml-4 w-6 md:w-8 h-full bg-[#120b07] border-x border-b border-white/20 shadow-2xl rounded-b-sm" />
+                {/* Sustenido 2 (entre cor 2 e 3) */}
+                <div className="col-start-4 -ml-3 md:-ml-4 w-6 md:w-8 h-full bg-[#120b07] border-x border-b border-white/20 shadow-2xl rounded-b-sm" />
+                {/* Sustenido 3 (entre cor 3 e 4) */}
+                <div className="col-start-6 -ml-3 md:-ml-4 w-6 md:w-8 h-full bg-[#120b07] border-x border-b border-white/20 shadow-2xl rounded-b-sm" />
+                {/* Sustenido 4 (entre cor 4 e 5) */}
+                <div className="col-start-8 -ml-3 md:-ml-4 w-6 md:w-8 h-full bg-[#120b07] border-x border-b border-white/20 shadow-2xl rounded-b-sm" />
+                {/* Sustenido 5 (entre tecla 9 e 10) */}
+                <div className="col-start-10 -ml-3 md:-ml-4 w-6 md:w-8 h-full bg-[#120b07] border-x border-b border-white/20 shadow-2xl rounded-b-sm" />
               </div>
 
-              {/* Tecla 2: Chocolate Profundo */}
-              <div className="flex flex-col items-center space-y-3 group">
-                <div
-                  className="h-72 md:h-96 w-20 md:w-28 rounded-b-2xl border border-white/20 shadow-2xl relative flex items-end justify-center pb-6 transition-transform duration-500 group-hover:translate-y-2"
-                  style={{ backgroundColor: '#3d2516' }}
-                >
-                  <span className="text-xs text-[#f5ebe0]/80 tracking-widest uppercase rotate-180 [writing-mode:vertical-lr] font-plus-jakarta font-semibold">
-                    #3D2516 · CHOCOLATE ESCURO
-                  </span>
-                </div>
+              {/* COR 1: CAFÉ PROFUNDA (#1A110B) - TECLAS 1 & 2 */}
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#1a110b' }}>
+                <span className="text-[10px] md:text-xs text-[#f5ebe0]/80 tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta font-semibold select-none">
+                  #1A110B · CAFÉ
+                </span>
+              </div>
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#1a110b' }}>
+                <span className="text-[10px] md:text-xs text-[#f5ebe0]/80 tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta font-semibold select-none">
+                  TECLA 02
+                </span>
               </div>
 
-              {/* Tecla 3: Chocolate Claro Accent */}
-              <div className="flex flex-col items-center space-y-3 group">
-                <div
-                  className="h-72 md:h-96 w-20 md:w-28 rounded-b-2xl border border-white/20 shadow-2xl relative flex items-end justify-center pb-6 transition-transform duration-500 group-hover:translate-y-2"
-                  style={{ backgroundColor: '#8b5a2b' }}
-                >
-                  <span className="text-xs text-[#f5ebe0] tracking-widest uppercase rotate-180 [writing-mode:vertical-lr] font-plus-jakarta font-semibold">
-                    #8B5A2B · CHOCOLATE ACCENT
-                  </span>
-                </div>
+              {/* COR 2: CHOCOLATE ESCURO (#3D2516) - TECLAS 3 & 4 */}
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#3d2516' }}>
+                <span className="text-[10px] md:text-xs text-[#f5ebe0]/80 tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta font-semibold select-none">
+                  #3D2516 · CHOCOLATE
+                </span>
+              </div>
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#3d2516' }}>
+                <span className="text-[10px] md:text-xs text-[#f5ebe0]/80 tracking-widest uppercase rotate-180 [writing-mode:vertical-lr] font-plus-jakarta font-semibold select-none">
+                  TECLA 04
+                </span>
               </div>
 
-              {/* Tecla 4: Creme Acolhedor */}
-              <div className="flex flex-col items-center space-y-3 group">
-                <div
-                  className="h-72 md:h-96 w-20 md:w-28 rounded-b-2xl border border-white/20 shadow-2xl relative flex items-end justify-center pb-6 transition-transform duration-500 group-hover:translate-y-2"
-                  style={{ backgroundColor: '#f5ebe0' }}
-                >
-                  <span className="text-xs text-[#1a110b] font-bold tracking-widest uppercase rotate-180 [writing-mode:vertical-lr] font-plus-jakarta">
-                    #F5EBE0 · CREME ACOLHEDOR
-                  </span>
-                </div>
+              {/* COR 3: CHOCOLATE ACCENT (#8B5A2B) - TECLAS 5 & 6 */}
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#8b5a2b' }}>
+                <span className="text-[10px] md:text-xs text-[#f5ebe0] tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta font-semibold select-none">
+                  #8B5A2B · ACCENT
+                </span>
+              </div>
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#8b5a2b' }}>
+                <span className="text-[10px] md:text-xs text-[#f5ebe0] tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta font-semibold select-none">
+                  TECLA 06
+                </span>
               </div>
 
-              {/* Tecla 5: Branco Puro */}
-              <div className="flex flex-col items-center space-y-3 group">
-                <div
-                  className="h-72 md:h-96 w-20 md:w-28 rounded-b-2xl border border-white/20 shadow-2xl relative flex items-end justify-center pb-6 transition-transform duration-500 group-hover:translate-y-2"
-                  style={{ backgroundColor: '#ffffff' }}
-                >
-                  <span className="text-xs text-[#1a110b] font-bold tracking-widest uppercase rotate-180 [writing-mode:vertical-lr] font-plus-jakarta">
-                    #FFFFFF · BRANCO PURO
-                  </span>
-                </div>
+              {/* COR 4: CREME ACOLHEDOR (#F5EBE0) - TECLAS 7 & 8 */}
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#f5ebe0' }}>
+                <span className="text-[10px] md:text-xs text-[#1a110b] font-bold tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta select-none">
+                  #F5EBE0 · CREME
+                </span>
               </div>
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#f5ebe0' }}>
+                <span className="text-[10px] md:text-xs text-[#1a110b] font-bold tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta select-none">
+                  TECLA 08
+                </span>
+              </div>
+
+              {/* COR 5: BRANCO PURO (#FFFFFF) - TECLAS 9 & 10 */}
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#ffffff' }}>
+                <span className="text-[10px] md:text-xs text-[#1a110b] font-bold tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta select-none">
+                  #FFFFFF · BRANCO
+                </span>
+              </div>
+              <div className="relative h-full flex flex-col justify-end p-3 transition-colors" style={{ backgroundColor: '#ffffff' }}>
+                <span className="text-[10px] md:text-xs text-[#1a110b] font-bold tracking-widest uppercase rotate-180 [writing-mode:vertical-rl] font-plus-jakarta select-none">
+                  TECLA 10
+                </span>
+              </div>
+
             </div>
           </div>
 
           {/* HIERARQUIA TIPOGRÁFICA COM ALFABETO COMPLETO A-Z EM DM SERIF DISPLAY AO FUNDO */}
-          <div className="relative pt-12 space-y-12 overflow-hidden border border-white/10 bg-[#120b07] p-8 md:p-14">
+          <div className="relative pt-12 space-y-12 overflow-hidden border border-white/10 bg-[#120b07] p-6 sm:p-8 md:p-14">
             
             {/* Alfabeto de Fundo em Escala Brutal (DM Serif Display) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden opacity-10">
-              <span className="font-dm-serif text-7xl sm:text-9xl md:text-[15rem] font-normal text-white tracking-widest leading-none">
+              <span className="font-dm-serif text-6xl sm:text-9xl md:text-[15rem] font-normal text-white tracking-widest leading-none">
                 ABCDEFGHIJKLMNOPQRSTUVWXYZ
               </span>
             </div>
@@ -255,10 +272,10 @@ export default function EBEscolaDeMusicaCase() {
                 <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-plus-jakarta">
                   [ FONTE PRIMÁRIA · DM SERIF DISPLAY ]
                 </span>
-                <h3 className="text-5xl md:text-8xl font-normal text-[#f5ebe0] font-dm-serif">
+                <h3 className="text-4xl sm:text-6xl md:text-8xl font-normal text-[#f5ebe0] font-dm-serif">
                   DM Serif Display
                 </h3>
-                <p className="text-xl md:text-2xl text-[#f5ebe0]/90 font-light font-dm-serif max-w-2xl">
+                <p className="text-lg md:text-2xl text-[#f5ebe0]/90 font-light font-dm-serif max-w-2xl">
                   &quot;Harmonia entre o Rigor Clássico e a Acolhida Pedagógica.&quot;
                 </p>
               </div>
@@ -267,10 +284,10 @@ export default function EBEscolaDeMusicaCase() {
                 <span className="text-xs font-bold uppercase tracking-widest text-[#f5ebe0]/70 block font-plus-jakarta">
                   [ FONTE SECUNDÁRIA · PLUS JAKARTA SANS ]
                 </span>
-                <h3 className="text-3xl md:text-5xl font-bold text-[#f5ebe0] font-plus-jakarta">
+                <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#f5ebe0] font-plus-jakarta">
                   Plus Jakarta Sans
                 </h3>
-                <p className="text-base text-slate-300 max-w-2xl font-normal leading-relaxed font-plus-jakarta">
+                <p className="text-sm md:text-base text-slate-300 max-w-2xl font-normal leading-relaxed font-plus-jakarta">
                   Tipografia para materiais pedagógicos, partituras, comunicação no WhatsApp e módulos de ensino digital.
                 </p>
               </div>
@@ -281,26 +298,26 @@ export default function EBEscolaDeMusicaCase() {
         </section>
 
         {/* [MODULATION / WAYFINDING] - GRID RÍTMICO / CORTE LIMPO DE FOTOGRAFIA EDITORIAL */}
-        <section id="modulation" className="scroll-mt-32 py-24 md:py-36 relative space-y-20 border-t border-white/10">
+        <section id="modulation" className="scroll-mt-32 py-20 md:py-36 relative space-y-16 border-t border-white/10">
           
           <div className="space-y-4 max-w-4xl border-l-2 border-[#c48b56] pl-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-plus-jakarta">
               [ 04. MODULATION / SINALIZAÇÃO &amp; PONTOS DE CONTACTO FÍSICOS ]
             </span>
-            <h2 className="text-5xl sm:text-7xl font-normal text-[#f5ebe0] tracking-tight font-dm-serif">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#f5ebe0] tracking-tight font-dm-serif">
               Ritmo Físico &amp; Operação
             </h2>
-            <p className="text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-plus-jakarta">
+            <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-plus-jakarta">
               Fotografia quente em contraste com o fundo negro absoluto. Tangibilização de cartões institucionais, uniformes docentes e kits de boas-vindas.
             </p>
           </div>
 
-          {/* GRID RÍTMICO FOTOGRÁFICO DE CORTE SECO (SEM PADDING INTERNO / SEM ROUNDED EXAGERADO) */}
+          {/* GRID RÍTMICO FOTOGRÁFICO RESPONSIVO (GRID-COLS-1 EM MOBILE / GRID-COLS-12 EM DESKTOP) */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch font-plus-jakarta">
             
             {/* Bloco Maior (Esquerda - Col-7): eb-operacao-uniforme.jpg */}
             <div
-              className="md:col-span-7 relative h-96 md:h-[560px] overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
+              className="md:col-span-7 relative h-[60vh] md:h-[560px] w-full overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/EB-Escola-De-Musica/eb-operacao-uniforme.jpg',
@@ -323,7 +340,7 @@ export default function EBEscolaDeMusicaCase() {
             <div className="md:col-span-5 flex flex-col gap-8">
               {/* Bloco Menor Superior: eb-mockup-cartoes.jpg */}
               <div
-                className="relative h-48 md:h-[264px] overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
+                className="relative h-64 md:h-[264px] w-full overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
                 onClick={() =>
                   setActiveImage({
                     src: '/images/Cases/EB-Escola-De-Musica/eb-mockup-cartoes.jpg',
@@ -344,7 +361,7 @@ export default function EBEscolaDeMusicaCase() {
 
               {/* Bloco Menor Inferior: eb-mockup-caneca.jpg */}
               <div
-                className="relative h-48 md:h-[264px] overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
+                className="relative h-64 md:h-[264px] w-full overflow-hidden bg-black border border-white/10 cursor-zoom-in group"
                 onClick={() =>
                   setActiveImage({
                     src: '/images/Cases/EB-Escola-De-Musica/eb-mockup-caneca.jpg',
@@ -368,64 +385,64 @@ export default function EBEscolaDeMusicaCase() {
 
         </section>
 
-        {/* [RESONANCE / UNBOXING] - OS PADRÕES VISUAIS PATTERNS (EDGE TO EDGE FULL BLEED) */}
-        <section id="resonance" className="scroll-mt-32 py-24 md:py-36 relative space-y-16 border-t border-white/10">
+        {/* [RESONANCE / UNBOXING] - NOVOS ASSETS FULL-BLEED (KIT BOAS-VINDAS & KIT TRANSPORTE) */}
+        <section id="resonance" className="scroll-mt-32 py-20 md:py-36 relative space-y-16 border-t border-white/10">
           
           <div className="space-y-4 max-w-4xl border-l-2 border-[#c48b56] pl-6">
             <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-plus-jakarta">
               [ 05. RESONANCE / TEXTURAS &amp; UNBOXING ]
             </span>
-            <h2 className="text-5xl sm:text-7xl font-normal text-[#f5ebe0] tracking-tight font-dm-serif">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#f5ebe0] tracking-tight font-dm-serif">
               Padrões Visuais &amp; Experiência de Matrícula
             </h2>
-            <p className="text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-plus-jakarta">
-              Patterns repetitivos aplicados de ponta a ponta. Tangibilização da marca em sacolas institucionais, pastas de partituras e kits de exames.
+            <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-plus-jakarta">
+              Assets fotográficos em resolução máxima. Tangibilização da marca em sacolas institucionais, pastas de partituras e kits de exames.
             </p>
           </div>
 
-          {/* LAYOUT EDGE-TO-EDGE FULL-BLEED DOS PATTERNS */}
-          <div className="space-y-12 font-plus-jakarta">
+          {/* LAYOUT FULL-BLEED EDGE-TO-EDGE DOS NOVOS MOCKUPS FOTOGRÁFICOS */}
+          <div className="space-y-12 font-plus-jakarta w-full">
             
-            {/* Pattern 1: Padrão Creme Edge-to-Edge */}
+            {/* Imagem Principal (Destaque): eb-mockup-kit-boas-vindas.jpg */}
             <div className="space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-[#c48b56] block">
-                [ PATTERN CREME · PASTA DE PARTITURAS &amp; UNBOXING ]
+                [ KIT MATRÍCULA &amp; BOAS-VINDAS · DESTAQUE UNBOXING ]
               </span>
               <div
-                className="relative w-full h-[55vh] md:h-[70vh] overflow-hidden bg-[#f5ebe0] border border-white/10 cursor-zoom-in group shadow-2xl"
+                className="relative w-full h-[60vh] md:h-screen overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl"
                 onClick={() =>
                   setActiveImage({
-                    src: '/images/Cases/EB-Escola-De-Musica/eb-padrao-creme.png',
-                    alt: 'EB Padrão Creme Full Bleed',
+                    src: '/images/Cases/EB-Escola-De-Musica/eb-mockup-kit-boas-vindas.jpg',
+                    alt: 'EB Kit Matrícula &amp; Boas-Vindas Full Bleed',
                   })
                 }
               >
                 <Image
-                  src="/images/Cases/EB-Escola-De-Musica/eb-padrao-creme.png"
-                  alt="EB Padrão Creme Full Bleed"
+                  src="/images/Cases/EB-Escola-De-Musica/eb-mockup-kit-boas-vindas.jpg"
+                  alt="EB Kit Matrícula &amp; Boas-Vindas Full Bleed"
                   fill
                   className="object-cover w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
                 />
               </div>
             </div>
 
-            {/* Pattern 2: Padrão Marrom Edge-to-Edge */}
+            {/* Imagem Secundária (Apoio): eb-mockup-kit-transporte.jpg */}
             <div className="space-y-3 pt-6">
               <span className="text-xs font-bold uppercase tracking-wider text-[#c48b56] block">
-                [ PATTERN MARROM · BAGS &amp; UNIFORMES DOCENTES ]
+                [ ECO-BAGS &amp; TRANSPORTE INSTITUCIONAL · APOIO OPERACIONAL ]
               </span>
               <div
-                className="relative w-full h-[55vh] md:h-[70vh] overflow-hidden bg-[#120b07] border border-white/10 cursor-zoom-in group shadow-2xl"
+                className="relative w-full h-[60vh] md:h-screen overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl"
                 onClick={() =>
                   setActiveImage({
-                    src: '/images/Cases/EB-Escola-De-Musica/eb-padrao-marrom.png',
-                    alt: 'EB Padrão Marrom Full Bleed',
+                    src: '/images/Cases/EB-Escola-De-Musica/eb-mockup-kit-transporte.jpg',
+                    alt: 'EB Eco-Bags &amp; Kit Transporte Full Bleed',
                   })
                 }
               >
                 <Image
-                  src="/images/Cases/EB-Escola-De-Musica/eb-padrao-marrom.png"
-                  alt="EB Padrão Marrom Full Bleed"
+                  src="/images/Cases/EB-Escola-De-Musica/eb-mockup-kit-transporte.jpg"
+                  alt="EB Eco-Bags &amp; Kit Transporte Full Bleed"
                   fill
                   className="object-cover w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
                 />
