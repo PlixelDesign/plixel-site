@@ -105,7 +105,7 @@ export const INITIAL_MOCK_PROJETOS: Projeto[] = [
       '/images/jennifer-logo-dark.png',
       '/images/jennifer-album-fotos.png',
     ],
-    imagem_capa: '/images/jennifer-envelope-mockup.png',
+    imagem_capa: '/images/Cases/Jennifer-Lemos/jl-hero-capa.png',
     video_url: null,
     ordem: 6,
     publicado: true,
