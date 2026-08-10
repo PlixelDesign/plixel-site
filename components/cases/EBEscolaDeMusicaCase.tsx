@@ -88,7 +88,7 @@ export default function EBEscolaDeMusicaCase() {
       </header>
 
       {/* [OUVERTURE / ABERTURA] - HERO MONUMENTAL RESPONSIVO */}
-      <section id="ouverture" className="relative w-full min-h-[55vh] sm:min-h-[75vh] md:h-screen flex flex-col justify-between overflow-hidden bg-black">
+      <section id="ouverture" className="relative w-full min-h-[75vh] sm:min-h-[85vh] md:h-screen flex flex-col justify-between overflow-hidden bg-black py-6 sm:py-12 md:py-20">
         
         {/* Imagem de Fundo eb-hero-monumental.jpg Estourada em Tela Cheia (w-full h-full object-cover) */}
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
@@ -106,20 +106,20 @@ export default function EBEscolaDeMusicaCase() {
             }
           />
           {/* Sobreposição de gradiente escuro na base para legibilidade cirúrgica */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20 pointer-events-none" />
         </div>
 
         {/* Tag Superior */}
-        <div className="relative z-20 pt-20 md:pt-24 px-6 md:px-12 pointer-events-none font-plus-jakarta">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block drop-shadow-md">
+        <div className="relative z-20 pt-16 sm:pt-20 md:pt-24 px-4 sm:px-8 md:px-12 pointer-events-none font-plus-jakarta">
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#c48b56] block drop-shadow-md">
             [ OUVERTURE · REBRANDING &amp; ESTRUTURAÇÃO DE REDE DE ENSINO ]
           </span>
         </div>
 
         {/* Tipografia Monumental em DM Serif Display Sobreposta */}
-        <div className="relative z-30 pb-8 md:pb-16 px-6 md:px-12 font-dm-serif max-w-[95vw]">
-          <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[11.5rem] font-normal tracking-tight text-[#f5ebe0] leading-none select-none drop-shadow-2xl">
-            EB Escola <span className="text-[#c48b56] italic font-light">de Música</span>
+        <div className="relative z-30 pb-6 sm:pb-12 md:pb-16 px-4 sm:px-8 md:px-12 font-dm-serif max-w-[95vw]">
+          <h1 className="text-3xl xs:text-4xl sm:text-7xl md:text-9xl lg:text-[11.5rem] font-normal tracking-tight text-[#f5ebe0] leading-[1.08] sm:leading-none select-none drop-shadow-2xl">
+            EB Escola <span className="text-[#c48b56] italic font-light block sm:inline">de Música</span>
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-[#f5ebe0]/90 max-w-lg font-plus-jakarta font-light mt-2 md:mt-4 drop-shadow">
             Sistema Visual Escalável e Modular para Expansão de Redes de Ensino Musical Premium.

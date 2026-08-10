@@ -167,7 +167,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
             {/* Banner de Capa Principal Responsivo */}
             {capaUrl && (
-              <div className="mt-10 md:mt-12 relative w-full aspect-square sm:aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-blue-neon/20 bg-navy-deep">
+              <div className="mt-8 sm:mt-10 md:mt-12 relative w-full aspect-[4/3] sm:aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-blue-neon/20 bg-navy-deep">
                 <Image
                   src={capaUrl}
                   alt={`Capa de ${projeto.titulo}`}

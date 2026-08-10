@@ -82,35 +82,36 @@ export default function FrancisCaseStudy() {
       </header>
 
       {/* HERO SECTION (EDITORIAL BEHANCE STYLE) */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {/* HERO SECTION RESPONSIVO */}
+      <section className="relative pt-20 pb-12 sm:pt-28 md:pt-32 md:pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
           
-          <div className="max-w-4xl space-y-6">
-            <span className="inline-block text-xs font-mono font-bold uppercase tracking-widest text-[#DE8D47]">
+          <div className="max-w-4xl space-y-4 sm:space-y-6">
+            <span className="inline-block text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[#DE8D47]">
               [ CASE STUDY · GO-TO-MARKET &amp; SERVICE DESIGN ]
             </span>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-white">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-white">
               Francis Pinheiro Seguros
             </h1>
 
-            <p className="text-xl sm:text-2xl text-[#F3E5C8]/90 font-light leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-2xl text-[#F3E5C8]/90 font-light leading-relaxed max-w-3xl">
               Identidade Corporativa, Mídia de Performance e Engenharia de Atendimento Comercial no WhatsApp Ops.
             </p>
 
-            <div className="pt-4 flex flex-wrap items-center gap-6 text-xs font-mono text-slate-400">
+            <div className="pt-2 sm:pt-4 flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono text-slate-400">
               <div>
-                <span className="block text-slate-500 uppercase">Setor</span>
+                <span className="block text-slate-500 uppercase text-[10px]">Setor</span>
                 <span className="text-white font-semibold">Seguros &amp; Finanças</span>
               </div>
-              <div className="h-6 w-px bg-white/10" />
+              <div className="h-6 w-px bg-white/10 hidden xs:block" />
               <div>
-                <span className="block text-slate-500 uppercase">Escopo</span>
+                <span className="block text-slate-500 uppercase text-[10px]">Escopo</span>
                 <span className="text-white font-semibold">Identidade, Funil &amp; Automação</span>
               </div>
-              <div className="h-6 w-px bg-white/10" />
+              <div className="h-6 w-px bg-white/10 hidden sm:block" />
               <div>
-                <span className="block text-slate-500 uppercase">Brand System</span>
+                <span className="block text-slate-500 uppercase text-[10px]">Brand System</span>
                 <a
                   href="#foundations"
                   className="text-[#DE8D47] font-bold hover:underline"
@@ -121,10 +122,10 @@ export default function FrancisCaseStudy() {
             </div>
           </div>
 
-          {/* Hero Image (Edge-to-Edge Editorial Container Responsivo 16:9) */}
-          <div className="w-full max-w-6xl mx-auto pt-4">
+          {/* Hero Image (Edge-to-Edge Editorial Container Responsivo) */}
+          <div className="w-full max-w-6xl mx-auto pt-2 sm:pt-4">
             <div
-              className="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 border border-white/10 cursor-zoom-in group shadow-2xl"
+              className="relative w-full aspect-[4/3] sm:aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-slate-950 border border-white/10 cursor-zoom-in group shadow-2xl"
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/Francis-Seguros/francis-seguros-portfolio-hero.jpg',

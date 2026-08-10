@@ -4,19 +4,19 @@ import HeroGraphic from '@/components/home/HeroGraphic'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen section-dark flex flex-col justify-center overflow-hidden pt-16">
+    <section className="relative min-h-[85vh] sm:min-h-screen section-dark flex flex-col justify-center overflow-hidden pt-20 pb-16 sm:py-32">
       <TechnicalSignature categoria="IDENTIDADE" />
 
       {/* Linha de cota horizontal decorativa */}
       <div className="absolute left-0 right-0 top-1/2 h-px bg-blue-neon opacity-[0.06] pointer-events-none" />
-      <div className="absolute left-6 top-1/2 -translate-y-1/2 text-blue-neon opacity-20 font-poppins text-[9px] tracking-widest pointer-events-none select-none">
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 text-blue-neon opacity-20 font-poppins text-[9px] tracking-widest pointer-events-none select-none hidden sm:block">
         1920px
       </div>
 
       {/* Estrutura geométrica blueprint (contrapeso visual à direita) */}
       <HeroGraphic />
 
-      <div className="shell py-24 md:py-32 relative z-10">
+      <div className="shell py-8 sm:py-24 md:py-32 relative z-10">
         <p className="label-tech mb-6 md:mb-8">Agência de Design Estratégico</p>
 
         <h1 className="title-impact text-[clamp(30px,8.5vw,160px)] leading-none text-white max-w-5xl tracking-normal sm:tracking-widest break-words">

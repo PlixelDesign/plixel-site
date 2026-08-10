@@ -56,7 +56,7 @@ export default function JingLongBrandPage() {
 
       {/* SEÇÃO 1: HERO RESPONSIVO */}
       <section id="hero" className="w-full relative pt-16">
-        <div className="relative w-full aspect-square sm:aspect-video md:aspect-[21/9] bg-zinc-950 overflow-hidden border-b border-zinc-900">
+        <div className="relative w-full aspect-[4/3] sm:aspect-video md:aspect-[21/9] bg-zinc-950 overflow-hidden border-b border-zinc-900">
           <Image
             src={ASSETS.heroCover}
             alt="Jing Long Martial Arts Academy"

@@ -81,8 +81,8 @@ export default function JenniferLemosCase() {
         </div>
       </header>
 
-      {/* 01. HERO SECTION (ABERTURA DE DIAGNÓSTICO) */}
-      <section id="hero" className="relative w-full min-h-[60vh] sm:min-h-[75vh] md:h-screen flex flex-col justify-between overflow-hidden bg-black">
+      {/* 01. HERO SECTION RESPONSIVO (ABERTURA DE DIAGNÓSTICO) */}
+      <section id="hero" className="relative w-full min-h-[75vh] sm:min-h-[85vh] md:h-screen flex flex-col justify-between overflow-hidden bg-black py-6 sm:py-12 md:py-20">
         
         {/* Imagem Fotorrealista JLS-1 banhada por luz dramática (Full-Bleed) */}
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
@@ -99,23 +99,23 @@ export default function JenniferLemosCase() {
               })
             }
           />
-          {/* Gradiente escuro para legibilidade da tipografia monumental */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+          {/* Gradiente escuro reforçado para legibilidade no mobile */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20 pointer-events-none" />
         </div>
 
         {/* Tag Superior */}
-        <div className="relative z-20 pt-20 md:pt-24 px-6 md:px-12 pointer-events-none font-jl-tertiary">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block drop-shadow-md">
+        <div className="relative z-20 pt-16 sm:pt-20 md:pt-24 px-4 sm:px-8 md:px-12 pointer-events-none font-jl-tertiary">
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#c48b56] block drop-shadow-md">
             [ BRAND EQUITY · SISTEMA IDENTITÁRIO HÍBRIDO DE LUXO ]
           </span>
         </div>
 
         {/* Título Monumental em Sinera (font-jl-primary) & Headline em Bontias (font-jl-secondary) */}
-        <div className="relative z-30 pb-8 md:pb-16 px-6 md:px-12 max-w-[95vw] space-y-4">
-          <h1 className="text-4xl sm:text-7xl md:text-8xl lg:text-[9.5rem] font-normal tracking-tight text-[#f5ebe0] leading-none select-none drop-shadow-2xl font-jl-primary">
-            Jennifer Lemmos <span className="text-[#c48b56] italic font-light">— Posicionamento de Luxo</span>
+        <div className="relative z-30 pb-6 sm:pb-12 md:pb-16 px-4 sm:px-8 md:px-12 max-w-[95vw] space-y-3 sm:space-y-4">
+          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl lg:text-[9.5rem] font-normal tracking-tight text-[#f5ebe0] leading-[1.08] sm:leading-none select-none drop-shadow-2xl font-jl-primary">
+            Jennifer Lemmos <span className="text-[#c48b56] italic font-light block sm:inline">— Posicionamento de Luxo</span>
           </h1>
-          <p className="text-base sm:text-xl md:text-2xl text-[#f5ebe0]/90 max-w-4xl font-jl-secondary font-light drop-shadow leading-relaxed italic">
+          <p className="text-xs sm:text-lg md:text-2xl text-[#f5ebe0]/95 max-w-4xl font-jl-secondary font-light drop-shadow leading-relaxed italic">
             Romper a barreira de precificação do mercado premium através da engenharia de design e da usabilidade de marca.
           </p>
         </div>

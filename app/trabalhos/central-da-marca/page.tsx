@@ -136,40 +136,39 @@ export default function CentralDaMarcaUcadisPage() {
       </nav>
 
       <main className="pb-24">
-        {/* 1. HERO SECTION */}
-        <section id="visao-geral" className="relative bg-slate-950 text-white overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28">
+        {/* 1. HERO SECTION RESPONSIVO */}
+        <section id="visao-geral" className="relative bg-slate-950 text-white overflow-hidden pt-12 pb-16 sm:pt-20 sm:pb-24 md:pt-24 md:pb-28">
           <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute top-1/2 -right-40 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-4xl mx-auto">
-              <span className="inline-block px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-amber-400/10 text-amber-400 border border-amber-400/20 mb-6">
+              <span className="inline-block px-3 py-1 rounded-full text-[10px] sm:text-xs font-extrabold uppercase tracking-widest bg-amber-400/10 text-amber-400 border border-amber-400/20 mb-4 sm:mb-6">
                 Manual de Identidade Visual & Design System
               </span>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white mb-6 font-dynapuff">
+              <h1 className="text-2xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white mb-4 sm:mb-6 font-dynapuff">
                 UCADIS: Arquitetura de Marca e Padronização de Sistema Visual para Larga Escala.
               </h1>
 
-              <p className="text-base sm:text-xl text-slate-300 leading-relaxed font-normal mb-8 max-w-3xl mx-auto">
+              <p className="text-xs sm:text-xl text-slate-300 leading-relaxed font-normal mb-6 sm:mb-8 max-w-3xl mx-auto">
                 Como transformar uma comunicação fragmentada em um ecossistema visual autoinstrutivo, garantindo consistência de marca e autonomia para equipes descentralizadas.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+              <div className="flex flex-wrap justify-center gap-1.5 sm:gap-3 mb-8 sm:mb-12">
                 {scopeTags.map((tag, idx) => (
                   <ScopeTag key={idx} label={tag} />
                 ))}
               </div>
             </div>
 
-            <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900">
+            <div className="relative w-full aspect-[4/3] sm:aspect-video rounded-xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900">
               <Image
                 src="/images/ucadis-capa-mascotes.png"
                 alt="UCADIS - Capa Principal e Mascotes"
-                width={1920}
-                height={1080}
+                fill
                 priority
-                className="w-full h-auto object-contain block"
+                className="object-cover w-full h-full block"
                 sizes="(max-width: 1280px) 100vw, 1280px"
               />
             </div>
