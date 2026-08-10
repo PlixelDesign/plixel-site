@@ -25,7 +25,7 @@ export default function JenniferLemosCase() {
       {/* Header Global da Plixel */}
       <Header />
 
-      {/* Sub-header de navegação interna (Jennifer Lemmos - Font System Proprietário) */}
+      {/* Sub-header de navegação interna (Jennifer Lemos - Font System Proprietário) */}
       <header className="sticky top-16 z-40 backdrop-blur-2xl bg-black/85 border-b border-white/10 transition-all font-jl-tertiary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between overflow-x-auto scrollbar-none">
           <div className="flex items-center gap-4 shrink-0">
@@ -37,14 +37,14 @@ export default function JenniferLemosCase() {
             </Link>
             <div className="h-4 w-px bg-white/10 hidden sm:block" />
 
-            {/* Badge Marca Jennifer Lemmos */}
+            {/* Badge Marca Jennifer Lemos */}
             <a
               href="#diagnostico"
               className="group flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 hover:bg-[#ffd2a9]/20 border border-white/10 hover:border-[#ffd2a9]/40 transition-all duration-300"
             >
               <div className="w-2 h-2 rounded-full bg-[#ffd2a9] animate-pulse" />
               <span className="font-bold text-xs text-[#F5F5F5] tracking-widest uppercase group-hover:text-[#ffd2a9] transition-colors font-jl-secondary">
-                Jennifer Lemmos
+                Jennifer Lemos
               </span>
               <span className="text-[10px] uppercase text-[#F5F5F5]/60 ml-1 font-jl-tertiary">
                 [ Sinera / Bontias / Julius ]
@@ -88,14 +88,14 @@ export default function JenniferLemosCase() {
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
           <Image
             src="/images/Cases/Jennifer-Lemos/jl-hero-capa.png"
-            alt="Jennifer Lemmos / Símbolo Âncora Hot Stamping Dourado"
+            alt="Jennifer Lemos / Símbolo Âncora Hot Stamping Dourado"
             fill
             priority
             className="object-cover object-center w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
             onClick={() =>
               setActiveImage({
                 src: '/images/Cases/Jennifer-Lemos/jl-hero-capa.png',
-                alt: 'Jennifer Lemmos / Símbolo Âncora Hot Stamping Dourado Fullscreen',
+                alt: 'Jennifer Lemos / Símbolo Âncora Hot Stamping Dourado Fullscreen',
               })
             }
           />
@@ -113,7 +113,7 @@ export default function JenniferLemosCase() {
         {/* Título Monumental em 2 Linhas Limpas Posicionado Abaixo do Símbolo Central */}
         <div className="relative z-30 pt-40 sm:pt-56 md:pt-72 pb-8 sm:pb-14 md:pb-16 px-4 sm:px-8 md:px-12 max-w-[95vw] space-y-4">
           <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl lg:text-[8.5rem] font-normal tracking-tight text-[#F5F5F5] leading-[1.05] select-none drop-shadow-2xl font-jl-primary space-y-1 sm:space-y-2">
-            <span className="block text-[#F5F5F5]">Jennifer Lemmos</span>
+            <span className="block text-[#F5F5F5]">Jennifer Lemos</span>
             <span className="block text-[#ffd2a9] italic font-light">Posicionamento de Luxo</span>
           </h1>
           <p className="text-xs sm:text-lg md:text-2xl text-[#F5F5F5]/95 max-w-4xl font-jl-secondary font-light drop-shadow leading-relaxed italic">
@@ -293,13 +293,13 @@ export default function JenniferLemosCase() {
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.png',
-                  alt: 'Jennifer Lemmos / Engenharia Vetorial e Blindagem de Redução',
+                  alt: 'Jennifer Lemos / Engenharia Vetorial e Blindagem de Redução',
                 })
               }
             >
               <Image
                 src="/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.png"
-                alt="Jennifer Lemmos / Engenharia Vetorial e Blindagem de Redução"
+                alt="Jennifer Lemos / Engenharia Vetorial e Blindagem de Redução"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
@@ -345,13 +345,13 @@ export default function JenniferLemosCase() {
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/Jennifer-Lemos/jl-mockup-pattern.png',
-                  alt: 'Jennifer Lemmos / Grafismos Proprietários e Brand Equity',
+                  alt: 'Jennifer Lemos / Grafismos Proprietários e Brand Equity',
                 })
               }
             >
               <Image
                 src="/images/Cases/Jennifer-Lemos/jl-mockup-pattern.png"
-                alt="Jennifer Lemmos / Grafismos Proprietários e Brand Equity"
+                alt="Jennifer Lemos / Grafismos Proprietários e Brand Equity"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
@@ -379,13 +379,13 @@ export default function JenniferLemosCase() {
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.png',
-                  alt: 'Jennifer Lemmos / Service Design Onboarding de Alto Ticket',
+                  alt: 'Jennifer Lemos / Service Design Onboarding de Alto Ticket',
                 })
               }
             >
               <Image
                 src="/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.png"
-                alt="Jennifer Lemmos / Service Design Onboarding de Alto Ticket"
+                alt="Jennifer Lemos / Service Design Onboarding de Alto Ticket"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
