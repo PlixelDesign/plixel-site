@@ -81,20 +81,20 @@ export default function JenniferLemosCase() {
         </div>
       </header>
 
-      {/* 01. HERO SECTION RESPONSIVO (HOT STAMPING METALICO COM RESPIRO DE TIPOGRAFIA SEM ENCAVALAMENTO) */}
+      {/* 01. HERO SECTION RESPONSIVO (HOT STAMPING METALICO COM RESPIRO DE TIPOGRAFIA EM 2 LINHAS) */}
       <section id="hero" className="relative w-full min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-between overflow-hidden bg-black py-8 sm:py-16 md:py-24">
         
-        {/* Imagem de Fundo Hot Stamping Metálico jl-hero-capa.jpg (Full-Bleed) */}
+        {/* Imagem de Fundo Hot Stamping Metálico jl-hero-capa.png (Full-Bleed) */}
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
           <Image
-            src="/images/Cases/Jennifer-Lemos/jl-hero-capa.jpg"
+            src="/images/Cases/Jennifer-Lemos/jl-hero-capa.png"
             alt="Jennifer Lemmos / Símbolo Âncora Hot Stamping Dourado"
             fill
             priority
             className="object-cover object-center w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
             onClick={() =>
               setActiveImage({
-                src: '/images/Cases/Jennifer-Lemos/jl-hero-capa.jpg',
+                src: '/images/Cases/Jennifer-Lemos/jl-hero-capa.png',
                 alt: 'Jennifer Lemmos / Símbolo Âncora Hot Stamping Dourado Fullscreen',
               })
             }
@@ -110,10 +110,11 @@ export default function JenniferLemosCase() {
           </span>
         </div>
 
-        {/* Título Monumental Posicionado Perfeitamente Abaixo do Símbolo Central (Sem Travessão e Sem Overlapping) */}
+        {/* Título Monumental em 2 Linhas Limpas Posicionado Abaixo do Símbolo Central */}
         <div className="relative z-30 pt-40 sm:pt-56 md:pt-72 pb-8 sm:pb-14 md:pb-16 px-4 sm:px-8 md:px-12 max-w-[95vw] space-y-4">
-          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl lg:text-[9.5rem] font-normal tracking-tight text-[#F5F5F5] leading-[1.08] sm:leading-none select-none drop-shadow-2xl font-jl-primary">
-            Jennifer Lemmos <span className="text-[#ffd2a9]/50 font-light mx-1 sm:mx-3">|</span> <span className="text-[#ffd2a9] italic font-light block sm:inline">Posicionamento de Luxo</span>
+          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl lg:text-[8.5rem] font-normal tracking-tight text-[#F5F5F5] leading-[1.05] select-none drop-shadow-2xl font-jl-primary space-y-1 sm:space-y-2">
+            <span className="block text-[#F5F5F5]">Jennifer Lemmos</span>
+            <span className="block text-[#ffd2a9] italic font-light">Posicionamento de Luxo</span>
           </h1>
           <p className="text-xs sm:text-lg md:text-2xl text-[#F5F5F5]/95 max-w-4xl font-jl-secondary font-light drop-shadow leading-relaxed italic">
             Romper a barreira de precificação do mercado premium através da engenharia de design e da usabilidade de marca.
@@ -275,7 +276,7 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID B: ENGENHARIA VETORIAL E REDUÇÕES (jl-engenharia-logos-responsivos.jpg) */}
+          {/* GRID B: ENGENHARIA VETORIAL E REDUÇÕES (jl-engenharia-logos-responsivos.png) */}
           <div className="space-y-6 w-full pt-12 border-t border-white/10">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
@@ -291,13 +292,13 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.jpg',
+                  src: '/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.png',
                   alt: 'Jennifer Lemmos / Engenharia Vetorial e Blindagem de Redução',
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.jpg"
+                src="/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.png"
                 alt="Jennifer Lemmos / Engenharia Vetorial e Blindagem de Redução"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
@@ -327,7 +328,7 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID C: GRAFISMOS SECUNDÁRIOS / PATTERNS (jl-mockup-pattern.jpg) */}
+          {/* GRID C: GRAFISMOS SECUNDÁRIOS / PATTERNS (jl-mockup-pattern.png) */}
           <div className="space-y-6 w-full">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
@@ -343,13 +344,13 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/jl-mockup-pattern.jpg',
+                  src: '/images/Cases/Jennifer-Lemos/jl-mockup-pattern.png',
                   alt: 'Jennifer Lemmos / Grafismos Proprietários e Brand Equity',
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/jl-mockup-pattern.jpg"
+                src="/images/Cases/Jennifer-Lemos/jl-mockup-pattern.png"
                 alt="Jennifer Lemmos / Grafismos Proprietários e Brand Equity"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
@@ -361,7 +362,7 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID D: SERVICE DESIGN E UNBOXING 8K (jl-mockup-unboxing-luxo.jpg) */}
+          {/* GRID D: SERVICE DESIGN E UNBOXING 8K (jl-mockup-unboxing-luxo.png) */}
           <div className="space-y-6 w-full pt-12 border-t border-white/10">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
@@ -377,13 +378,13 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.jpg',
+                  src: '/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.png',
                   alt: 'Jennifer Lemmos / Service Design Onboarding de Alto Ticket',
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.jpg"
+                src="/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.png"
                 alt="Jennifer Lemmos / Service Design Onboarding de Alto Ticket"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
