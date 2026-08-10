@@ -81,26 +81,26 @@ export default function JenniferLemosCase() {
         </div>
       </header>
 
-      {/* 01. HERO SECTION RESPONSIVO (ABERTURA DE DIAGNÓSTICO) */}
-      <section id="hero" className="relative w-full min-h-[75vh] sm:min-h-[85vh] md:h-screen flex flex-col justify-between overflow-hidden bg-black py-6 sm:py-12 md:py-20">
+      {/* 01. HERO SECTION RESPONSIVO (HOT STAMPING METALICO COM RESPIRO DE TIPOGRAFIA) */}
+      <section id="hero" className="relative w-full min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-between overflow-hidden bg-black py-8 sm:py-16 md:py-24">
         
-        {/* Imagem Fotorrealista JLS-1 banhada por luz dramática (Full-Bleed) */}
+        {/* Imagem de Fundo Hot Stamping Metálico jl-hero-capa.jpg (Full-Bleed) */}
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
           <Image
-            src="/images/Cases/Jennifer-Lemos/JLS-1.jpg"
-            alt="Jennifer Lemmos — Identidade Visual de Luxo (JLS-1)"
+            src="/images/Cases/Jennifer-Lemos/jl-hero-capa.jpg"
+            alt="Jennifer Lemmos — Símbolo Âncora Hot Stamping Dourado (jl-hero-capa)"
             fill
             priority
             className="object-cover object-center w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
             onClick={() =>
               setActiveImage({
-                src: '/images/Cases/Jennifer-Lemos/JLS-1.jpg',
-                alt: 'Jennifer Lemmos — Identidade Visual de Luxo Fullscreen',
+                src: '/images/Cases/Jennifer-Lemos/jl-hero-capa.jpg',
+                alt: 'Jennifer Lemmos — Símbolo Âncora Hot Stamping Dourado Fullscreen',
               })
             }
           />
-          {/* Gradiente escuro reforçado para legibilidade no mobile */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20 pointer-events-none" />
+          {/* Gradiente escuro para garantir legibilidade cirúrgica sem encavalar o texto no símbolo central */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30 pointer-events-none" />
         </div>
 
         {/* Tag Superior */}
@@ -110,8 +110,8 @@ export default function JenniferLemosCase() {
           </span>
         </div>
 
-        {/* Título Monumental em Sinera (font-jl-primary) & Headline em Bontias (font-jl-secondary) */}
-        <div className="relative z-30 pb-6 sm:pb-12 md:pb-16 px-4 sm:px-8 md:px-12 max-w-[95vw] space-y-3 sm:space-y-4">
+        {/* Título Monumental Posicionado Abaixo do Símbolo Central (Com Respiro e Sem Overlapping) */}
+        <div className="relative z-30 pt-36 sm:pt-48 md:pt-60 pb-8 sm:pb-14 md:pb-16 px-4 sm:px-8 md:px-12 max-w-[95vw] space-y-4">
           <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl lg:text-[9.5rem] font-normal tracking-tight text-[#f5ebe0] leading-[1.08] sm:leading-none select-none drop-shadow-2xl font-jl-primary">
             Jennifer Lemmos <span className="text-[#c48b56] italic font-light block sm:inline">— Posicionamento de Luxo</span>
           </h1>
@@ -170,33 +170,80 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID A: MATRIZ CROMÁTICA CONTROLADA (PASSO B) */}
+          {/* GRID A: MATRIZ CROMÁTICA NO CÓDIGO (4 AMOSTRAS FÍSICAS DE PAPEL DE LUXO) */}
           <div className="space-y-6 w-full">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
-                [ GRID A · COMPORTAMENTO CROMÁTICO ]
+                [ GRID A · MATRIZ DE COMPORTAMENTO CROMÁTICO E RESPONSIVIDADE CONTROLADA ]
               </span>
               <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#f5ebe0] font-jl-secondary tracking-wide">
-                Matriz de Comportamento Cromático e Responsividade Controlada
+                Matriz de Comportamento Cromático
               </h3>
             </div>
 
-            {/* Container da Imagem Full-Bleed 16:9 */}
-            <div
-              className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
-              onClick={() =>
-                setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/image_d6a975.jpg',
-                  alt: 'Jennifer Lemmos — Matriz de Comportamento Cromático',
-                })
-              }
-            >
-              <Image
-                src="/images/Cases/Jennifer-Lemos/image_d6a975.jpg"
-                alt="Jennifer Lemmos — Matriz de Comportamento Cromático"
-                fill
-                className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
-              />
+            {/* COMPONENTE TAILWIND PURO: 4 AMOSTRAS FÍSICAS DE PAPEL DE LUXO */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 font-jl-tertiary w-full">
+              
+              {/* Bloco 1: Marinho Institucional */}
+              <div className="bg-[#1A110B] border border-white/10 rounded-none p-6 md:p-8 min-h-[220px] flex flex-col justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300">
+                <span className="text-[10px] font-mono font-bold tracking-widest text-[#f5ebe0]/60 uppercase">
+                  #1A110B
+                </span>
+                <div className="space-y-1">
+                  <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#f5ebe0]">
+                    Marinho Institucional
+                  </span>
+                  <span className="block text-[11px] text-[#f5ebe0]/70 uppercase tracking-wider font-light">
+                    Corpo de Sobriedade &amp; Contratos
+                  </span>
+                </div>
+              </div>
+
+              {/* Bloco 2: Nude de Suporte */}
+              <div className="bg-[#C48B56] border border-white/10 rounded-none p-6 md:p-8 min-h-[220px] flex flex-col justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300">
+                <span className="text-[10px] font-mono font-bold tracking-widest text-[#1A110B]/60 uppercase">
+                  #C48B56
+                </span>
+                <div className="space-y-1">
+                  <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#1A110B]">
+                    Nude de Suporte
+                  </span>
+                  <span className="block text-[11px] text-[#1A110B]/80 uppercase tracking-wider font-light">
+                    Acento de Marca &amp; Hot Stamping
+                  </span>
+                </div>
+              </div>
+
+              {/* Bloco 3: Creme Corporativo */}
+              <div className="bg-[#F5EBE0] border border-white/10 rounded-none p-6 md:p-8 min-h-[220px] flex flex-col justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300">
+                <span className="text-[10px] font-mono font-bold tracking-widest text-[#1A110B]/60 uppercase">
+                  #F5EBE0
+                </span>
+                <div className="space-y-1">
+                  <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#1A110B]">
+                    Creme Corporativo
+                  </span>
+                  <span className="block text-[11px] text-[#1A110B]/80 uppercase tracking-wider font-light">
+                    Acolhimento Editorial &amp; Álbuns
+                  </span>
+                </div>
+              </div>
+
+              {/* Bloco 4: Branco Acessível */}
+              <div className="bg-[#FFFFFF] border border-white/10 rounded-none p-6 md:p-8 min-h-[220px] flex flex-col justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300">
+                <span className="text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase">
+                  #FFFFFF
+                </span>
+                <div className="space-y-1">
+                  <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-slate-900">
+                    Branco Acessível
+                  </span>
+                  <span className="block text-[11px] text-slate-600 uppercase tracking-wider font-light">
+                    Leitura Limpa &amp; Micro-Mídias
+                  </span>
+                </div>
+              </div>
+
             </div>
 
             <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-4xl font-jl-tertiary tracking-wide border-l border-white/20 pl-4 py-1">
@@ -204,7 +251,7 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID B: ENGENHARIA VETORIAL E REDUÇÕES (PASSO C) */}
+          {/* GRID B: ENGENHARIA VETORIAL E REDUÇÕES (jl-engenharia-logos-responsivos.jpg) */}
           <div className="space-y-6 w-full pt-12 border-t border-white/10">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
@@ -220,13 +267,13 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/JLS-2.jpg',
+                  src: '/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.jpg',
                   alt: 'Jennifer Lemmos — Engenharia Vetorial e Blindagem de Redução',
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/JLS-2.jpg"
+                src="/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.jpg"
                 alt="Jennifer Lemmos — Engenharia Vetorial e Blindagem de Redução"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
@@ -256,11 +303,11 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID C: GRAFISMOS SECUNDÁRIOS / PATTERNS (PASSO D) */}
+          {/* GRID C: GRAFISMOS SECUNDÁRIOS / PATTERNS (jl-mockup-pattern.jpg) */}
           <div className="space-y-6 w-full">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
-                [ GRID C · GRAFISMOS E TEXTURAS ]
+                [ GRID C · GRAFISMOS PROPRIETÁRIOS E BRAND EQUITY ]
               </span>
               <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#f5ebe0] font-jl-secondary tracking-wide">
                 Grafismos Secundários e Texturas de Fixação de Marca
@@ -272,25 +319,25 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/JLS-3.jpg',
-                  alt: 'Jennifer Lemmos — Grafismos Secundários e Texturas',
+                  src: '/images/Cases/Jennifer-Lemos/jl-mockup-pattern.jpg',
+                  alt: 'Jennifer Lemmos — Grafismos Proprietários e Brand Equity',
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/JLS-3.jpg"
-                alt="Jennifer Lemmos — Grafismos Secundários e Texturas"
+                src="/images/Cases/Jennifer-Lemos/jl-mockup-pattern.jpg"
+                alt="Jennifer Lemmos — Grafismos Proprietários e Brand Equity"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </div>
 
             <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-4xl font-jl-tertiary tracking-wide border-l border-white/20 pl-4 py-1">
-              A fragmentação geométrica da matriz do símbolo gerou uma padronagem proprietária. Este ativo atua na experiência de unboxing e tangibilização física da marca (guardas de álbuns, papéis de seda, fitas), construindo uma jornada de consumo memorável.
+              Grafismos Proprietários e Brand Equity: Fragmentação geométrica da matriz do símbolo gerando padronagem focada em experiências físicas de luxo (guardas de álbuns e fitas de cetim).
             </p>
           </div>
 
-          {/* GRID D: SERVICE DESIGN E UNBOXING 8K (PASSO E) */}
+          {/* GRID D: SERVICE DESIGN E UNBOXING 8K (jl-mockup-unboxing-luxo.jpg) */}
           <div className="space-y-6 w-full pt-12 border-t border-white/10">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
@@ -306,13 +353,13 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/JLS-4.jpg',
+                  src: '/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.jpg',
                   alt: 'Jennifer Lemmos — Service Design Onboarding de Alto Ticket',
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/JLS-4.jpg"
+                src="/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.jpg"
                 alt="Jennifer Lemmos — Service Design Onboarding de Alto Ticket"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
