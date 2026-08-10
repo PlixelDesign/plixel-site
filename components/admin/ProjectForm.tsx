@@ -213,20 +213,50 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
       slug,
     }
 
+    const legacyPayload = {
+      titulo: form.titulo,
+      cliente: form.cliente,
+      categoria: form.categoria,
+      diagnostico: form.diagnostico,
+      processo: form.processo,
+      resultado: form.resultado,
+      imagens: form.imagens,
+      imagem_capa: form.imagem_capa,
+      video_url: form.video_url,
+      ordem: form.ordem,
+      publicado: form.publicado,
+      slug,
+    }
+
     if (mode === 'create') {
-      const { error } = await supabase.from('projetos').insert(payload)
+      let { error } = await supabase.from('projetos').insert(payload)
+      if (error && error.message.includes('schema cache')) {
+        // Fallback para colunas padrão do Supabase se as novas colunas ainda não foram rodadas no SQL
+        const res = await supabase.from('projetos').insert(legacyPayload)
+        error = res.error
+      }
       if (error) {
-        setErro(error.message)
+        setErro(`Erro Supabase: ${error.message}`)
         setSaving(false)
         return
       }
     } else {
-      const { error } = await supabase
+      let { error } = await supabase
         .from('projetos')
         .update({ ...payload, updated_at: new Date().toISOString() })
         .eq('id', initialData!.id)
+
+      if (error && error.message.includes('schema cache')) {
+        // Fallback para colunas padrão do Supabase se as novas colunas ainda não foram rodadas no SQL
+        const res = await supabase
+          .from('projetos')
+          .update({ ...legacyPayload, updated_at: new Date().toISOString() })
+          .eq('id', initialData!.id)
+        error = res.error
+      }
+
       if (error) {
-        setErro(error.message)
+        setErro(`Erro Supabase: ${error.message}`)
         setSaving(false)
         return
       }
