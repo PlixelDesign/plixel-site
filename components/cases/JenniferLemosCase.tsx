@@ -5,8 +5,61 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import { JenniferCaseData } from '@/types'
 
-export default function JenniferLemosCase() {
+export const DEFAULT_JENNIFER_CASE_DATA: JenniferCaseData = {
+  heroSymbol: '/images/Cases/Jennifer-Lemos/jl-hero-capa.png',
+  heroTitleLine1: 'Jennifer Lemos',
+  heroTitleLine2: 'Posicionamento de Luxo',
+  heroSubtitle:
+    'Romper a barreira de precificação do mercado premium através da engenharia de design e da usabilidade de marca.',
+  paletteColors: [
+    {
+      hex: '#001c4a',
+      name: 'Marinho Institucional',
+      role: 'Corpo de Sobriedade & Contratos',
+      textHex: '#F5F5F5',
+      verticalLabel: 'Azul Ultramarino / Real',
+    },
+    {
+      hex: '#ffd2a9',
+      name: 'Nude de Suporte',
+      role: 'Acento de Marca & Hot Stamping',
+      textHex: '#001c4a',
+      verticalLabel: 'Creme Salmão / Nude',
+    },
+    {
+      hex: '#F5F5F5',
+      name: 'Branco Puro',
+      role: 'Acolhimento Editorial & Álbuns',
+      textHex: '#001c4a',
+      verticalLabel: 'Off-White Acetinado',
+    },
+    {
+      hex: '#001130',
+      name: 'Variante de Contraste',
+      role: 'Profundidade de Leitura Noturna',
+      textHex: '#F5F5F5',
+      verticalLabel: 'Marinho Sólido Noturno',
+    },
+  ],
+  gridBImage: '/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.png',
+  gridCImage: '/images/Cases/Jennifer-Lemos/jl-mockup-pattern.png',
+  gridCLegend:
+    'Grafismos Proprietários e Brand Equity: Fragmentação geométrica da matriz do símbolo gerando padronagem focada em experiências físicas de luxo (guardas de álbuns e fitas de cetim).',
+  gridDImage: '/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.png',
+}
+
+interface JenniferLemosCaseProps {
+  data?: Partial<JenniferCaseData>
+}
+
+export default function JenniferLemosCase({ data }: JenniferLemosCaseProps) {
+  const caseData: JenniferCaseData = {
+    ...DEFAULT_JENNIFER_CASE_DATA,
+    ...data,
+  }
+
   const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null)
 
   // Suporte a fechar modal de Lightbox com a tecla ESC
@@ -44,7 +97,7 @@ export default function JenniferLemosCase() {
             >
               <div className="w-2 h-2 rounded-full bg-[#ffd2a9] animate-pulse" />
               <span className="font-bold text-xs text-[#F5F5F5] tracking-widest uppercase group-hover:text-[#ffd2a9] transition-colors font-jl-secondary">
-                Jennifer Lemos
+                {caseData.heroTitleLine1}
               </span>
               <span className="text-[10px] uppercase text-[#F5F5F5]/60 ml-1 font-jl-tertiary">
                 [ Sinera / Bontias / Julius ]
@@ -84,18 +137,18 @@ export default function JenniferLemosCase() {
       {/* 01. HERO SECTION RESPONSIVO (HOT STAMPING METALICO COM RESPIRO DE TIPOGRAFIA EM 2 LINHAS) */}
       <section id="hero" className="relative w-full min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-between overflow-hidden bg-black py-8 sm:py-16 md:py-24">
         
-        {/* Imagem de Fundo Hot Stamping Metálico jl-hero-capa.png (Full-Bleed) */}
+        {/* Imagem de Fundo Hot Stamping Metálico (heroSymbol) */}
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
           <Image
-            src="/images/Cases/Jennifer-Lemos/jl-hero-capa.png"
-            alt="Jennifer Lemos / Símbolo Âncora Hot Stamping Dourado"
+            src={caseData.heroSymbol}
+            alt={`${caseData.heroTitleLine1} / Símbolo Âncora Hot Stamping Dourado`}
             fill
             priority
             className="object-cover object-center w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
             onClick={() =>
               setActiveImage({
-                src: '/images/Cases/Jennifer-Lemos/jl-hero-capa.png',
-                alt: 'Jennifer Lemos / Símbolo Âncora Hot Stamping Dourado Fullscreen',
+                src: caseData.heroSymbol,
+                alt: `${caseData.heroTitleLine1} / Símbolo Âncora Hot Stamping Dourado Fullscreen`,
               })
             }
           />
@@ -110,14 +163,14 @@ export default function JenniferLemosCase() {
           </span>
         </div>
 
-        {/* Título Monumental em 2 Linhas Limpas Posicionado Abaixo do Símbolo Central */}
+        {/* Título Monumental em 2 Linhas Limpas Posicionado Perfeitamente Abaixo do Símbolo Central */}
         <div className="relative z-30 pt-40 sm:pt-56 md:pt-72 pb-8 sm:pb-14 md:pb-16 px-4 sm:px-8 md:px-12 max-w-[95vw] space-y-4">
           <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl lg:text-[8.5rem] font-normal tracking-tight text-[#F5F5F5] leading-[1.05] select-none drop-shadow-2xl font-jl-primary space-y-1 sm:space-y-2">
-            <span className="block text-[#F5F5F5]">Jennifer Lemos</span>
-            <span className="block text-[#ffd2a9] italic font-light">Posicionamento de Luxo</span>
+            <span className="block text-[#F5F5F5]">{caseData.heroTitleLine1}</span>
+            <span className="block text-[#ffd2a9] italic font-light">{caseData.heroTitleLine2}</span>
           </h1>
           <p className="text-xs sm:text-lg md:text-2xl text-[#F5F5F5]/95 max-w-4xl font-jl-secondary font-light drop-shadow leading-relaxed italic">
-            Romper a barreira de precificação do mercado premium através da engenharia de design e da usabilidade de marca.
+            {caseData.heroSubtitle}
           </p>
         </div>
 
@@ -171,7 +224,7 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID A: MATRIZ CROMÁTICA NO CÓDIGO (4 AMOSTRAS FÍSICAS COM WRITING-MODE VERTICAL-RL) */}
+          {/* GRID A: MATRIZ CROMÁTICA NO CÓDIGO (4 AMOSTRAS FÍSICAS DYNAMICAS COM WRITING-MODE VERTICAL-RL) */}
           <div className="space-y-6 w-full">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
@@ -182,93 +235,45 @@ export default function JenniferLemosCase() {
               </h3>
             </div>
 
-            {/* COMPONENTE TAILWIND PURO: 4 AMOSTRAS FÍSICAS COM LEGENDAS TÉCNICAS VERTICAIS */}
+            {/* COMPONENTE TAILWIND PURO: 4 AMOSTRAS FÍSICAS DINÂMICAS */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 font-jl-tertiary w-full">
-              
-              {/* Bloco 1: #001c4a (Azul Marinho Real) */}
-              <div className="bg-[#001c4a] border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden">
-                <div className="flex flex-col justify-between h-full z-10">
-                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#ffd2a9] uppercase">
-                    #001c4a
-                  </span>
-                  <div className="space-y-1">
-                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#F5F5F5]">
-                      Marinho Institucional
+              {caseData.paletteColors.map((color, idx) => (
+                <div
+                  key={idx}
+                  style={{ backgroundColor: color.hex }}
+                  className="border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden"
+                >
+                  <div className="flex flex-col justify-between h-full z-10">
+                    <span
+                      style={{ color: color.textHex === '#F5F5F5' ? '#ffd2a9' : '#001c4a' }}
+                      className="text-[10px] font-mono font-bold tracking-widest uppercase"
+                    >
+                      {color.hex}
                     </span>
-                    <span className="block text-[11px] text-[#F5F5F5]/70 uppercase tracking-wider font-light">
-                      Corpo de Sobriedade &amp; Contratos
-                    </span>
+                    <div className="space-y-1">
+                      <span
+                        style={{ color: color.textHex }}
+                        className="block text-sm md:text-base font-bold uppercase tracking-widest"
+                      >
+                        {color.name}
+                      </span>
+                      <span
+                        style={{ color: color.textHex }}
+                        className="block text-[11px] opacity-75 uppercase tracking-wider font-light"
+                      >
+                        {color.role}
+                      </span>
+                    </div>
+                  </div>
+                  {/* Legenda Técnica Vertical */}
+                  <div
+                    style={{ color: color.textHex === '#F5F5F5' ? '#ffd2a9' : '#001c4a' }}
+                    className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest opacity-60 select-none"
+                  >
+                    {color.verticalLabel}
                   </div>
                 </div>
-                {/* Legenda Técnica Vertical */}
-                <div className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest text-[#ffd2a9]/60 select-none">
-                  Azul Ultramarino / Real
-                </div>
-              </div>
-
-              {/* Bloco 2: #ffd2a9 (Creme Salmão/Nude Iluminado) */}
-              <div className="bg-[#ffd2a9] border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden">
-                <div className="flex flex-col justify-between h-full z-10">
-                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#001c4a] uppercase">
-                    #ffd2a9
-                  </span>
-                  <div className="space-y-1">
-                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#001c4a]">
-                      Nude de Suporte
-                    </span>
-                    <span className="block text-[11px] text-[#001c4a]/80 uppercase tracking-wider font-light">
-                      Acento de Marca &amp; Hot Stamping
-                    </span>
-                  </div>
-                </div>
-                {/* Legenda Técnica Vertical */}
-                <div className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest text-[#001c4a]/60 select-none">
-                  Creme Salmão / Nude
-                </div>
-              </div>
-
-              {/* Bloco 3: #F5F5F5 (Off-White Acetinado) */}
-              <div className="bg-[#F5F5F5] border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden">
-                <div className="flex flex-col justify-between h-full z-10">
-                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#001c4a] uppercase">
-                    #F5F5F5
-                  </span>
-                  <div className="space-y-1">
-                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#001c4a]">
-                      Branco Puro
-                    </span>
-                    <span className="block text-[11px] text-[#001c4a]/80 uppercase tracking-wider font-light">
-                      Acolhimento Editorial &amp; Álbuns
-                    </span>
-                  </div>
-                </div>
-                {/* Legenda Técnica Vertical */}
-                <div className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest text-[#001c4a]/60 select-none">
-                  Off-White Acetinado
-                </div>
-              </div>
-
-              {/* Bloco 4: #001130 (Marinho Sólido Noturno) */}
-              <div className="bg-[#001130] border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden">
-                <div className="flex flex-col justify-between h-full z-10">
-                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#ffd2a9] uppercase">
-                    #001130
-                  </span>
-                  <div className="space-y-1">
-                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#F5F5F5]">
-                      Variante de Contraste
-                    </span>
-                    <span className="block text-[11px] text-[#F5F5F5]/70 uppercase tracking-wider font-light">
-                      Profundidade de Leitura Noturna
-                    </span>
-                  </div>
-                </div>
-                {/* Legenda Técnica Vertical */}
-                <div className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest text-[#ffd2a9]/60 select-none">
-                  Marinho Sólido Noturno
-                </div>
-              </div>
-
+              ))}
             </div>
 
             <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-4xl font-jl-tertiary tracking-wide border-l border-white/20 pl-4 py-1">
@@ -276,7 +281,7 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID B: ENGENHARIA VETORIAL E REDUÇÕES (jl-engenharia-logos-responsivos.png) */}
+          {/* GRID B: ENGENHARIA VETORIAL E REDUÇÕES (gridBImage) */}
           <div className="space-y-6 w-full pt-12 border-t border-white/10">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
@@ -292,14 +297,14 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.png',
-                  alt: 'Jennifer Lemos / Engenharia Vetorial e Blindagem de Redução',
+                  src: caseData.gridBImage,
+                  alt: `${caseData.heroTitleLine1} / Engenharia Vetorial e Blindagem de Redução`,
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.png"
-                alt="Jennifer Lemos / Engenharia Vetorial e Blindagem de Redução"
+                src={caseData.gridBImage}
+                alt={`${caseData.heroTitleLine1} / Engenharia Vetorial e Blindagem de Redução`}
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
@@ -328,7 +333,7 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID C: GRAFISMOS SECUNDÁRIOS / PATTERNS (jl-mockup-pattern.png) */}
+          {/* GRID C: GRAFISMOS SECUNDÁRIOS / PATTERNS (gridCImage) */}
           <div className="space-y-6 w-full">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
@@ -344,25 +349,25 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/jl-mockup-pattern.png',
-                  alt: 'Jennifer Lemos / Grafismos Proprietários e Brand Equity',
+                  src: caseData.gridCImage,
+                  alt: `${caseData.heroTitleLine1} / Grafismos Proprietários e Brand Equity`,
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/jl-mockup-pattern.png"
-                alt="Jennifer Lemos / Grafismos Proprietários e Brand Equity"
+                src={caseData.gridCImage}
+                alt={`${caseData.heroTitleLine1} / Grafismos Proprietários e Brand Equity`}
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </div>
 
             <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-4xl font-jl-tertiary tracking-wide border-l border-white/20 pl-4 py-1">
-              Grafismos Proprietários e Brand Equity: Fragmentação geométrica da matriz do símbolo gerando padronagem focada em experiências físicas de luxo (guardas de álbuns e fitas de cetim).
+              {caseData.gridCLegend}
             </p>
           </div>
 
-          {/* GRID D: SERVICE DESIGN E UNBOXING 8K (jl-mockup-unboxing-luxo.png) */}
+          {/* GRID D: SERVICE DESIGN E UNBOXING 8K (gridDImage) */}
           <div className="space-y-6 w-full pt-12 border-t border-white/10">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
@@ -378,14 +383,14 @@ export default function JenniferLemosCase() {
               className="relative w-full aspect-video overflow-hidden bg-black border border-white/10 cursor-zoom-in group shadow-2xl rounded-none"
               onClick={() =>
                 setActiveImage({
-                  src: '/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.png',
-                  alt: 'Jennifer Lemos / Service Design Onboarding de Alto Ticket',
+                  src: caseData.gridDImage,
+                  alt: `${caseData.heroTitleLine1} / Service Design Onboarding de Alto Ticket`,
                 })
               }
             >
               <Image
-                src="/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.png"
-                alt="Jennifer Lemos / Service Design Onboarding de Alto Ticket"
+                src={caseData.gridDImage}
+                alt={`${caseData.heroTitleLine1} / Service Design Onboarding de Alto Ticket`}
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />

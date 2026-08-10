@@ -28,3 +28,23 @@ export const CATEGORIA_LABELS: Record<Categoria, string> = {
   pontos_contato: 'Pontos de Contato',
   direcao_arte: 'Direção de Arte',
 }
+
+export interface ColorSwatchData {
+  hex: string
+  name: string
+  role: string
+  textHex: string
+  verticalLabel: string
+}
+
+export interface JenniferCaseData {
+  heroSymbol: string
+  heroTitleLine1: string
+  heroTitleLine2: string
+  heroSubtitle: string
+  paletteColors: ColorSwatchData[]
+  gridBImage: string
+  gridCImage: string
+  gridCLegend: string
+  gridDImage: string
+}
