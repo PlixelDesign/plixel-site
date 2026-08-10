@@ -15,6 +15,7 @@ import { INITIAL_MOCK_PROJETOS } from '@/lib/mock-data'
 import FrancisCaseStudy from '@/components/cases/FrancisCaseStudy'
 import EBEscolaDeMusicaCase from '@/components/cases/EBEscolaDeMusicaCase'
 import JenniferLemosCase from '@/components/cases/JenniferLemosCase'
+import TemplateRenderer from '@/components/cases/TemplateRenderer'
 
 async function getProjeto(slug: string): Promise<Projeto | null> {
   try {
@@ -132,16 +133,24 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     { label: 'RESULTADO', content: projeto.resultado },
   ]
 
+  if (projeto.template_type) {
+    return <TemplateRenderer caseData={projeto} />
+  }
+
+  if (isJennifer) {
+    return <TemplateRenderer caseData={{ ...projeto, template_type: 'LUXURY_EDITORIAL' }} />
+  }
+
+  if (isUcadis) {
+    return <TemplateRenderer caseData={{ ...projeto, template_type: 'PLAYFUL_VIBRANT' }} />
+  }
+
   if (isFrancis) {
     return <FrancisCaseStudy />
   }
 
   if (isEb) {
     return <EBEscolaDeMusicaCase />
-  }
-
-  if (isJennifer) {
-    return <JenniferLemosCase />
   }
 
   return (

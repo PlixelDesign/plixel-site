@@ -4,7 +4,17 @@ import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { createClient } from '@/lib/supabase/client'
-import { Projeto, Categoria, CATEGORIA_LABELS } from '@/types'
+import {
+  Projeto,
+  Categoria,
+  CATEGORIA_LABELS,
+  TemplateType,
+  TEMPLATE_TYPE_LABELS,
+  BrandFontConfig,
+  ColorSwatchData,
+  CaseAssets,
+  CaseCopywriting,
+} from '@/types'
 import { slugify } from '@/lib/utils'
 
 type ProjetoFormData = Omit<Projeto, 'id' | 'slug' | 'created_at' | 'updated_at'>
@@ -14,7 +24,6 @@ interface ProjectFormProps {
   mode: 'create' | 'edit'
 }
 
-// Dica de imagens por categoria — lembra o que cadastrar na hora do upload.
 const DICAS_IMAGEM: Record<Categoria, string> = {
   sistemas_identidade: 'Capa com a marca aplicada. Depois paleta, tipografia e aplicações.',
   design_ops: 'Manual de marca, diretrizes visuais e grid de governança.',
@@ -26,37 +35,11 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
   const router = useRouter()
   const fileInputRef = useRef<HTMLInputElement>(null)
 
-  const getRefinedDiagnostico = () => {
-    const raw = initialData?.diagnostico ?? ''
-    const titleLower = (initialData?.titulo || '').toLowerCase()
-    const slugLower = (initialData?.slug || '').toLowerCase()
-    if (titleLower.includes('francis') || slugLower.includes('francis') || raw.includes('Instagram não convertia')) {
-      return 'A marca enfrentava um gargalo de posicionamento digital. Os canais não transmitiam a proposta de valor corporativa, forçando a captação a depender puramente de abordagem direta comercial, sem uma base de autoridade visual prévia.'
-    }
-    if (titleLower.includes('eb') || slugLower.includes('eb') || raw.includes('dificultava a atração')) {
-      return 'A falta de padronização visual reduzia a taxa de conversão de novos leads e enfraquecia o diferencial competitivo de mercado. O desafio consistiu em estruturar um sistema visual que tangibilizasse a metodologia e acelerasse a jornada de decisão do aluno.'
-    }
-    return raw
-  }
-
-  const getRefinedCliente = () => {
-    const raw = initialData?.cliente ?? ''
-    const titleLower = (initialData?.titulo || '').toLowerCase()
-    const slugLower = (initialData?.slug || '').toLowerCase()
-    if (titleLower.includes('francis') || slugLower.includes('francis')) {
-      return 'Identidade Corporativa e Uniformização de Ativos'
-    }
-    if (titleLower.includes('eb') || slugLower.includes('eb')) {
-      return 'Design de Identidade Local'
-    }
-    return raw
-  }
-
   const [form, setForm] = useState<ProjetoFormData>({
     titulo: initialData?.titulo ?? '',
-    cliente: getRefinedCliente(),
+    cliente: initialData?.cliente ?? '',
     categoria: initialData?.categoria ?? 'sistemas_identidade',
-    diagnostico: getRefinedDiagnostico(),
+    diagnostico: initialData?.diagnostico ?? '',
     processo: initialData?.processo ?? '',
     resultado: initialData?.resultado ?? '',
     imagens: initialData?.imagens ?? [],
@@ -64,6 +47,31 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
     video_url: initialData?.video_url ?? null,
     ordem: initialData?.ordem ?? 99,
     publicado: initialData?.publicado ?? false,
+    template_type: initialData?.template_type ?? 'LUXURY_EDITORIAL',
+    brand_fonts: initialData?.brand_fonts ?? {
+      primary: 'Sinera',
+      secondary: 'Bontias',
+      tertiary: 'Julius Sans One',
+    },
+    palette: initialData?.palette ?? [
+      { hex: '#001c4a', name: 'Marinho Institucional', role: 'Corpo & Contratos', textHex: '#F5F5F5', verticalLabel: 'Azul Ultramarino / Real' },
+      { hex: '#ffd2a9', name: 'Nude de Suporte', role: 'Acento & Hot Stamping', textHex: '#001c4a', verticalLabel: 'Creme Salmão / Nude' },
+      { hex: '#F5F5F5', name: 'Branco Puro', role: 'Acolhimento Editorial', textHex: '#001c4a', verticalLabel: 'Off-White Acetinado' },
+      { hex: '#001130', name: 'Variante de Contraste', role: 'Profundidade Noturna', textHex: '#F5F5F5', verticalLabel: 'Marinho Sólido Noturno' },
+    ],
+    assets: initialData?.assets ?? {
+      heroSymbol: '',
+      heroCover: '',
+      gridBImage: '',
+      gridCImage: '',
+      gridDImage: '',
+    },
+    copywriting: initialData?.copywriting ?? {
+      title_line_1: '',
+      title_line_2: '',
+      subtitle: '',
+      gridCLegend: '',
+    },
   })
 
   const [uploading, setUploading] = useState(false)
@@ -77,6 +85,61 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
     const { name, value, type } = e.target
     const val = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
     setForm((prev) => ({ ...prev, [name]: val }))
+  }
+
+  function handleFontChange(field: keyof BrandFontConfig, value: string) {
+    setForm((prev) => ({
+      ...prev,
+      brand_fonts: {
+        ...prev.brand_fonts,
+        [field]: value,
+      },
+    }))
+  }
+
+  function handleCopywritingChange(field: keyof CaseCopywriting, value: string) {
+    setForm((prev) => ({
+      ...prev,
+      copywriting: {
+        ...prev.copywriting,
+        [field]: value,
+      },
+    }))
+  }
+
+  function handleAssetChange(field: keyof CaseAssets, value: string) {
+    setForm((prev) => ({
+      ...prev,
+      assets: {
+        ...prev.assets,
+        [field]: value,
+      },
+    }))
+  }
+
+  function handlePaletteChange(index: number, field: keyof ColorSwatchData, value: string) {
+    setForm((prev) => {
+      const palette = [...(prev.palette || [])]
+      palette[index] = { ...palette[index], [field]: value }
+      return { ...prev, palette }
+    })
+  }
+
+  function addPaletteSwatch() {
+    setForm((prev) => ({
+      ...prev,
+      palette: [
+        ...(prev.palette || []),
+        { hex: '#000000', name: 'Nova Cor', role: 'Acento', textHex: '#FFFFFF', verticalLabel: 'Cor Customizada' },
+      ],
+    }))
+  }
+
+  function removePaletteSwatch(index: number) {
+    setForm((prev) => ({
+      ...prev,
+      palette: (prev.palette || []).filter((_, i) => i !== index),
+    }))
   }
 
   async function uploadImagens(files: FileList | File[]) {
@@ -152,37 +215,189 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
 
     if (mode === 'create') {
       const { error } = await supabase.from('projetos').insert(payload)
-      if (error) { setErro(error.message); setSaving(false); return }
+      if (error) {
+        setErro(error.message)
+        setSaving(false)
+        return
+      }
     } else {
       const { error } = await supabase
         .from('projetos')
         .update({ ...payload, updated_at: new Date().toISOString() })
         .eq('id', initialData!.id)
-      if (error) { setErro(error.message); setSaving(false); return }
+      if (error) {
+        setErro(error.message)
+        setSaving(false)
+        return
+      }
     }
 
     router.push('/admin')
     router.refresh()
   }
 
-  const isAvulsa = false
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-8 max-w-3xl">
-      {/* Dados básicos */}
-      <div className="bg-navy-mid p-8 border border-blue-neon/10 space-y-5">
-        <h2 className="label-tech text-blue-neon mb-6">Dados do projeto</h2>
+    <form onSubmit={handleSubmit} className="space-y-8 max-w-4xl">
+      {/* 01. SELEÇÃO DE TEMPLATE POR TIPO DE MARCA */}
+      <div className="bg-navy-mid p-8 border border-blue-neon/20 space-y-6 rounded-xl">
+        <div>
+          <h2 className="label-tech text-yellow-neon text-sm mb-1">01. Seletor de Template por Tipo de Marca</h2>
+          <p className="text-xs text-white/50">
+            Escolha o modelo de layout editorial que melhor se adapta à estética da marca do cliente.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {(Object.entries(TEMPLATE_TYPE_LABELS) as [TemplateType, string][]).map(([type, label]) => (
+            <div
+              key={type}
+              onClick={() => setForm((prev) => ({ ...prev, template_type: type }))}
+              className={`p-5 rounded-lg border cursor-pointer transition-all duration-200 ${
+                form.template_type === type
+                  ? 'border-yellow-neon bg-yellow-neon/10 shadow-lg'
+                  : 'border-white/10 bg-navy-deep/60 hover:border-white/30'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono font-bold uppercase text-[#ffd2a9]">
+                  {type}
+                </span>
+                {form.template_type === type && (
+                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-neon animate-pulse" />
+                )}
+              </div>
+              <p className="text-sm font-semibold text-white">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 02. GESTÃO TIPOGRÁFICA DA MARCA */}
+      <div className="bg-navy-mid p-8 border border-blue-neon/20 space-y-6 rounded-xl">
+        <div>
+          <h2 className="label-tech text-blue-neon text-sm mb-1">02. Gestão Tipográfica da Marca</h2>
+          <p className="text-xs text-white/50">
+            Defina as fontes oficiais da marca (.woff2, WebFont ou declaração de sistema).
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Fonte Primária (Títulos/H1)</label>
+            <input
+              type="text"
+              value={form.brand_fonts?.primary || ''}
+              onChange={(e) => handleFontChange('primary', e.target.value)}
+              placeholder="Ex: Sinera, DM Serif Display ou URL"
+              className="input-field"
+            />
+          </div>
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Fonte Secundária (Subtítulos/Destaques)</label>
+            <input
+              type="text"
+              value={form.brand_fonts?.secondary || ''}
+              onChange={(e) => handleFontChange('secondary', e.target.value)}
+              placeholder="Ex: Bontias, Plus Jakarta Sans ou URL"
+              className="input-field"
+            />
+          </div>
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Fonte Terciária (Corpo/Legendas)</label>
+            <input
+              type="text"
+              value={form.brand_fonts?.tertiary || ''}
+              onChange={(e) => handleFontChange('tertiary', e.target.value)}
+              placeholder="Ex: Julius Sans One, Inter ou URL"
+              className="input-field"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* 03. PALETA OFICIAL DE CORES DA MARCA */}
+      <div className="bg-navy-mid p-8 border border-blue-neon/20 space-y-6 rounded-xl">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="label-tech text-blue-neon text-sm mb-1">03. Paleta Oficial de Cores</h2>
+            <p className="text-xs text-white/50">
+              Configure as amostras de cor no código Tailwind e legendas técnicas.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={addPaletteSwatch}
+            className="text-xs font-bold text-yellow-neon border border-yellow-neon/40 px-3 py-1.5 rounded hover:bg-yellow-neon hover:text-navy-deep transition-colors"
+          >
+            + Adicionar Cor
+          </button>
+        </div>
+
+        <div className="space-y-4">
+          {(form.palette || []).map((color, idx) => (
+            <div key={idx} className="p-4 bg-navy-deep/80 border border-white/10 rounded-lg grid grid-cols-1 sm:grid-cols-5 gap-3 items-center">
+              <div className="flex items-center gap-2">
+                <input
+                  type="color"
+                  value={color.hex}
+                  onChange={(e) => handlePaletteChange(idx, 'hex', e.target.value)}
+                  className="w-8 h-8 rounded border-none cursor-pointer bg-transparent"
+                />
+                <input
+                  type="text"
+                  value={color.hex}
+                  onChange={(e) => handlePaletteChange(idx, 'hex', e.target.value)}
+                  className="input-field text-xs font-mono"
+                  placeholder="#Hex"
+                />
+              </div>
+              <input
+                type="text"
+                value={color.name}
+                onChange={(e) => handlePaletteChange(idx, 'name', e.target.value)}
+                className="input-field text-xs"
+                placeholder="Nome da cor"
+              />
+              <input
+                type="text"
+                value={color.role}
+                onChange={(e) => handlePaletteChange(idx, 'role', e.target.value)}
+                className="input-field text-xs"
+                placeholder="Aplicação/Papel"
+              />
+              <input
+                type="text"
+                value={color.verticalLabel || ''}
+                onChange={(e) => handlePaletteChange(idx, 'verticalLabel', e.target.value)}
+                className="input-field text-xs"
+                placeholder="Legenda Vertical"
+              />
+              <button
+                type="button"
+                onClick={() => removePaletteSwatch(idx)}
+                className="text-xs text-red-400 hover:text-red-300 underline text-right"
+              >
+                Remover
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 04. DADOS BÁSICOS & COPYWRITING */}
+      <div className="bg-navy-mid p-8 border border-blue-neon/20 space-y-5 rounded-xl">
+        <h2 className="label-tech text-blue-neon text-sm mb-4">04. Dados &amp; Copywriting da Marca</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label className="label-tech text-[10px] block mb-2">Título *</label>
+            <label className="label-tech text-[10px] block mb-2">Título do Projeto *</label>
             <input
               type="text"
               name="titulo"
               required
               value={form.titulo}
               onChange={handleChange}
-              placeholder="Ex: Identidade Visual UCADIS"
+              placeholder="Ex: Jennifer Lemos"
               className="input-field"
             />
           </div>
@@ -198,6 +413,40 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
               className="input-field"
             />
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Título Hero - Linha 1</label>
+            <input
+              type="text"
+              value={form.copywriting?.title_line_1 || ''}
+              onChange={(e) => handleCopywritingChange('title_line_1', e.target.value)}
+              placeholder="Ex: Jennifer Lemos"
+              className="input-field"
+            />
+          </div>
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Título Hero - Linha 2</label>
+            <input
+              type="text"
+              value={form.copywriting?.title_line_2 || ''}
+              onChange={(e) => handleCopywritingChange('title_line_2', e.target.value)}
+              placeholder="Ex: Posicionamento de Luxo"
+              className="input-field"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="label-tech text-[10px] block mb-2">Subtítulo Hero (Headline de Negócio)</label>
+          <textarea
+            rows={2}
+            value={form.copywriting?.subtitle || ''}
+            onChange={(e) => handleCopywritingChange('subtitle', e.target.value)}
+            placeholder="Romper a barreira de precificação..."
+            className="input-field resize-none"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -226,181 +475,197 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
             />
           </div>
         </div>
-      </div>
 
-      {/* Narrativa — case completo (diagnóstico/processo/resultado) ou só descrição (avulsas) */}
-      <div className="bg-navy-mid p-8 border border-blue-neon/10 space-y-5">
-        <h2 className="label-tech text-blue-neon mb-6">
-          {isAvulsa ? 'Descrição' : 'Narrativa do case'}
-        </h2>
-
-        {isAvulsa ? (
+        {/* Diagnóstico / Processo / Resultado */}
+        <div className="space-y-4 pt-4 border-t border-white/10">
           <div>
-            <label className="label-tech text-[10px] block mb-2">Descrição *</label>
+            <label className="label-tech text-[10px] block mb-2">01. Diagnóstico *</label>
             <textarea
               name="diagnostico"
               required
-              rows={5}
+              rows={3}
               value={form.diagnostico}
               onChange={handleChange}
-              placeholder="Descreva a peça: o que é, para qual cliente/contexto. Sem precisar de antes/depois."
+              placeholder="Qual era o problema de marca a ser resolvido?"
               className="input-field resize-none"
             />
-            <p className="font-poppins text-xs text-white/30 mt-2">
-              Artes avulsas não usam o esquema diagnóstico → processo → resultado. Só esta descrição.
-            </p>
           </div>
-        ) : (
-          [
-            { name: 'diagnostico', label: 'Diagnóstico *', placeholder: 'Qual era o problema real que o projeto precisava resolver?' },
-            { name: 'processo', label: 'Processo *', placeholder: 'O que foi feito, quais decisões foram tomadas e por quê?' },
-            { name: 'resultado', label: 'Resultado *', placeholder: 'O que mudou após o projeto? Resultado entregue ou observado.' },
-          ].map((field) => (
-            <div key={field.name}>
-              <label className="label-tech text-[10px] block mb-2">{field.label}</label>
-              <textarea
-                name={field.name}
-                required
-                rows={4}
-                value={form[field.name as keyof ProjetoFormData] as string}
-                onChange={handleChange}
-                placeholder={field.placeholder}
-                className="input-field resize-none"
-              />
-            </div>
-          ))
-        )}
-      </div>
-
-      {/* Vídeo */}
-      <div className="bg-navy-mid p-8 border border-blue-neon/10 space-y-5">
-        <h2 className="label-tech text-blue-neon mb-6">Vídeo (opcional)</h2>
-        <div>
-          <label className="label-tech text-[10px] block mb-2">URL do YouTube ou Vimeo</label>
-          <input
-            type="url"
-            name="video_url"
-            value={form.video_url ?? ''}
-            onChange={(e) =>
-              setForm((prev) => ({ ...prev, video_url: e.target.value || null }))
-            }
-            placeholder="https://www.youtube.com/watch?v=... ou https://vimeo.com/..."
-            className="input-field"
-          />
-          <p className="font-poppins text-xs text-white/30 mt-2">
-            Cole o link normal do vídeo — YouTube ou Vimeo. Aparece acima das imagens na página do case.
-          </p>
+          <div>
+            <label className="label-tech text-[10px] block mb-2">02. Processo *</label>
+            <textarea
+              name="processo"
+              required
+              rows={3}
+              value={form.processo}
+              onChange={handleChange}
+              placeholder="Quais estratégias de design foram tomadas?"
+              className="input-field resize-none"
+            />
+          </div>
+          <div>
+            <label className="label-tech text-[10px] block mb-2">03. Resultado *</label>
+            <textarea
+              name="resultado"
+              required
+              rows={3}
+              value={form.resultado}
+              onChange={handleChange}
+              placeholder="Quais foram os ganhos percebidos pelo cliente?"
+              className="input-field resize-none"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Imagens */}
-      <div className="bg-navy-mid p-8 border border-blue-neon/10 space-y-5">
-        <h2 className="label-tech text-blue-neon mb-6">Imagens do projeto</h2>
+      {/* 05. ASSETS ESPECÍFICOS & UPLOAD DE IMAGENS */}
+      <div className="bg-navy-mid p-8 border border-blue-neon/20 space-y-6 rounded-xl">
+        <h2 className="label-tech text-blue-neon text-sm mb-4">05. Mapeamento de Assets Específicos</h2>
 
-        {/* Área de upload */}
-        <div
-          className={`border-2 border-dashed p-8 text-center cursor-pointer transition-colors duration-200 ${
-            dragOver ? 'border-yellow-neon bg-yellow-neon/5' : 'border-blue-neon/20 hover:border-blue-neon/50'
-          }`}
-          onClick={() => fileInputRef.current?.click()}
-          onDragOver={(e) => { e.preventDefault(); setDragOver(true) }}
-          onDragLeave={() => setDragOver(false)}
-          onDrop={handleDrop}
-        >
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={handleFileChange}
-            className="hidden"
-          />
-          {uploading ? (
-            <p className="font-poppins text-sm text-blue-neon">Enviando imagens...</p>
-          ) : (
-            <>
-              <p className="font-poppins text-sm text-white/60">
-                Arraste imagens aqui ou clique para selecionar
-              </p>
-              <p className="font-poppins text-xs text-blue-neon/70 mt-2 max-w-md mx-auto">
-                {DICAS_IMAGEM[form.categoria]}
-              </p>
-              <p className="font-poppins text-xs text-white/30 mt-2">
-                JPG, PNG, WebP · Múltiplas imagens aceitas
-              </p>
-            </>
-          )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Hero Symbol / Capa</label>
+            <input
+              type="text"
+              value={form.assets?.heroSymbol || ''}
+              onChange={(e) => handleAssetChange('heroSymbol', e.target.value)}
+              placeholder="/images/Cases/Jennifer-Lemos/jl-hero-capa.png"
+              className="input-field"
+            />
+          </div>
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Grid B - Engenharia Vetorial</label>
+            <input
+              type="text"
+              value={form.assets?.gridBImage || ''}
+              onChange={(e) => handleAssetChange('gridBImage', e.target.value)}
+              placeholder="/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.png"
+              className="input-field"
+            />
+          </div>
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Grid C - Pattern / Grafismo</label>
+            <input
+              type="text"
+              value={form.assets?.gridCImage || ''}
+              onChange={(e) => handleAssetChange('gridCImage', e.target.value)}
+              placeholder="/images/Cases/Jennifer-Lemos/jl-mockup-pattern.png"
+              className="input-field"
+            />
+          </div>
+          <div>
+            <label className="label-tech text-[10px] block mb-2">Grid D - Service Design / Unboxing</label>
+            <input
+              type="text"
+              value={form.assets?.gridDImage || ''}
+              onChange={(e) => handleAssetChange('gridDImage', e.target.value)}
+              placeholder="/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.png"
+              className="input-field"
+            />
+          </div>
         </div>
 
-        {/* Preview das imagens */}
-        {form.imagens.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {form.imagens.map((url) => (
-              <div key={url} className="relative group">
-                <div className={`aspect-video relative overflow-hidden border ${
-                  form.imagem_capa === url ? 'border-yellow-neon' : 'border-blue-neon/20'
-                }`}>
-                  <Image src={url} alt="Preview" fill className="object-cover" sizes="200px" />
-                  {form.imagem_capa === url && (
-                    <span className="absolute top-1 left-1 bg-yellow-neon text-navy-deep font-poppins text-[9px] px-1.5 py-0.5 tracking-widest">
-                      CAPA
-                    </span>
-                  )}
-                </div>
-                <div className="absolute inset-0 bg-navy-deep/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                  {form.imagem_capa !== url && (
+        {/* Upload de Galeria Supabase */}
+        <div className="space-y-4 pt-4 border-t border-white/10">
+          <label className="label-tech text-[10px] block">Galeria de Imagens &amp; Mockups</label>
+          <div
+            className={`border-2 border-dashed p-8 text-center cursor-pointer transition-colors duration-200 rounded-lg ${
+              dragOver ? 'border-yellow-neon bg-yellow-neon/5' : 'border-blue-neon/20 hover:border-blue-neon/50'
+            }`}
+            onClick={() => fileInputRef.current?.click()}
+            onDragOver={(e) => { e.preventDefault(); setDragOver(true) }}
+            onDragLeave={() => setDragOver(false)}
+            onDrop={handleDrop}
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handleFileChange}
+              className="hidden"
+            />
+            {uploading ? (
+              <p className="font-poppins text-sm text-blue-neon">Enviando imagens...</p>
+            ) : (
+              <>
+                <p className="font-poppins text-sm text-white/60">
+                  Arraste imagens aqui ou clique para selecionar
+                </p>
+                <p className="font-poppins text-xs text-blue-neon/70 mt-2 max-w-md mx-auto">
+                  {DICAS_IMAGEM[form.categoria]}
+                </p>
+              </>
+            )}
+          </div>
+
+          {/* Previews */}
+          {form.imagens.length > 0 && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {form.imagens.map((url) => (
+                <div key={url} className="relative group">
+                  <div className={`aspect-video relative overflow-hidden border rounded ${
+                    form.imagem_capa === url ? 'border-yellow-neon' : 'border-blue-neon/20'
+                  }`}>
+                    <Image src={url} alt="Preview" fill className="object-cover" sizes="200px" />
+                    {form.imagem_capa === url && (
+                      <span className="absolute top-1 left-1 bg-yellow-neon text-navy-deep font-poppins text-[9px] px-1.5 py-0.5 tracking-widest font-bold">
+                        CAPA
+                      </span>
+                    )}
+                  </div>
+                  <div className="absolute inset-0 bg-navy-deep/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 rounded">
+                    {form.imagem_capa !== url && (
+                      <button
+                        type="button"
+                        onClick={() => definirCapa(url)}
+                        className="font-poppins text-[10px] text-yellow-neon border border-yellow-neon/50 px-2 py-1 hover:bg-yellow-neon hover:text-navy-deep transition-colors"
+                      >
+                        Capa
+                      </button>
+                    )}
                     <button
                       type="button"
-                      onClick={() => definirCapa(url)}
-                      className="font-poppins text-[10px] text-yellow-neon border border-yellow-neon/50 px-2 py-1 hover:bg-yellow-neon hover:text-navy-deep transition-colors"
+                      onClick={() => removerImagem(url)}
+                      className="font-poppins text-[10px] text-red-diag border border-red-diag/50 px-2 py-1 hover:bg-red-diag hover:text-white transition-colors"
                     >
-                      Capa
+                      Remover
                     </button>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => removerImagem(url)}
-                    className="font-poppins text-[10px] text-red-diag border border-red-diag/50 px-2 py-1 hover:bg-red-diag hover:text-white transition-colors"
-                  >
-                    Remover
-                  </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Status e ações */}
-      <div className="bg-navy-mid p-8 border border-blue-neon/10">
-        <div className="flex items-center justify-between">
-          <label className="flex items-center gap-3 cursor-pointer">
-            <input
-              type="checkbox"
-              name="publicado"
-              checked={form.publicado}
-              onChange={handleChange}
-              className="w-4 h-4 accent-yellow-neon"
-            />
-            <span className="font-poppins text-sm text-white">Publicar no site</span>
-          </label>
+      {/* AÇÕES FINAIS */}
+      <div className="bg-navy-mid p-8 border border-blue-neon/20 rounded-xl flex items-center justify-between">
+        <label className="flex items-center gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            name="publicado"
+            checked={form.publicado}
+            onChange={handleChange}
+            className="w-4 h-4 accent-yellow-neon"
+          />
+          <span className="font-poppins text-sm text-white font-semibold">Publicar no site</span>
+        </label>
 
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={() => router.back()}
-              className="btn-outline py-2 px-6 text-xs"
-            >
-              Cancelar
-            </button>
-            <button
-              type="submit"
-              disabled={saving || uploading}
-              className="btn-primary disabled:opacity-50"
-            >
-              {saving ? 'Salvando...' : mode === 'create' ? 'Criar projeto' : 'Salvar alterações'}
-            </button>
-          </div>
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => router.back()}
+            className="btn-outline py-2.5 px-6 text-xs"
+          >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            disabled={saving || uploading}
+            className="btn-primary disabled:opacity-50 py-2.5 px-8 text-xs font-bold uppercase tracking-wider"
+          >
+            {saving ? 'Salvando...' : mode === 'create' ? 'Criar projeto' : 'Salvar alterações'}
+          </button>
         </div>
 
         {erro && (
