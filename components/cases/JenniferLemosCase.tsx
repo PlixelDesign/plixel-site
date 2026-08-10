@@ -21,7 +21,7 @@ export default function JenniferLemosCase() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white font-jl-tertiary selection:bg-[#c48b56] selection:text-black relative overflow-x-hidden antialiased tracking-wide">
+    <div className="min-h-screen bg-black text-white font-jl-tertiary selection:bg-[#ffd2a9] selection:text-[#001c4a] relative overflow-x-hidden antialiased tracking-wide">
       {/* Header Global da Plixel */}
       <Header />
 
@@ -31,7 +31,7 @@ export default function JenniferLemosCase() {
           <div className="flex items-center gap-4 shrink-0">
             <Link
               href="/trabalhos"
-              className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-[#c48b56] uppercase tracking-widest transition-colors"
+              className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-[#ffd2a9] uppercase tracking-widest transition-colors"
             >
               ← Voltar
             </Link>
@@ -40,14 +40,14 @@ export default function JenniferLemosCase() {
             {/* Badge Marca Jennifer Lemmos */}
             <a
               href="#diagnostico"
-              className="group flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 hover:bg-[#c48b56]/20 border border-white/10 hover:border-[#c48b56]/40 transition-all duration-300"
+              className="group flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 hover:bg-[#ffd2a9]/20 border border-white/10 hover:border-[#ffd2a9]/40 transition-all duration-300"
             >
-              <div className="w-2 h-2 rounded-full bg-[#c48b56] animate-pulse" />
-              <span className="font-bold text-xs text-[#f5ebe0] tracking-widest uppercase group-hover:text-[#c48b56] transition-colors font-jl-secondary">
+              <div className="w-2 h-2 rounded-full bg-[#ffd2a9] animate-pulse" />
+              <span className="font-bold text-xs text-[#F5F5F5] tracking-widest uppercase group-hover:text-[#ffd2a9] transition-colors font-jl-secondary">
                 Jennifer Lemmos
               </span>
-              <span className="text-[10px] uppercase text-[#f5ebe0]/60 ml-1 font-jl-tertiary">
-                [ Sinera · Bontias · Julius ]
+              <span className="text-[10px] uppercase text-[#F5F5F5]/60 ml-1 font-jl-tertiary">
+                [ Sinera / Bontias / Julius ]
               </span>
             </a>
           </div>
@@ -55,25 +55,25 @@ export default function JenniferLemosCase() {
           <nav className="flex items-center space-x-3 sm:space-x-6 text-xs text-slate-400 font-jl-tertiary tracking-widest uppercase">
             <a
               href="#hero"
-              className="px-1 py-1 hover:text-[#c48b56] transition-colors whitespace-nowrap"
+              className="px-1 py-1 hover:text-[#ffd2a9] transition-colors whitespace-nowrap"
             >
               01. Abertura
             </a>
             <a
               href="#diagnostico"
-              className="px-1 py-1 hover:text-[#c48b56] transition-colors whitespace-nowrap"
+              className="px-1 py-1 hover:text-[#ffd2a9] transition-colors whitespace-nowrap"
             >
               02. Diagnóstico
             </a>
             <a
               href="#engenharia-vetorial"
-              className="px-1 py-1 hover:text-[#c48b56] transition-colors whitespace-nowrap"
+              className="px-1 py-1 hover:text-[#ffd2a9] transition-colors whitespace-nowrap"
             >
               03. Engenharia Vetorial
             </a>
             <a
               href="#unboxing"
-              className="px-1 py-1 hover:text-[#c48b56] transition-colors whitespace-nowrap"
+              className="px-1 py-1 hover:text-[#ffd2a9] transition-colors whitespace-nowrap"
             >
               04. Unboxing 8K
             </a>
@@ -81,41 +81,41 @@ export default function JenniferLemosCase() {
         </div>
       </header>
 
-      {/* 01. HERO SECTION RESPONSIVO (HOT STAMPING METALICO COM RESPIRO DE TIPOGRAFIA) */}
+      {/* 01. HERO SECTION RESPONSIVO (HOT STAMPING METALICO COM RESPIRO DE TIPOGRAFIA SEM ENCAVALAMENTO) */}
       <section id="hero" className="relative w-full min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-between overflow-hidden bg-black py-8 sm:py-16 md:py-24">
         
         {/* Imagem de Fundo Hot Stamping Metálico jl-hero-capa.jpg (Full-Bleed) */}
         <div className="absolute inset-0 w-full h-full cursor-zoom-in group">
           <Image
             src="/images/Cases/Jennifer-Lemos/jl-hero-capa.jpg"
-            alt="Jennifer Lemmos — Símbolo Âncora Hot Stamping Dourado (jl-hero-capa)"
+            alt="Jennifer Lemmos / Símbolo Âncora Hot Stamping Dourado"
             fill
             priority
             className="object-cover object-center w-full h-full block transition-transform duration-1000 group-hover:scale-[1.02]"
             onClick={() =>
               setActiveImage({
                 src: '/images/Cases/Jennifer-Lemos/jl-hero-capa.jpg',
-                alt: 'Jennifer Lemmos — Símbolo Âncora Hot Stamping Dourado Fullscreen',
+                alt: 'Jennifer Lemmos / Símbolo Âncora Hot Stamping Dourado Fullscreen',
               })
             }
           />
-          {/* Gradiente escuro para garantir legibilidade cirúrgica sem encavalar o texto no símbolo central */}
+          {/* Gradiente escuro reforçado para legibilidade cirúrgica sem encavalar o texto no símbolo central */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30 pointer-events-none" />
         </div>
 
         {/* Tag Superior */}
         <div className="relative z-20 pt-16 sm:pt-20 md:pt-24 px-4 sm:px-8 md:px-12 pointer-events-none font-jl-tertiary">
-          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#c48b56] block drop-shadow-md">
-            [ BRAND EQUITY · SISTEMA IDENTITÁRIO HÍBRIDO DE LUXO ]
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block drop-shadow-md">
+            [ BRAND EQUITY / SISTEMA IDENTITÁRIO HÍBRIDO DE LUXO ]
           </span>
         </div>
 
-        {/* Título Monumental Posicionado Abaixo do Símbolo Central (Com Respiro e Sem Overlapping) */}
-        <div className="relative z-30 pt-36 sm:pt-48 md:pt-60 pb-8 sm:pb-14 md:pb-16 px-4 sm:px-8 md:px-12 max-w-[95vw] space-y-4">
-          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl lg:text-[9.5rem] font-normal tracking-tight text-[#f5ebe0] leading-[1.08] sm:leading-none select-none drop-shadow-2xl font-jl-primary">
-            Jennifer Lemmos <span className="text-[#c48b56] italic font-light block sm:inline">— Posicionamento de Luxo</span>
+        {/* Título Monumental Posicionado Perfeitamente Abaixo do Símbolo Central (Sem Travessão e Sem Overlapping) */}
+        <div className="relative z-30 pt-40 sm:pt-56 md:pt-72 pb-8 sm:pb-14 md:pb-16 px-4 sm:px-8 md:px-12 max-w-[95vw] space-y-4">
+          <h1 className="text-3xl xs:text-4xl sm:text-6xl md:text-8xl lg:text-[9.5rem] font-normal tracking-tight text-[#F5F5F5] leading-[1.08] sm:leading-none select-none drop-shadow-2xl font-jl-primary">
+            Jennifer Lemmos <span className="text-[#ffd2a9]/50 font-light mx-1 sm:mx-3">|</span> <span className="text-[#ffd2a9] italic font-light block sm:inline">Posicionamento de Luxo</span>
           </h1>
-          <p className="text-xs sm:text-lg md:text-2xl text-[#f5ebe0]/95 max-w-4xl font-jl-secondary font-light drop-shadow leading-relaxed italic">
+          <p className="text-xs sm:text-lg md:text-2xl text-[#F5F5F5]/95 max-w-4xl font-jl-secondary font-light drop-shadow leading-relaxed italic">
             Romper a barreira de precificação do mercado premium através da engenharia de design e da usabilidade de marca.
           </p>
         </div>
@@ -127,12 +127,12 @@ export default function JenniferLemosCase() {
 
         {/* 02. SEÇÃO TÉCNICA 01: O GARGALO DE ESCALA E REPRODUÇÃO (COPYWRITING SÊNIOR) */}
         <section id="diagnostico" className="scroll-mt-32 py-20 md:py-36 relative">
-          <div className="border-l-2 border-[#c48b56] pl-6 md:pl-12 max-w-5xl space-y-8">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
+          <div className="border-l-2 border-[#ffd2a9] pl-6 md:pl-12 max-w-5xl space-y-8">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
               [ 01. DIAGNÓSTICO: O GARGALO DE ESCALA E REPRODUÇÃO ]
             </span>
 
-            <h2 className="text-4xl sm:text-6xl font-normal text-[#f5ebe0] tracking-tight font-jl-primary">
+            <h2 className="text-4xl sm:text-6xl font-normal text-[#F5F5F5] tracking-tight font-jl-primary">
               O Gargalo de Escala e Reprodução
             </h2>
 
@@ -140,15 +140,15 @@ export default function JenniferLemosCase() {
               O mercado premium de fotografia exige um ecossistema de marca elástico, capaz de trafegar entre mídias físicas de alta sofisticação (álbuns de luxo, papelaria de fina gramatura) e ambientes digitais de alta saturação visual. O desafio central consistia em romper a barreira da precificação comum através do design, resolvendo um problema crítico de usabilidade: criar uma identidade que mantivesse o peso institucional em grandes formatos sem perder a legibilidade matemática ou entupir traços vetoriais ao ser reduzida para micromídias, favicons e marcas d’água estruturais.
             </p>
 
-            <div className="pt-6 flex flex-wrap items-center gap-8 text-xs font-jl-tertiary text-[#f5ebe0]/70 tracking-widest uppercase">
+            <div className="pt-6 flex flex-wrap items-center gap-8 text-xs font-jl-tertiary text-[#F5F5F5]/70 tracking-widest uppercase">
               <div>
                 <span className="block text-slate-500 font-semibold">Segmento</span>
-                <span className="text-[#f5ebe0] font-bold">Fotografia de Alta Cultura &amp; Luxo</span>
+                <span className="text-[#F5F5F5] font-bold">Fotografia de Alta Cultura &amp; Luxo</span>
               </div>
               <div className="h-6 w-px bg-white/10 hidden sm:block" />
               <div>
                 <span className="block text-slate-500 font-semibold">Engenharia</span>
-                <span className="text-[#f5ebe0] font-bold">Blindagem Vetorial &amp; Responsividade</span>
+                <span className="text-[#F5F5F5] font-bold">Blindagem Vetorial &amp; Responsividade</span>
               </div>
             </div>
           </div>
@@ -158,11 +158,11 @@ export default function JenniferLemosCase() {
         <section id="engenharia-vetorial" className="scroll-mt-32 py-20 md:py-36 relative space-y-24 border-t border-white/10">
           
           {/* Header da Seção */}
-          <div className="space-y-4 max-w-4xl border-l-2 border-[#c48b56] pl-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
+          <div className="space-y-4 max-w-4xl border-l-2 border-[#ffd2a9] pl-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
               [ 02. ENGENHARIA &amp; MATRIZES IDENTITÁRIAS ]
             </span>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#f5ebe0] tracking-tight font-jl-primary">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#F5F5F5] tracking-tight font-jl-primary">
               Matriz Cromática &amp; Blindagem Vetorial
             </h2>
             <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-jl-tertiary tracking-wide">
@@ -170,94 +170,118 @@ export default function JenniferLemosCase() {
             </p>
           </div>
 
-          {/* GRID A: MATRIZ CROMÁTICA NO CÓDIGO (4 AMOSTRAS FÍSICAS DE PAPEL DE LUXO) */}
+          {/* GRID A: MATRIZ CROMÁTICA NO CÓDIGO (4 AMOSTRAS FÍSICAS COM WRITING-MODE VERTICAL-RL) */}
           <div className="space-y-6 w-full">
             <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
-                [ GRID A · MATRIZ DE COMPORTAMENTO CROMÁTICO E RESPONSIVIDADE CONTROLADA ]
+              <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
+                [ GRID A / MATRIZ DE COMPORTAMENTO CROMÁTICO E RESPONSIVIDADE CONTROLADA ]
               </span>
-              <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#f5ebe0] font-jl-secondary tracking-wide">
+              <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#F5F5F5] font-jl-secondary tracking-wide">
                 Matriz de Comportamento Cromático
               </h3>
             </div>
 
-            {/* COMPONENTE TAILWIND PURO: 4 AMOSTRAS FÍSICAS DE PAPEL DE LUXO */}
+            {/* COMPONENTE TAILWIND PURO: 4 AMOSTRAS FÍSICAS COM LEGENDAS TÉCNICAS VERTICAIS */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 font-jl-tertiary w-full">
               
-              {/* Bloco 1: Marinho Institucional */}
-              <div className="bg-[#1A110B] border border-white/10 rounded-none p-6 md:p-8 min-h-[220px] flex flex-col justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300">
-                <span className="text-[10px] font-mono font-bold tracking-widest text-[#f5ebe0]/60 uppercase">
-                  #1A110B
-                </span>
-                <div className="space-y-1">
-                  <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#f5ebe0]">
-                    Marinho Institucional
+              {/* Bloco 1: #001c4a (Azul Marinho Real) */}
+              <div className="bg-[#001c4a] border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden">
+                <div className="flex flex-col justify-between h-full z-10">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#ffd2a9] uppercase">
+                    #001c4a
                   </span>
-                  <span className="block text-[11px] text-[#f5ebe0]/70 uppercase tracking-wider font-light">
-                    Corpo de Sobriedade &amp; Contratos
-                  </span>
+                  <div className="space-y-1">
+                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#F5F5F5]">
+                      Marinho Institucional
+                    </span>
+                    <span className="block text-[11px] text-[#F5F5F5]/70 uppercase tracking-wider font-light">
+                      Corpo de Sobriedade &amp; Contratos
+                    </span>
+                  </div>
+                </div>
+                {/* Legenda Técnica Vertical */}
+                <div className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest text-[#ffd2a9]/60 select-none">
+                  Azul Ultramarino / Real
                 </div>
               </div>
 
-              {/* Bloco 2: Nude de Suporte */}
-              <div className="bg-[#C48B56] border border-white/10 rounded-none p-6 md:p-8 min-h-[220px] flex flex-col justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300">
-                <span className="text-[10px] font-mono font-bold tracking-widest text-[#1A110B]/60 uppercase">
-                  #C48B56
-                </span>
-                <div className="space-y-1">
-                  <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#1A110B]">
-                    Nude de Suporte
+              {/* Bloco 2: #ffd2a9 (Creme Salmão/Nude Iluminado) */}
+              <div className="bg-[#ffd2a9] border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden">
+                <div className="flex flex-col justify-between h-full z-10">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#001c4a] uppercase">
+                    #ffd2a9
                   </span>
-                  <span className="block text-[11px] text-[#1A110B]/80 uppercase tracking-wider font-light">
-                    Acento de Marca &amp; Hot Stamping
-                  </span>
+                  <div className="space-y-1">
+                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#001c4a]">
+                      Nude de Suporte
+                    </span>
+                    <span className="block text-[11px] text-[#001c4a]/80 uppercase tracking-wider font-light">
+                      Acento de Marca &amp; Hot Stamping
+                    </span>
+                  </div>
+                </div>
+                {/* Legenda Técnica Vertical */}
+                <div className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest text-[#001c4a]/60 select-none">
+                  Creme Salmão / Nude
                 </div>
               </div>
 
-              {/* Bloco 3: Creme Corporativo */}
-              <div className="bg-[#F5EBE0] border border-white/10 rounded-none p-6 md:p-8 min-h-[220px] flex flex-col justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300">
-                <span className="text-[10px] font-mono font-bold tracking-widest text-[#1A110B]/60 uppercase">
-                  #F5EBE0
-                </span>
-                <div className="space-y-1">
-                  <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#1A110B]">
-                    Creme Corporativo
+              {/* Bloco 3: #F5F5F5 (Off-White Acetinado) */}
+              <div className="bg-[#F5F5F5] border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden">
+                <div className="flex flex-col justify-between h-full z-10">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#001c4a] uppercase">
+                    #F5F5F5
                   </span>
-                  <span className="block text-[11px] text-[#1A110B]/80 uppercase tracking-wider font-light">
-                    Acolhimento Editorial &amp; Álbuns
-                  </span>
+                  <div className="space-y-1">
+                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#001c4a]">
+                      Branco Puro
+                    </span>
+                    <span className="block text-[11px] text-[#001c4a]/80 uppercase tracking-wider font-light">
+                      Acolhimento Editorial &amp; Álbuns
+                    </span>
+                  </div>
+                </div>
+                {/* Legenda Técnica Vertical */}
+                <div className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest text-[#001c4a]/60 select-none">
+                  Off-White Acetinado
                 </div>
               </div>
 
-              {/* Bloco 4: Branco Acessível */}
-              <div className="bg-[#FFFFFF] border border-white/10 rounded-none p-6 md:p-8 min-h-[220px] flex flex-col justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300">
-                <span className="text-[10px] font-mono font-bold tracking-widest text-slate-500 uppercase">
-                  #FFFFFF
-                </span>
-                <div className="space-y-1">
-                  <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-slate-900">
-                    Branco Acessível
+              {/* Bloco 4: #001130 (Marinho Sólido Noturno) */}
+              <div className="bg-[#001130] border border-white/10 rounded-none p-6 md:p-8 min-h-[260px] flex justify-between shadow-2xl transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden">
+                <div className="flex flex-col justify-between h-full z-10">
+                  <span className="text-[10px] font-mono font-bold tracking-widest text-[#ffd2a9] uppercase">
+                    #001130
                   </span>
-                  <span className="block text-[11px] text-slate-600 uppercase tracking-wider font-light">
-                    Leitura Limpa &amp; Micro-Mídias
-                  </span>
+                  <div className="space-y-1">
+                    <span className="block text-sm md:text-base font-bold uppercase tracking-widest text-[#F5F5F5]">
+                      Variante de Contraste
+                    </span>
+                    <span className="block text-[11px] text-[#F5F5F5]/70 uppercase tracking-wider font-light">
+                      Profundidade de Leitura Noturna
+                    </span>
+                  </div>
+                </div>
+                {/* Legenda Técnica Vertical */}
+                <div className="[writing-mode:vertical-rl] rotate-180 text-[10px] uppercase font-bold tracking-widest text-[#ffd2a9]/60 select-none">
+                  Marinho Sólido Noturno
                 </div>
               </div>
 
             </div>
 
             <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-4xl font-jl-tertiary tracking-wide border-l border-white/20 pl-4 py-1">
-              Paleta cromática desenvolvida sob rigorosos testes de contraste. A alternância entre o Marinho Institucional, o Creme Corporativo e o Nude de Suporte permite que a marca transite entre a sobriedade corporativa (contratos) e o acolhimento editorial (álbuns), sem perder o reconhecimento imediato.
+              Paleta cromática desenvolvida sob rigorosos testes de contraste. A alternância entre o Marinho Institucional (#001c4a), o Nude de Suporte (#ffd2a9) e o Branco Puro (#F5F5F5) permite que a marca transite entre a sobriedade corporativa (contratos) e o acolhimento editorial (álbuns), sem perder o reconhecimento imediato.
             </p>
           </div>
 
           {/* GRID B: ENGENHARIA VETORIAL E REDUÇÕES (jl-engenharia-logos-responsivos.jpg) */}
           <div className="space-y-6 w-full pt-12 border-t border-white/10">
             <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
-                [ GRID B · TESTES VETORIAIS E REDUÇÃO ]
+              <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
+                [ GRID B / TESTES VETORIAIS E REDUÇÃO ]
               </span>
-              <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#f5ebe0] font-jl-secondary tracking-wide">
+              <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#F5F5F5] font-jl-secondary tracking-wide">
                 Engenharia Vetorial e Blindagem de Redução
               </h3>
             </div>
@@ -268,20 +292,20 @@ export default function JenniferLemosCase() {
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.jpg',
-                  alt: 'Jennifer Lemmos — Engenharia Vetorial e Blindagem de Redução',
+                  alt: 'Jennifer Lemmos / Engenharia Vetorial e Blindagem de Redução',
                 })
               }
             >
               <Image
                 src="/images/Cases/Jennifer-Lemos/jl-engenharia-logos-responsivos.jpg"
-                alt="Jennifer Lemmos — Engenharia Vetorial e Blindagem de Redução"
+                alt="Jennifer Lemmos / Engenharia Vetorial e Blindagem de Redução"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </div>
 
             <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-4xl font-jl-tertiary tracking-wide border-l border-white/20 pl-4 py-1">
-              Mapeamento e desenvolvimento de variações vetoriais do símbolo âncora (lente/estrela guia). Cada versão foi milimetricamente ajustada para responder a diferentes tecnologias de reprodução física (hot stamping, relevo seco), anulando o risco de entupimento de traços.
+              Mapeamento e desenvolvimento de variações vetoriais do símbolo âncora (lente / estrela guia). Cada versão foi milimetricamente ajustada para responder a diferentes tecnologias de reprodução física (hot stamping, relevo seco), anulando o risco de entupimento de traços.
             </p>
           </div>
 
@@ -291,11 +315,11 @@ export default function JenniferLemosCase() {
         <section id="unboxing" className="scroll-mt-32 py-20 md:py-36 relative space-y-24 border-t border-white/10">
           
           {/* Header da Seção */}
-          <div className="space-y-4 max-w-4xl border-l-2 border-[#c48b56] pl-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
+          <div className="space-y-4 max-w-4xl border-l-2 border-[#ffd2a9] pl-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
               [ 03. TANGIBILIZAÇÃO &amp; SERVICE DESIGN ]
             </span>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#f5ebe0] tracking-tight font-jl-primary">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#F5F5F5] tracking-tight font-jl-primary">
               Experiência Física &amp; Unboxing 8K
             </h2>
             <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl font-jl-tertiary tracking-wide">
@@ -306,10 +330,10 @@ export default function JenniferLemosCase() {
           {/* GRID C: GRAFISMOS SECUNDÁRIOS / PATTERNS (jl-mockup-pattern.jpg) */}
           <div className="space-y-6 w-full">
             <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
-                [ GRID C · GRAFISMOS PROPRIETÁRIOS E BRAND EQUITY ]
+              <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
+                [ GRID C / GRAFISMOS PROPRIETÁRIOS E BRAND EQUITY ]
               </span>
-              <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#f5ebe0] font-jl-secondary tracking-wide">
+              <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#F5F5F5] font-jl-secondary tracking-wide">
                 Grafismos Secundários e Texturas de Fixação de Marca
               </h3>
             </div>
@@ -320,13 +344,13 @@ export default function JenniferLemosCase() {
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/Jennifer-Lemos/jl-mockup-pattern.jpg',
-                  alt: 'Jennifer Lemmos — Grafismos Proprietários e Brand Equity',
+                  alt: 'Jennifer Lemmos / Grafismos Proprietários e Brand Equity',
                 })
               }
             >
               <Image
                 src="/images/Cases/Jennifer-Lemos/jl-mockup-pattern.jpg"
-                alt="Jennifer Lemmos — Grafismos Proprietários e Brand Equity"
+                alt="Jennifer Lemmos / Grafismos Proprietários e Brand Equity"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
@@ -340,10 +364,10 @@ export default function JenniferLemosCase() {
           {/* GRID D: SERVICE DESIGN E UNBOXING 8K (jl-mockup-unboxing-luxo.jpg) */}
           <div className="space-y-6 w-full pt-12 border-t border-white/10">
             <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#c48b56] block font-jl-tertiary">
-                [ GRID D · SERVICE DESIGN UNBOXING 8K ]
+              <span className="text-xs font-bold uppercase tracking-widest text-[#ffd2a9] block font-jl-tertiary">
+                [ GRID D / SERVICE DESIGN UNBOXING 8K ]
               </span>
-              <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#f5ebe0] font-jl-secondary tracking-wide">
+              <h3 className="text-2xl sm:text-4xl md:text-5xl font-normal text-[#F5F5F5] font-jl-secondary tracking-wide">
                 Service Design: Consistência na Jornada do Cliente e Onboarding de Alto Ticket
               </h3>
             </div>
@@ -354,13 +378,13 @@ export default function JenniferLemosCase() {
               onClick={() =>
                 setActiveImage({
                   src: '/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.jpg',
-                  alt: 'Jennifer Lemmos — Service Design Onboarding de Alto Ticket',
+                  alt: 'Jennifer Lemmos / Service Design Onboarding de Alto Ticket',
                 })
               }
             >
               <Image
                 src="/images/Cases/Jennifer-Lemos/jl-mockup-unboxing-luxo.jpg"
-                alt="Jennifer Lemmos — Service Design Onboarding de Alto Ticket"
+                alt="Jennifer Lemmos / Service Design Onboarding de Alto Ticket"
                 fill
                 className="object-cover w-full h-full block transition-transform duration-700 group-hover:scale-[1.02]"
               />
@@ -387,7 +411,7 @@ export default function JenniferLemosCase() {
           >
             {/* Top Bar Lightbox */}
             <div className="w-full flex items-center justify-between px-2 text-white font-jl-tertiary">
-              <span className="text-xs text-[#f5ebe0] truncate max-w-xl font-semibold tracking-wider uppercase">
+              <span className="text-xs text-[#F5F5F5] truncate max-w-xl font-semibold tracking-wider uppercase">
                 {activeImage.alt}
               </span>
               <button
