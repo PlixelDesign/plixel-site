@@ -239,36 +239,65 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
       }
     }
 
+    // Tenta primeiro buscar os valores de categoria existentes no próprio banco do Supabase
+    let dbCategories: string[] = []
+    try {
+      const { data: dbRows } = await supabase.from('projetos').select('categoria').limit(15)
+      if (dbRows) {
+        dbCategories = Array.from(new Set(dbRows.map((r: any) => r.categoria).filter(Boolean)))
+      }
+    } catch {
+      // Ignora erro se busca prévia falhar
+    }
+
     const CATEGORY_CANDIDATES: Record<Categoria, string[]> = {
-      sistemas_identidade: [
-        'sistemas_identidade',
-        'Sistemas de Identidade',
-        'sistemas-identidade',
-        'sistemas_de_identidade',
-        'SISTEMAS_IDENTIDADE',
-        'sistemas',
-        'identidade',
-      ],
-      design_ops: [
-        'design_ops',
-        'Design Ops & Manuais',
-        'design-ops',
-        'Design Ops',
-        'DESIGN_OPS',
-      ],
-      pontos_contato: [
-        'pontos_contato',
-        'Pontos de Contato',
-        'pontos-contato',
-        'PONTOS_CONTATO',
-      ],
-      direcao_arte: [
-        'direcao_arte',
-        'Direção de Arte',
-        'direcao-arte',
-        'Direcao de Arte',
-        'DIRECAO_ARTE',
-      ],
+      sistemas_identidade: Array.from(
+        new Set([
+          ...dbCategories,
+          'sistemas_identidade',
+          'Sistemas de Identidade',
+          'sistemas-identidade',
+          'sistemas_de_identidade',
+          'Sistemas de Identidades',
+          'SISTEMAS_IDENTIDADE',
+          'Identidade Visual',
+          'identidade_visual',
+          'identidade-visual',
+          'Branding',
+          'branding',
+          'sistemas',
+          'identidade',
+        ])
+      ),
+      design_ops: Array.from(
+        new Set([
+          ...dbCategories,
+          'design_ops',
+          'Design Ops & Manuais',
+          'design-ops',
+          'Design Ops',
+          'DESIGN_OPS',
+        ])
+      ),
+      pontos_contato: Array.from(
+        new Set([
+          ...dbCategories,
+          'pontos_contato',
+          'Pontos de Contato',
+          'pontos-contato',
+          'PONTOS_CONTATO',
+        ])
+      ),
+      direcao_arte: Array.from(
+        new Set([
+          ...dbCategories,
+          'direcao_arte',
+          'Direção de Arte',
+          'direcao-arte',
+          'Direcao de Arte',
+          'DIRECAO_ARTE',
+        ])
+      ),
     }
 
     let res: any = null
@@ -292,7 +321,9 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
     }
 
     if (res?.error) {
-      setErro(`Erro Supabase: ${res.error.message}`)
+      setErro(
+        `Erro Supabase Enum: ${res.error.message}. Execute no SQL Editor do Supabase: ALTER TABLE projetos ALTER COLUMN categoria TYPE text USING categoria::text;`
+      )
       setSaving(false)
       return
     }
