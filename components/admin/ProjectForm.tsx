@@ -228,38 +228,42 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
       slug,
     }
 
-    if (mode === 'create') {
-      let { error } = await supabase.from('projetos').insert(payload)
-      if (error && error.message.includes('schema cache')) {
-        // Fallback para colunas padrão do Supabase se as novas colunas ainda não foram rodadas no SQL
-        const res = await supabase.from('projetos').insert(legacyPayload)
-        error = res.error
-      }
-      if (error) {
-        setErro(`Erro Supabase: ${error.message}`)
-        setSaving(false)
-        return
-      }
-    } else {
-      let { error } = await supabase
-        .from('projetos')
-        .update({ ...payload, updated_at: new Date().toISOString() })
-        .eq('id', initialData!.id)
-
-      if (error && error.message.includes('schema cache')) {
-        // Fallback para colunas padrão do Supabase se as novas colunas ainda não foram rodadas no SQL
-        const res = await supabase
+    const trySave = async (dataPayload: any) => {
+      if (mode === 'create') {
+        return await supabase.from('projetos').insert(dataPayload)
+      } else {
+        return await supabase
           .from('projetos')
-          .update({ ...legacyPayload, updated_at: new Date().toISOString() })
+          .update({ ...dataPayload, updated_at: new Date().toISOString() })
           .eq('id', initialData!.id)
-        error = res.error
       }
+    }
 
-      if (error) {
-        setErro(`Erro Supabase: ${error.message}`)
-        setSaving(false)
-        return
+    // 1. Tenta salvar payload completo
+    let res = await trySave(payload)
+
+    // 2. Se falhar por colunas JSONB ausentes no Supabase (schema cache)
+    if (res.error && res.error.message.includes('schema cache')) {
+      res = await trySave(legacyPayload)
+    }
+
+    // 3. Se falhar por divergência de tipo enum da categoria (ex: "sistemas_identidade" vs "Sistemas de Identidade")
+    if (res.error && (res.error.message.includes('categoria_enum') || res.error.message.includes('enum'))) {
+      const categoriaFormatada = CATEGORIA_LABELS[form.categoria as Categoria] || form.categoria
+
+      // Tenta com a categoria formatada em português no payload completo
+      res = await trySave({ ...payload, categoria: categoriaFormatada })
+
+      // Se ainda falhar por colunas JSONB ausentes
+      if (res.error && res.error.message.includes('schema cache')) {
+        res = await trySave({ ...legacyPayload, categoria: categoriaFormatada })
       }
+    }
+
+    if (res.error) {
+      setErro(`Erro Supabase: ${res.error.message}`)
+      setSaving(false)
+      return
     }
 
     router.push('/admin')
