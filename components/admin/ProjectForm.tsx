@@ -239,28 +239,59 @@ export default function ProjectForm({ initialData, mode }: ProjectFormProps) {
       }
     }
 
-    // 1. Tenta salvar payload completo
-    let res = await trySave(payload)
-
-    // 2. Se falhar por colunas JSONB ausentes no Supabase (schema cache)
-    if (res.error && res.error.message.includes('schema cache')) {
-      res = await trySave(legacyPayload)
+    const CATEGORY_CANDIDATES: Record<Categoria, string[]> = {
+      sistemas_identidade: [
+        'sistemas_identidade',
+        'Sistemas de Identidade',
+        'sistemas-identidade',
+        'sistemas_de_identidade',
+        'SISTEMAS_IDENTIDADE',
+        'sistemas',
+        'identidade',
+      ],
+      design_ops: [
+        'design_ops',
+        'Design Ops & Manuais',
+        'design-ops',
+        'Design Ops',
+        'DESIGN_OPS',
+      ],
+      pontos_contato: [
+        'pontos_contato',
+        'Pontos de Contato',
+        'pontos-contato',
+        'PONTOS_CONTATO',
+      ],
+      direcao_arte: [
+        'direcao_arte',
+        'Direção de Arte',
+        'direcao-arte',
+        'Direcao de Arte',
+        'DIRECAO_ARTE',
+      ],
     }
 
-    // 3. Se falhar por divergência de tipo enum da categoria (ex: "sistemas_identidade" vs "Sistemas de Identidade")
-    if (res.error && (res.error.message.includes('categoria_enum') || res.error.message.includes('enum'))) {
-      const categoriaFormatada = CATEGORIA_LABELS[form.categoria as Categoria] || form.categoria
+    let res: any = null
+    const candidates = CATEGORY_CANDIDATES[form.categoria as Categoria] || [form.categoria]
 
-      // Tenta com a categoria formatada em português no payload completo
-      res = await trySave({ ...payload, categoria: categoriaFormatada })
+    for (const catVal of candidates) {
+      // Tenta salvar payload completo
+      res = await trySave({ ...payload, categoria: catVal })
+      if (!res.error) break
 
-      // Se ainda falhar por colunas JSONB ausentes
+      // Se falhar por colunas JSONB ausentes
       if (res.error && res.error.message.includes('schema cache')) {
-        res = await trySave({ ...legacyPayload, categoria: categoriaFormatada })
+        res = await trySave({ ...legacyPayload, categoria: catVal })
+        if (!res.error) break
+      }
+
+      // Se o erro NÃO for relacionado ao enum de categoria, encerra o loop
+      if (!res.error.message.includes('categoria_enum') && !res.error.message.includes('enum')) {
+        break
       }
     }
 
-    if (res.error) {
+    if (res?.error) {
       setErro(`Erro Supabase: ${res.error.message}`)
       setSaving(false)
       return
