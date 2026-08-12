@@ -4,8 +4,8 @@ import HeroGraphic from '@/components/home/HeroGraphic'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen section-dark flex flex-col justify-center overflow-hidden pt-20 pb-16 sm:py-32">
-      <TechnicalSignature categoria="IDENTIDADE" />
+    <section className="relative min-h-[85vh] sm:min-h-screen section-dark flex flex-col justify-center overflow-hidden pt-24 pb-16 sm:py-32 border-b border-white/10">
+      <TechnicalSignature categoria="DESIGN OPS &amp; BRANDING" />
 
       {/* Linha de cota horizontal decorativa */}
       <div className="absolute left-0 right-0 top-1/2 h-px bg-blue-neon opacity-[0.06] pointer-events-none" />
@@ -16,27 +16,30 @@ export default function Hero() {
       {/* Estrutura geométrica blueprint (contrapeso visual à direita) */}
       <HeroGraphic />
 
-      <div className="shell py-8 sm:py-24 md:py-32 relative z-10">
-        <p className="label-tech mb-6 md:mb-8">Agência de Design Estratégico</p>
+      <div className="shell py-8 sm:py-20 md:py-28 relative z-10 space-y-6">
+        <span className="label-tech text-yellow-neon text-xs tracking-widest uppercase block">
+          [ CONSULTORIA SÊNIOR EM DESIGN OPS &amp; BRANDING ]
+        </span>
 
-        <h1 className="title-impact text-[clamp(30px,8.5vw,160px)] leading-none text-white max-w-5xl tracking-normal sm:tracking-widest break-words">
-          DESIGN QUE
-          <span className="title-accent block -mt-[0.14em] text-[clamp(36px,10vw,176px)]">conecta,</span>
-          NÃO SÓ DECORA
+        {/* H1 Headline B2B */}
+        <h1 className="title-impact text-[clamp(32px,5.5vw,76px)] leading-[1.08] text-white max-w-5xl tracking-normal sm:tracking-wide">
+          Engenharia de Marca e Design Ops para Operações de Alta Escala.
         </h1>
 
-        <div className="mt-8 w-24 h-px bg-yellow-neon" />
+        <div className="w-24 h-px bg-yellow-neon my-6" />
 
-        <p className="body-text text-white/60 mt-8 max-w-xl text-base md:text-lg">
-          Identidade visual e comunicação estratégica para marcas, negócios e instituições que precisam ser entendidos rápido e lembrados depois.
+        {/* Sub-headline B2B */}
+        <p className="body-text text-white/80 max-w-3xl text-base sm:text-xl md:text-2xl leading-relaxed font-light">
+          Estruturação de sistemas visuais, governança de identidade e otimização de ativos gráficos para varejo, logística e serviços. Transformamos marcas fragmentadas em ecossistemas de alta eficiência e conversão.
         </p>
 
-        <div className="mt-10 md:mt-12 flex flex-wrap gap-4">
-          <Link href="/trabalhos" className="btn-primary">
-            Ver trabalhos
-          </Link>
-          <Link href="/contato" className="btn-outline">
-            Falar com a Plixel
+        {/* CTAs */}
+        <div className="pt-6 flex flex-wrap gap-4 items-center">
+          <a href="#cases" className="btn-primary flex items-center gap-2">
+            Analisar Projetos Implementados <span className="text-sm">→</span>
+          </a>
+          <Link href="/contato" className="btn-outline flex items-center gap-2">
+            Falar com Especialista <span className="text-sm">→</span>
           </Link>
         </div>
       </div>

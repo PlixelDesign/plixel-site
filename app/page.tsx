@@ -1,132 +1,50 @@
+import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Hero from '@/components/home/Hero'
+import MethodologySection from '@/components/home/MethodologySection'
 import ProjectsPreview from '@/components/home/ProjectsPreview'
 import TechnicalSignature from '@/components/layout/TechnicalSignature'
-import Link from 'next/link'
-import { createClient } from '@/lib/supabase/server'
-import { Projeto } from '@/types'
 
-import { INITIAL_MOCK_PROJETOS } from '@/lib/mock-data'
-
-async function getProjetos(): Promise<Projeto[]> {
-  try {
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-      return INITIAL_MOCK_PROJETOS
-    }
-    const supabase = await createClient()
-    const { data, error } = await supabase
-      .from('projetos')
-      .select('*')
-      .eq('publicado', true)
-      .neq('imagem_capa', '')
-      .order('ordem', { ascending: true })
-      .limit(6)
-    if (error || !data || data.length === 0) {
-      return INITIAL_MOCK_PROJETOS
-    }
-    return data
-  } catch {
-    return INITIAL_MOCK_PROJETOS
-  }
-}
-
-export default async function HomePage() {
-  const projetos = await getProjetos()
-
+export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-black text-white selection:bg-yellow-neon selection:text-navy-deep antialiased">
+        {/* 01. Hero Section (Headline B2B & CTA #cases) */}
         <Hero />
 
-        {/* Manifesto */}
-        <section className="relative section-mid section-y overflow-hidden">
-          <TechnicalSignature categoria="DIAGNÓSTICO" />
-          <div className="shell">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <p className="label-tech mb-6">Manifesto</p>
-                <h2 className="title-impact text-[clamp(40px,5vw,64px)] text-white leading-none">
-                  DIAGNÓSTICO
-                  <span className="title-accent block -mt-[0.18em] -mb-[0.1em] text-[clamp(44px,5.5vw,70px)]">→ processo</span>
-                  RESULTADO
-                </h2>
-                <div className="mt-6 w-16 h-px bg-yellow-neon" />
-              </div>
-              <div className="space-y-6">
-                <p className="body-text text-white/70">
-                  Todo projeto começa com um problema real, não com um pedido de &ldquo;logo bonito&rdquo;. A gente diagnostica o que está travando a comunicação, decide com intenção, e entrega algo que muda o resultado de verdade: venda, reconhecimento ou pertencimento.
-                </p>
-                <Link href="/sobre" className="btn-outline inline-flex">
-                  Ler o manifesto completo
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 02. Nova Seção: Metodologia Plixel (Autoridade Imediata - 3 Colunas) */}
+        <MethodologySection />
 
-        {/* Projetos */}
-        {projetos.length > 0 && <ProjectsPreview projetos={projetos} />}
+        {/* 03. Seção 'Selected Work' (Vitrine Estratégica B2B - 3 Projects) */}
+        <ProjectsPreview />
 
-        {/* Processo */}
-        <section className="relative section-dark section-y overflow-hidden">
-          <TechnicalSignature categoria="PROCESSO" />
-          <div className="shell">
-            <p className="label-tech mb-6">Como trabalhamos</p>
-            <h2 className="title-impact text-[clamp(36px,5vw,64px)] text-white mb-12 md:mb-16 leading-none">
-              TRÊS ETAPAS,
-              <span className="title-accent block -mt-[0.18em] text-[clamp(40px,5.5vw,70px)]">zero enrolação</span>
+        {/* 04. Rodapé de Conversão B2B (Agendar Diagnóstico Técnico) */}
+        <section className="relative section-mid section-y overflow-hidden border-t border-white/10">
+          <TechnicalSignature categoria="DIAGNÓSTICO TÉCNICO" />
+
+          <div className="max-w-4xl mx-auto px-6 sm:px-8 text-center relative z-10 space-y-8">
+            <span className="label-tech text-yellow-neon text-xs tracking-widest uppercase block">
+              [ DIAGNÓSTICO ESTRATÉGICO DE MARCA ]
+            </span>
+
+            {/* H2 Chamada B2B */}
+            <h2 className="title-impact text-[clamp(32px,5.5vw,72px)] text-white leading-tight font-jl-primary">
+              Sua operação precisa de maturidade visual, consistência e escala?
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  num: '01',
-                  titulo: 'DIAGNÓSTICO',
-                  texto: 'Antes de criar, a gente entende o que está travando: comunicação confusa, identidade fragmentada, ou falta de conexão com quem importa.',
-                },
-                {
-                  num: '02',
-                  titulo: 'PROCESSO',
-                  texto: 'Cada decisão visual tem motivo. Cor, tipografia, estrutura: tudo serve ao problema identificado, não ao gosto pessoal.',
-                },
-                {
-                  num: '03',
-                  titulo: 'RESULTADO',
-                  texto: 'Entrega que se vê na prática: mais clareza, mais reconhecimento, mais conexão com quem o projeto precisa alcançar.',
-                },
-              ].map((step) => (
-                <div key={step.num} className="border-t border-blue-neon/20 pt-8">
-                  <span className="title-impact text-6xl text-blue-neon/20">{step.num}</span>
-                  <h3 className="title-impact text-2xl text-white mt-4 mb-3">{step.titulo}</h3>
-                  <p className="body-text text-white/50 text-sm">{step.texto}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+            <div className="mx-auto w-24 h-px bg-yellow-neon" />
 
-        {/* CTA final — navy com amarelo só como acento (linha + 1 botão),
-            respeitando a regra do DS: cor de ação ≤10%, nunca como fundo */}
-        <section className="relative section-mid section-y overflow-hidden">
-          <TechnicalSignature categoria="CASE" />
-          <div className="max-w-3xl mx-auto px-6 sm:px-8 text-center relative z-10">
-            <p className="label-tech mb-6">Próximo passo</p>
-            <h2 className="title-impact text-[clamp(30px,7vw,96px)] text-white leading-none">
-              PRONTO PRA
-              <span className="title-accent block -mt-[0.18em] text-[clamp(36px,8vw,112px)]">começar?</span>
-            </h2>
-            <div className="mx-auto mt-8 w-20 h-px bg-yellow-neon" />
-            <p className="body-text text-white/60 mt-8 text-lg max-w-md mx-auto">
-              Tem um problema de comunicação pra resolver? Marca, negócio ou projeto que precisa ser entendido com mais clareza, mais identidade, mais conexão.
+            {/* P Apoio B2B */}
+            <p className="body-text text-white/80 text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+              Vamos conversar sobre como o Design Ops pode destravar os gargalos criativos da sua equipe e proteger a governança da sua marca.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4 justify-center">
-              <Link href="/contato" className="btn-primary">
-                Falar com a Plixel
-              </Link>
-              <Link href="/trabalhos" className="btn-outline">
-                Ver trabalhos
+
+            {/* CTA Agendar Diagnóstico Técnico */}
+            <div className="pt-4 flex justify-center">
+              <Link href="/contato" className="btn-primary inline-flex items-center gap-3 text-sm py-3.5 px-8">
+                Agendar Diagnóstico Técnico <span className="text-base">→</span>
               </Link>
             </div>
           </div>
