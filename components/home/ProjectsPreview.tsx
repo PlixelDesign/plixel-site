@@ -44,8 +44,14 @@ const FEATURED_3_PROJECTS: FeaturedProjectB2B[] = [
 
 export default function ProjectsPreview() {
   return (
-    <section id="cases" className="relative section-graphite section-y border-b border-white/10 scroll-mt-20">
+    <section id="cases" className="relative section-graphite section-y border-b border-white/10 scroll-mt-20 overflow-hidden">
       <TechnicalSignature categoria="CASES" />
+
+      {/* Linha Conectora de Fluidez Visual (Diretriz 3: Motif de Continuidade) */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-yellow-neon/60 to-transparent pointer-events-none z-20" />
+
+      {/* Glow Radial de Fundo (Diretriz 4: Consistência Cromática) */}
+      <div className="absolute bottom-10 right-1/4 w-[480px] lg:w-[600px] h-[480px] lg:h-[600px] rounded-full bg-gradient-to-br from-blue-neon/12 via-yellow-neon/10 to-transparent blur-3xl opacity-70 pointer-events-none" />
 
       <div className="shell relative z-10 space-y-12">
         <div className="flex flex-wrap items-end justify-between gap-6">
@@ -65,15 +71,15 @@ export default function ProjectsPreview() {
           </Link>
         </div>
 
-        {/* Grid Awwwards de 3 Cases de Destaque */}
+        {/* Grid Awwwards de 3 Cases de Destaque com DNA do UI Cascade (rounded-2xl/3xl + backdrop-blur-xl) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {FEATURED_3_PROJECTS.map((proj, idx) => (
             <article
               key={proj.id}
-              className="group relative flex flex-col bg-navy-mid/90 backdrop-blur-md border border-white/10 rounded-none overflow-hidden hover:border-yellow-neon/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-yellow-neon/5 transition-all duration-300"
+              className="group relative flex flex-col bg-navy-mid/90 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden hover:border-yellow-neon/40 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-yellow-neon/10 transition-all duration-300"
             >
               {/* Marcador Técnico Blueprint de Canto */}
-              <div className="absolute top-2 right-2 text-white/20 font-mono text-[9px] z-20 pointer-events-none">
+              <div className="absolute top-3 right-3 text-white/30 font-mono text-[9px] z-20 pointer-events-none bg-black/50 backdrop-blur-md px-2 py-0.5 rounded border border-white/10">
                 +0{idx + 1}
               </div>
 
@@ -89,7 +95,7 @@ export default function ProjectsPreview() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 pointer-events-none group-hover:opacity-60 transition-opacity duration-300" />
 
                 {/* Tag Técnica B2B com Glassmorphism */}
-                <span className="absolute top-3 left-3 bg-black/85 backdrop-blur-md border border-white/15 px-3 py-1 text-[10px] font-mono font-bold text-yellow-neon uppercase tracking-wider shadow-lg">
+                <span className="absolute top-3 left-3 bg-black/85 backdrop-blur-md border border-white/15 px-3 py-1 text-[10px] font-mono font-bold text-yellow-neon uppercase tracking-wider shadow-lg rounded-md">
                   {proj.tag}
                 </span>
               </div>

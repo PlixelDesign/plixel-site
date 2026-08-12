@@ -74,16 +74,23 @@ body {
       );
   }
 
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
   .section-dark {
-    @apply bg-navy-deep tech-grid bg-noise;
+    @apply bg-navy-deep tech-grid bg-grid-pattern bg-noise;
   }
 
   .section-mid {
-    @apply bg-navy-mid tech-grid bg-noise;
+    @apply bg-navy-mid tech-grid bg-grid-pattern bg-noise;
   }
 
   .section-graphite {
-    @apply bg-graphite tech-grid bg-noise;
+    @apply bg-graphite tech-grid bg-grid-pattern bg-noise;
   }
 
   .section-light {
