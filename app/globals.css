@@ -75,15 +75,15 @@ body {
   }
 
   .section-dark {
-    @apply bg-navy-deep tech-grid;
+    @apply bg-navy-deep tech-grid bg-noise;
   }
 
   .section-mid {
-    @apply bg-navy-mid tech-grid;
+    @apply bg-navy-mid tech-grid bg-noise;
   }
 
   .section-graphite {
-    @apply bg-graphite tech-grid;
+    @apply bg-graphite tech-grid bg-noise;
   }
 
   .section-light {
@@ -229,4 +229,51 @@ button:focus-visible,
     animation: none;
     transform: rotateX(-22deg) rotateY(-34deg);
   }
+}
+
+/* Texture Noise Overlay para acabamento premium (3% a 5% opacity) */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Animação Contínua de Flutuação Isométrica (UI Cascade Axis Y Loop) */
+@keyframes uiCascadeFloat {
+  0%, 100% {
+    transform: translateY(0px) rotateX(24deg) rotateZ(-12deg) rotateY(16deg);
+  }
+  50% {
+    transform: translateY(-16px) rotateX(22deg) rotateZ(-10deg) rotateY(18deg);
+  }
+}
+
+.animate-ui-cascade {
+  animation: uiCascadeFloat 7s ease-in-out infinite;
+}
+
+/* Staggered Fade-in Entry Animations */
+@keyframes fadeUpStagger {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUpStagger 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
 }
