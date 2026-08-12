@@ -38,6 +38,10 @@ body {
   font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', sans-serif;
 }
 
+.font-parisienne {
+  font-family: var(--font-parisienne), 'Parisienne', cursive, serif;
+}
+
 /* Jennifer Lemos Dedicated Font System */
 .font-jl-primary {
   font-family: 'Sinera', var(--font-dm-serif), 'DM Serif Display', Georgia, serif;

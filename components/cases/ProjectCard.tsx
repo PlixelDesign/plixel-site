@@ -104,9 +104,9 @@ export default function ProjectCard({
           </p>
         </div>
 
-        {/* 4. Botão de Ação: Ver Projeto Real → */}
+        {/* 4. Botão de Ação: Ver Projeto → */}
         <div className="pt-4 border-t border-blue-neon/10 flex items-center justify-between text-white/50 group-hover:text-yellow-neon transition-colors duration-300">
-          <span className="font-poppins text-xs tracking-widest uppercase font-bold">Ver Projeto Real</span>
+          <span className="font-poppins text-xs tracking-widest uppercase font-bold">Ver Projeto</span>
           <span className="text-xs transform group-hover:translate-x-1.5 transition-transform duration-200 font-bold">→</span>
         </div>
       </div>
