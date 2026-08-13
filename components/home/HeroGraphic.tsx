@@ -3,10 +3,13 @@
 import { useEffect, useRef, useState } from 'react'
 
 export default function HeroGraphic() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  const [scrollProgress, setScrollProgress] = useState(0)
   const [terminalText, setTerminalText] = useState<string[]>([])
 
-  // Animação de Digitação Estilo Terminal Vercel/Linear para Design Tokens
+  // Typewriter effect para logs de Design Tokens estilo Terminal Vercel
   useEffect(() => {
     const logs = [
       '--color-primary-blue: #2563EB;',
@@ -40,175 +43,90 @@ export default function HeroGraphic() {
     return () => clearInterval(typeInterval)
   }, [])
 
-  // Canvas WebGL/2D 60 FPS: Animação "Deus Ex Machina" (Caos de Voxels -> Atração Magnética)
+  // Sincronização de Scroll (Video Scrubbing + Efeito de Explosão e Transição com Blur/Scale/Opacity)
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const video = videoRef.current
+    const container = containerRef.current
+    if (!video || !container) return
 
     let animationFrameId: number
-    let width = (canvas.width = canvas.parentElement?.clientWidth || 650)
-    let height = (canvas.height = canvas.parentElement?.clientHeight || 650)
 
-    const handleResize = () => {
-      if (!canvas || !canvas.parentElement) return
-      width = canvas.width = canvas.parentElement.clientWidth
-      height = canvas.height = canvas.parentElement.clientHeight
-    }
+    const handleScroll = () => {
+      const rect = container.getBoundingClientRect()
+      const windowHeight = window.innerHeight
 
-    window.addEventListener('resize', handleResize)
+      // Progresso de Scroll de 0 (topo) a 1 (transição para MethodologySection)
+      const totalHeight = rect.height || windowHeight
+      const currentScroll = Math.max(0, -rect.top)
+      const ratio = Math.min(1, Math.max(0, currentScroll / (totalHeight * 0.7)))
 
-    // Estrutura de Voxel (Cubos Translucidos de Pixels)
-    const voxelGridSize = 5
-    const voxels: {
-      startX: number
-      startY: number
-      startZ: number
-      targetX: number
-      targetY: number
-      targetZ: number
-      x: number
-      y: number
-      z: number
-      size: number
-      color: string
-    }[] = []
+      setScrollProgress(ratio)
 
-    // Posições Alvo do Átomo de Pixels em Grid 3D
-    const half = Math.floor(voxelGridSize / 2)
-    for (let x = -half; x <= half; x++) {
-      for (let y = -half; y <= half; y++) {
-        for (let z = -half; z <= half; z++) {
-          // Filtrar para formar a geometria do Átomo (esfera / núcleo + anel)
-          const dist = Math.sqrt(x * x + y * y + z * z)
-          if (dist <= 2.2 || (dist > 2.8 && dist <= 3.2)) {
-            const startX = (Math.random() - 0.5) * 600
-            const startY = (Math.random() - 0.5) * 600
-            const startZ = (Math.random() - 0.5) * 600
-            const spacing = 38
-
-            voxels.push({
-              startX,
-              startY,
-              startZ,
-              targetX: x * spacing,
-              targetY: y * spacing,
-              targetZ: z * spacing,
-              x: startX,
-              y: startY,
-              z: startZ,
-              size: 8,
-              color: (x === 0 && y === 0 && z === 0) || Math.random() > 0.6 ? '#FFD700' : '#60A5FA'
-            })
-          }
+      // Scrubbing do Tempo do Vídeo com base no Scroll do Usuário (Efeito de Explosão)
+      if (video.duration && !isNaN(video.duration)) {
+        const targetTime = ratio * video.duration
+        if (Math.abs(video.currentTime - targetTime) > 0.05) {
+          video.currentTime = targetTime
         }
       }
     }
 
-    let time = 0
-    let attractionProgress = 0 // 0 = Caos total, 1 = Encaixe Magnético Perfeito
-
-    const render = () => {
-      time += 0.016
-      ctx.clearRect(0, 0, width, height)
-
-      // Evolução da força magnética "Deus Ex Machina"
-      if (attractionProgress < 1) {
-        attractionProgress += 0.012
-      }
-
-      const cx = width / 2
-      const cy = height / 2
-      const rotY = time * 0.4
-      const rotX = Math.sin(time * 0.3) * 0.25
-
-      // 01. Desenhar Órbitas Tracejadas (Cyan/Blue Neon)
-      ctx.save()
-      ctx.translate(cx, cy)
-      ctx.lineWidth = 1
-      ctx.setLineDash([4, 6])
-
-      // Anel Órbitas 1
-      ctx.strokeStyle = 'rgba(96, 165, 250, 0.25)'
-      ctx.beginPath()
-      ctx.ellipse(0, 0, 180, 70, rotY, 0, Math.PI * 2)
-      ctx.stroke()
-
-      // Anel Órbitas 2
-      ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)'
-      ctx.beginPath()
-      ctx.ellipse(0, 0, 230, 90, -rotY * 0.8, 0, Math.PI * 2)
-      ctx.stroke()
-      ctx.restore()
-
-      // 02. Desenhar Voxels (Caos -> Atração Magnética)
-      voxels.forEach(v => {
-        // Interpolação Física Magnética (Lerp)
-        const easeProgress = 1 - Math.pow(1 - Math.min(1, attractionProgress), 3)
-        const idealX = v.startX + (v.targetX - v.startX) * easeProgress
-        const idealY = v.startY + (v.targetY - v.startY) * easeProgress
-        const idealZ = v.startZ + (v.targetZ - v.startZ) * easeProgress
-
-        // Rotação Y
-        const x1 = idealX * Math.cos(rotY) + idealZ * Math.sin(rotY)
-        const z1 = -idealX * Math.sin(rotY) + idealZ * Math.cos(rotY)
-
-        // Rotação X
-        const y2 = idealY * Math.cos(rotX) - z1 * Math.sin(rotX)
-        const z2 = idealY * Math.sin(rotX) + z1 * Math.cos(rotX)
-        const x2 = x1
-
-        // Projeção de Perspectiva
-        const fov = 400
-        const distance = 450
-        const scale = fov / (distance + z2)
-        const px = cx + x2 * scale
-        const py = cy + y2 * scale
-
-        // Desenhar Voxel (Cubo Translúcido Brilhante)
-        const currentSize = v.size * scale
-        ctx.fillStyle = v.color
-        ctx.shadowColor = v.color
-        ctx.shadowBlur = Math.min(16, 8 * scale)
-
-        // Linhas conectoras magnéticas quando se aproximando
-        if (attractionProgress < 0.9) {
-          ctx.strokeStyle = 'rgba(96, 165, 250, 0.15)'
-          ctx.lineWidth = 0.5
-          ctx.beginPath()
-          ctx.moveTo(cx, cy)
-          ctx.lineTo(px, py)
-          ctx.stroke()
-        }
-
-        ctx.fillRect(px - currentSize / 2, py - currentSize / 2, currentSize, currentSize)
-        ctx.shadowBlur = 0
-      })
-
-      animationFrameId = requestAnimationFrame(render)
+    const onScroll = () => {
+      animationFrameId = requestAnimationFrame(handleScroll)
     }
 
-    render()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    handleScroll()
 
     return () => {
+      window.removeEventListener('scroll', onScroll)
       cancelAnimationFrame(animationFrameId)
-      window.removeEventListener('resize', handleResize)
     }
   }, [])
 
+  // Valores calculados de transição de scroll
+  const scale = 1 + scrollProgress * 0.1 // Aumento de escala suave (1.0 -> 1.1)
+  const opacity = Math.max(0, 1 - scrollProgress * 1.25) // Desaparecimento suave (1 -> 0)
+  const blurPx = scrollProgress * 24 // Desfoque progressivo (0px -> 24px)
+
   return (
-    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-[550px] lg:max-w-[700px] xl:max-w-[780px] h-[550px] lg:h-[700px] pointer-events-none z-0 hidden md:block select-none">
-      
-      {/* Glow Radial Frio Cyan/Gold Aura */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] lg:w-[620px] h-[480px] lg:h-[620px] rounded-full bg-gradient-to-tr from-blue-neon/15 via-yellow-neon/10 to-transparent blur-3xl opacity-75 pointer-events-none" />
+    <div
+      ref={containerRef}
+      className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0 select-none"
+    >
+      {/* 01. CAMADA DE VÍDEO BACKGROUND RESPONSIVO (A_master_level_detailed_macro.mp4) */}
+      <div
+        className="relative w-full h-full transition-transform duration-75 ease-out"
+        style={{
+          transform: `scale(${scale})`,
+          opacity: opacity,
+          filter: `blur(${blurPx}px)`,
+        }}
+      >
+        <video
+          ref={videoRef}
+          src="/videos/hero-background.mp4"
+          muted
+          playsInline
+          autoPlay
+          loop
+          preload="auto"
+          className="w-full h-full object-cover object-center opacity-75"
+        />
 
-      {/* Canvas 3D de Voxels Magnéticos */}
-      <canvas ref={canvasRef} className="w-full h-full block" />
+        {/* MÁSCARAS DE GRADIENTE PARA FUSÃO PERFEITA COM O FUNDO #0A0F1E */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0F1E] via-transparent to-[#0A0F1E] opacity-90 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1E] via-transparent to-[#0A0F1E]/80 opacity-80 pointer-events-none" />
+      </div>
 
-      {/* MARGINALIA DE DESIGN TOKENS (Terminal Typewriter Stream Overlaid) */}
-      <div className="absolute bottom-8 right-6 bg-[#0A0F1E]/90 backdrop-blur-2xl border border-blue-neon/30 p-4 rounded-xl shadow-2xl space-y-2 text-[10px] font-mono w-64 lg:w-72 pointer-events-auto">
+      {/* 02. GLOW RADIAL CIANO/GOLD DE ILUMINAÇÃO DE FUNDO */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] lg:w-[700px] h-[550px] lg:h-[700px] rounded-full bg-gradient-to-tr from-blue-neon/15 via-yellow-neon/10 to-transparent blur-3xl opacity-60 pointer-events-none" />
+
+      {/* 03. MARGINALIA DE DESIGN TOKENS (Terminal Typewriter Stream Flutuante) */}
+      <div
+        className="absolute bottom-10 right-6 sm:right-12 bg-[#0A0F1E]/85 backdrop-blur-2xl border border-blue-neon/30 p-4 rounded-xl shadow-2xl space-y-2 text-[10px] font-mono w-64 sm:w-72 lg:w-80 pointer-events-auto z-10 hidden sm:block transition-opacity duration-300"
+        style={{ opacity: Math.max(0, 1 - scrollProgress * 1.6) }}
+      >
         <div className="flex items-center justify-between text-yellow-neon font-bold border-b border-white/10 pb-2">
           <span>[ DESIGN_TOKENS.LOG ]</span>
           <span className="w-2 h-2 rounded-full bg-yellow-neon animate-ping" />
@@ -227,8 +145,8 @@ export default function HeroGraphic() {
         </div>
 
         <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[8px] text-white/40">
-          <span>ORBITAL_SYNCRONIZER</span>
-          <span className="text-yellow-neon font-bold">DEUS_EX_MACHINA ✓</span>
+          <span>SCROLL_EXPLOSION_ENGINE</span>
+          <span className="text-yellow-neon font-bold">ACTIVE ✓</span>
         </div>
       </div>
     </div>
